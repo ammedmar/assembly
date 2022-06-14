@@ -2,103 +2,40 @@
 \usepackage{mystyle}
 \usepackage{subfiles}
 
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-%\fancyhf{} % clear all headers and footers
-\renewcommand{\headrulewidth}{0pt} % remove rule between header and text
-\fancyhead[LE,RO]{ } % put page number in left header on even pages,
-                            % right header on odd pages
-\fancyhead[RE]{\nouppercase{\leftmark}} % remove uppercase on chapter title
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}} % remove "Chapter N." prefix
-
-
 \begin{document}
-\frontmatter
-    \pagenumbering{gobble}
-    \title{\bf{$E_\infty$-Comodules and Topological Manifolds}}
 
-    \vspace*{3\baselineskip}
-    \centerline{\bf{$E_\infty$-Comodules and Topological Manifolds}}
-    \vspace*{1\baselineskip}
-    \centerline{A Dissertation presented}
-    \vspace*{1\baselineskip}
-    \centerline{by}
-    \vspace*{1\baselineskip}
-    \centerline{\bf{Anibal Medina}}
-    \vspace*{1\baselineskip}
-    \centerline{to}
-    \vspace*{1\baselineskip}
-    \centerline{The Graduate School}
-    \vspace*{1\baselineskip}
-    \centerline{in Partial Fulfillment of the}
-    \vspace*{1\baselineskip}
-    \centerline{Requirements}
-    \vspace*{1\baselineskip}
-    \centerline{for the Degree of}
-    \vspace*{1\baselineskip}
-    \centerline{\bf{Doctor of Philosophy}}
-    \vspace*{1\baselineskip}
-    \centerline{in}
-    \vspace*{1\baselineskip}
-    \centerline{\bf{Mathematics}}
+	\chapter*{Introduction}
+	\subfile{sec/abstract}
+	\chapter{Simplicial sets and $\S$-coalgebras}
 
-    \vspace*{2\baselineskip}
-    \centerline{Stony Brook University}
-    \vspace*{2\baselineskip}
-    \centerline{\bf{August 2015}}
+	\paragraph{Convention.}\hspace*{-8pt}The term chain complex will be reserved for a homologically graded differential graded abelian group. The category of chain complexes, denoted by $\Ab_\bullet$, is enriched over itself, i.e. $\Hom_{\Ab_\bullet}(C,C')\in\Ab_\bullet$ for every pair $C,\,C'\!\in\Ab_\bullet$. In terms of this enrichment, chain maps correspond to $0$-degree cycles, while chain homotopy equivalent morphisms correspond to homologous chains.
 
-\newpage
-\ \\
-\newpage
+	\section{Operads, coalgebras and comodules}
+	\subfile{sec/Operads-coalgebras-and-comodules}
 
-  \tableofcontents
-  \cleardoublepage
-\mainmatter
-  \chapter*{Introduction}\addcontentsline{toc}{chapter}{Introduction}
-    The goal of this dissertation is to relate the theory of algebraic surgery developed predominantly by Andrew Ranicki, with that of $E_\infty$-structures on chain complexes.
+	\section{The operad $\S$}
+	\subfile{sec/The-operad-S}
 
-\thispagestyle{plain}
+	\section{Simplicial sets and $\S$-coalgebras}
+	\subfile{sec/Simplicial-sets-and-S-coalgebras}
 
-    Steenrod's construction of higher chain approximations to the diagonal inclusion has been encoded, by several authors, as a functor from simplicial sets to their normalized chains enriched with the structure of a coalgebra over an $E_\infty$-operad. The first section of Chapter~$1$ presents the definition of an algebraic operad as well as the less common notions of coalgebra over an operad and comodule over one such coalgebra. The second section presents the specific $E_\infty$-operad $\S$ related to Steenrod's construction following the work of McClure-Smith \cite{MS03}, Berger-Fresse \cite{BF04} and others. In the last section of Chapter~1, the first of the two main technical results of this dissertation is presented as Theorem \ref{based simplicial sets embed into coalgebras}. It has as a corollary that the category of based ordered simplicial complexes embeds as a full subcategory into the category of $\S$-coalgebras. Similar results have been obtained at the level of the homotopy category by Mandell \cite{Man06}, Smirnov \cite{Smi98}, Smith \cite{Smi15} and others.
+	\chapter{Abelian sheaves and $\S$-comodules}
 
-    The first section of Chapter~2 revisits the theory of sheaves and cosheaves over posets, see \cite{Cur13}, \cite{she85} or \cite{Lad08} for other sources. It uses the connection between posets and Alexandrov topological spaces, extended in Lemma \ref{Alexandorv spaces, posets and their dualities} to a duality preserving equivalence, to emphasize the symmetry between sheaves and cosheaves over posets. This section closes with some homological algebra of such sheaves and cosheaves with values in an abelian category. In the second section of Chapter~2, the sheaf theory developed in the previous section is specialized to posets associated to ordered simplicial complexes. The notion of tensor product of functor is used to define the Ranicki duality functors of complexes of sheaves and cosheaves, whose geometry is made apparent by the pair subdivision sheaf and cosheaf. The pair subdivision sheaf is also used to define the visible symmetric complex of a regular pseudomanifold, see Construction \ref{visible symmetric complex}, which plays a central role in the application of the theory to manifold existence and uniqueness problems. The third section of Chapter~2 contains, as Theorem \ref{sheaves fully-faithful to comodules}, the second main technical result of this work. It states that the category of complexes of sheaves over an ordered simplicial complex $X$ with values in $\Ab$ embeds, as a full differential graded subcategory, into the category of comodules over the $\S$-coalgebra $\chains(X)$. This theorem is used to relate the algebraic surgery theory of Ranicki with comodules over $E_\infty$-coalgebras. In particular, Theorem \ref{existence and uniqueness for hom mnfds} and Theorem \ref{existence and uniqueness for top mnfds} provide existence and uniqueness statements for ANR homology manifold structures and topological manifold structures on the homotopy type of a Poincar\'e duality regular pseudomanifold, in terms of comodules on its $\S$-coalgebra of chains.
+	\section{Sheaf theory of posets}
+	\subfile{sec/Sheaf-theory-of-posets}
 
-\thispagestyle{plain}
+	\section{Simplicial complexes and Ranicki duality}
+	\subfile{sec/Duality}
 
-  \chapter{Simplicial sets and $\S$-coalgebras}
+	\section{Topological manifolds and $\S$-comodules}
+	\subfile{sec/Topological-manifolds-and-S-comodules}
 
-    \paragraph{Convention.}\hspace*{-8pt}The term chain complex will be reserved for a homologically graded differential graded abelian group. The category of chain complexes, denoted by $\Ab_\bullet$, is enriched over itself, i.e. $\Hom_{\Ab_\bullet}(C,C')\in\Ab_\bullet$ for every pair $C,\,C'\!\in\Ab_\bullet$. In terms of this enrichment, chain maps correspond to $0$-degree cycles, while chain homotopy equivalent morphisms correspond to homologous chains.
+	\appendix
+	\chapter{Categorical Background}
+	\subfile{sec/Appendix}
 
-    \section{Operads, coalgebras and comodules}
-    \subfile{Operads-coalgebras-and-comodules}
-
-    \section{The operad $\S$}
-    \subfile{The-operad-S}
-
-    \section{Simplicial sets and $\S$-coalgebras}
-    \subfile{Simplicial-sets-and-S-coalgebras}
-
-  \chapter{Abelian sheaves and $\S$-comodules}
-
-    \section{Sheaf theory of posets}
-    \subfile{Sheaf-theory-of-posets}
-
-    \section{Simplicial complexes and Ranicki duality}
-    \subfile{Duality}
-
-    \section{Topological manifolds and $\S$-comodules}
-    \subfile{Topological-manifolds-and-S-comodules}
-
-  \appendix
-
-  \chapter{Categorical Background}
-    \subfile{Appendix}
-
-%\backmatter
-
-    \addcontentsline{toc}{chapter}{References}
-    \bibliographystyle{plain}
-    \bibliography{mybib}
-    \nocite{*}
+	\bibliographystyle{plain}
+	\bibliography{mybib}
+	\nocite{*}
 \end{document}
 
