@@ -1,6 +1,6 @@
 \immediate\write18{biber \jobname}
 
-\documentclass{amsbook}
+\documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/mypapers.bib}
@@ -11,7 +11,7 @@
 \input{aux/commands} % add new commands
 \addbibresource{aux/bibliography.bib} % add references
 
-\title[Short title]{Full title}
+\title{Ranicki's total surgery obstruction and the Steenrod construction}
 
 \author[A.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
 \address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
@@ -22,36 +22,17 @@
 \keywords{TBW}
 
 \begin{document}
-
 	\subfile{sec/abstract}
-	\chapter{Simplicial sets and $\S$-coalgebras}
-
-	\paragraph{Convention.}\hspace*{-8pt}The term chain complex will be reserved for a homologically graded differential graded abelian group. The category of chain complexes, denoted by $\Ab_\bullet$, is enriched over itself, i.e. $\Hom_{\Ab_\bullet}(C,C')\in\Ab_\bullet$ for every pair $C,\,C'\!\in\Ab_\bullet$. In terms of this enrichment, chain maps correspond to $0$-degree cycles, while chain homotopy equivalent morphisms correspond to homologous chains.
-
-	\section{Operads, coalgebras and comodules}
-	\subfile{sec/Operads-coalgebras-and-comodules}
-
-	\section{The operad $\S$}
-	\subfile{sec/The-operad-S}
-
-	\section{Simplicial sets and $\S$-coalgebras}
-	\subfile{sec/Simplicial-sets-and-S-coalgebras}
-
-	\chapter{Abelian sheaves and $\S$-comodules}
-
-	\section{Sheaf theory of posets}
-	\subfile{sec/Sheaf-theory-of-posets}
-
-	\section{Simplicial complexes and Ranicki duality}
-	\subfile{sec/Duality}
-
-	\section{Topological manifolds and $\S$-comodules}
-	\subfile{sec/Topological-manifolds-and-S-comodules}
-
+	\maketitle
+	\subfile{sec/introduction}
+	\subfile{sec/operads}
+	\subfile{sec/surjection}
+	\subfile{sec/ssets}
+	\subfile{sec/sheaves}
+	\subfile{sec/duality}
+	\subfile{sec/top_man}
 	\appendix
-	\chapter{Categorical Background}
-	\subfile{sec/Appendix}
-
+	\subfile{sec/appendix}
 	\sloppy
 	\printbibliography
 \end{document}
