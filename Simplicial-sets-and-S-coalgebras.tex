@@ -1,0 +1,310 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+In this section, the first of the two main technical results of this work is presented as Theorem \ref{based simplicial sets embed into coalgebras}. It follows from it that the category of based ordered simplicial complexes embeds into the category of coalgebras over the $E_\infty$-operad $\S$, see Corollary \ref{SC to coalgebras}. It also implies that the category of pointed small categories fully embeds into the category of coalgebras over the $E_2$-operad $\S^2$, see Corollary \ref{CAT to coalgebras}.
+
+Similar results at the level of the homotopy category of simplicial sets have been obtained by Mandell \cite{Man06}, Smirnov \cite{Smi98}, Smith \cite{Smi15} and others.
+
+\begin{lemma} \label{simplices to simplices}
+Let $X,Y\in\sSet$ and $\sigma\in X_n$. If $f:\chains(X)\to\chains(Y)$ is a homomorphism satisfying $(f\tensor f)\cop_n\sigma=\cop_n f\sigma$, then either $$f\sigma=0\text{\ \ or\ \ }f\sigma\in Y_n.$$
+\begin{proof}
+Identifying non-degenerate simplices with their corresponding chains, Example \ref{Delta_n on n-simplices (with signs)} shows that for any $n$-dimensional simplex $\rho$ one has $\cop_n\rho=(-1)^{\varepsilon_n}\rho\tensor\rho$. In particular, the condition on $f$ implies that $f\sigma=\sum_ia_i\,\tau_i$ for some $\tau_i\in Y_n$. Therefore,
+$$(f\tensor f)\cop_n\sigma=\cop_n f\sigma$$ implies $$\sum_ia_i\,\tau_i\tensor \sum_ia_i\,\tau_i = \sum_ia_i\,\tau_i\tensor\tau_i. $$
+From which it follows that
+$$a_i\,a_j=0 \text{ if } i\neq j \text{ and } a_i^2=a_i.$$
+The only way these equations are satisfied is if all but possibly one of the coefficients $a_i$ are zero, with the possible exception being equal to 1. It follows that $f\sigma=0$ or $f\sigma=\tau_i$ for some $\tau_i\in Y_n$.
+\end{proof}
+\end{lemma}
+
+The next definition comes from \cite{May03}.
+
+\begin{defn} The following are three properties that a simplicial set $X$ might have.
+\begin{enumerate}[$(A)$]
+\item $X$ has property $A$ if every
+face of a non-degenerate simplex of $X$ is non-degenerate.
+\item $X$ has property $B$ if the $n+1$ vertices
+of any non-degenerate $n$-simplex of $X$ are distinct.
+\item $X$ has property $C$ if for any set of
+$n+1$ distinct vertices of $X$, there is at most one non-degenerate $n$-simplex of
+$X$ whose vertices are the elements of that set.
+\end{enumerate}
+\end{defn}
+
+\begin{defn} (Based simplicial sets) A simplicial set is said to \textbf{based} if it comes with a chosen vertex $\ast$. A \textbf{based simplicial map} between based simplicial sets is a simplicial map of the underlying simplicial sets preserving the base point. Denote the category of based simplicial sets by $\sSet_\ast$ and let $(-)_+:\sSet\to\sSet_\ast$ be the functor adding a disjoint base point. Notice that $\chains(X_+,\ast)$ is isomorphic to $\chains(X)$ as $\S$-coalgebras.
+\end{defn}
+
+\begin{terminology}
+A functor $F:\C\to\C'$ is said to be \textbf{faithful}, respectively \textbf{full}, if for every $a,b\in\C$ the function $$\Hom_{\C}(a,b)\to\Hom_{\C'}(Fa,Fb)$$
+is injective, respectively surjective.
+\end{terminology}
+
+\begin{thm} \label{based simplicial sets embed into coalgebras}
+Let $\sSet^{(n)}_\ast$ denote the full subcategory of $n$-dimensional based simplicial sets as described in Definition \ref{Simplicial category and simplicial sets}. Let $\S^k$ be the $E_n$-suboperad of $\S$ which is the $k$-th level of the filtration described in Lemma \ref{filtration by E_n}, see also Definition \ref{coalgebra in normalized chains}.
+\begin{enumerate}[1.]
+
+\item The functor\, $\chains(-,\ast):\sSet_\ast\to\Ab_\bullet$ if faithful.
+
+\item The functor\, $\chains(-,\ast):\sSet_\ast^{(1)}\to\coAlg_{\S^2(2)}$ if full.
+
+\item The functor\, $\chains(-,\ast):\sSet_\ast^{(2)}\to\coAlg_{\S^3(2)}$ if full when restricted to simplicial sets satisfying property $A$.
+
+\item The functor\, $\chains(-,\ast):\sSet_\ast^{(3)}\to\coAlg_{\S^4(2)}$ if full when restricted to simplicial sets satisfying property $B$.
+
+\item The functor\, $\chains(-,\ast):\sSet_\ast^{(n)}\to\coAlg_{\S^{n+1}(2)}$ if full when restricted to simplicial sets satisfying properties $B$ and $C$.
+\end{enumerate}
+\end{thm}
+
+To improve the readability of this work, the proof of Theorem \ref{based simplicial sets embed into coalgebras} will be postponed until after a few corollaries are drawn from it.
+
+\begin{defn}(Ordered simplicial complexes) \label{ordered simplicial complexes}
+An \textbf{ordered simplicial complex} $X=(V,S)$ is a pair consisting of a partially ordered set $V$ and a collection $S$ of nonempty subsets of $V$ with each $s\in S$ inheriting a total order, such that $$\forall v\in V,\ [v]\in S \ \ \text{ and } \ \ s'\subset s\in S\Rightarrow s'\in S.$$
+A \textbf{map of ordered simplicial complexes} $(V,S)\to(V',S')$ is an order preserving map $F:V\to V'$ such that $$[v_1,...,v_k]\in S \Rightarrow[Fv_1,...,Fv_k]\in S'.$$ This category is denoted $\SC$ and its based version is denoted $\SC_\ast$.
+\end{defn}
+
+\begin{remark}
+The functor sending an ordered simplicial complex to the simplicial set whose non-degenerate $n$-simplices correspond to subsets in $S$ of cardinality $n-1$, and whose degenerate simplices are freely generated; is a full and faithful functor whose essential image is the full subcategory of simplicial sets satisfying properties $B$ and $C$. See \cite{MS03} for more on this. The categories $\SC$ and $\SC_\ast$ will be identified with their essential image.
+\end{remark}
+
+\begin{cor}\label{SC to coalgebras}
+The functor $$\chains(-,\ast):\SC_\ast\to\coAlg_{\S(2)}$$ is full and faithful.
+\begin{proof}
+Notice that an $\S(2)$-coalgebra map is in particular an $\S^k(2)$-coalgebra map for every $k>0$. By part \textit{1} of Theorem \ref{based simplicial sets embed into coalgebras}, $\chains(-,\ast):\SC_\ast\to\coAlg_{\S(2)}$ is faithful and by part \textit{5} it is full.
+\end{proof}
+\end{cor}
+
+\begin{remark}
+A consequences of this corollary is that the category of based simplicial complexes fully embeds into that of coalgebras over an $E_\infty$-operad.
+\end{remark}
+
+\begin{cor}\label{CAT to coalgebras}
+Let $\,\Cat_\ast$ be the category of pointed small categories, $\mathrm N$ the nerve functor as described in Example $\ref{nerve of a category}$, and $\pi^{(1)}$ the functor projecting to the $1$-dimensional skeleton. The composition
+$$\xymatrix{\Cat_\ast\ar[r]^{\mathrm N} & \sSet_\ast \ar[r]^{\pi^{(1)}} & \sSet_\ast^{(1)} \ar[r]^-{\chains} & \coAlg_{\S^2(2)}}$$
+is a full and faithful functor.
+\begin{proof}
+The composition $\pi^{(1)}\circ\,\mathrm N$ is a full and faithful functor, while the functor $\chains:\sSet_\ast^{(1)} \to \coAlg_{\S^2(2)}$ is faithful and full by parts \textit{1} and \textit{2} of Theorem \ref{based simplicial sets embed into coalgebras}.
+\end{proof}
+\end{cor}
+
+\begin{remark}
+A consequences of this corollary is that the category of pointed small categories fully embeds into that of coalgebras over an $E_2$ operad.
+\end{remark}
+
+\paragraph{Proof of Theorem \ref{based simplicial sets embed into coalgebras}}
+The proof of the five parts of Theorem \ref{based simplicial sets embed into coalgebras} will be parcelized into three independent groups, beginning with part \textit{5} followed by part \textit{1} and finished with the remaining three parts. This choice is made to increase the readability of this work by presenting the less computational proof first, followed by the increasingly tedious case-by-case analysis involved in the other proofs.
+
+\begin{proof}[Proof of 5.]
+Let $X^{(n)}=(V,S)$ and $Y^{(n)}=(V',S')$ be $n$-dimensional based ordered simplicial complexes and consider an $\S^{n+1}(2)$-coalgebra map $$f:\chains(X^{(n)},\ast)\to\chains(Y^{(n)},\ast).$$
+Identifying simplices with their corresponding chains, Lemma \ref{simplices to simplices} implies for any $\sigma\in S$ that $f\sigma=0$ or $f\sigma\in S'$. In particular, for vertices one has that $f[v]=0$ or $f[v]$ is a vertex of $Y^{(n)}$. Define a $F:V\to V'$ by
+$$Fv=\begin{cases}fv & \text{ if } fv\neq0, \\ \ \ast & \text{ if } fv=0 \text{ or } v=\ast.\end{cases}$$
+It needs to be shown that this is a morphism of based ordered simplicial complexes inducing $f$. This directly follows from establishing the next \vspace*{5pt}claims:
+\underline{Claim 1}. If $f[v_1,...,v_k]\neq0$ then $f[v_1,...,v_k]=[Fv_1,...,Fv_k]$ satisfying that $Fv_i<Fv_{i+1}$ for all $i$. \vspace*{5pt} \\
+\underline{Claim 2}. If $f[v_1,...,v_k]=0$ then $Fv_{i}=Fv_{i+1}$ for some $i$ or $fv_i=\ast$ for all $i$.\vspace*{9pt} \\
+\textit{Proof of Claim 1.} For vertices it holds trivially. Assume it holds for simplices of dimension $(k-1)$ and let $f[v_1,...,v_k]=[w_1,\dotsc,w_k]$. Since $f$ is a chain map one has
+$$\sum(-1)^i[Fv_0,\dotsc,\widehat{Fv_i},\dotsc,Fv_k]=\sum(-1)^i[w_0,\dotsc,\widehat{w_i},\dotsc,w_k]$$
+and the induction hypothesis proves the claim.\vspace*{9pt} \\
+\textit{Proof of Claim 2.} For vertices it holds trivially. Assume it holds for simplices of dimension $(k-1)$. Since $f$ is a chain map one has
+$$\sum(-1)^if[v_0,\dotsc,\widehat{v_i},\dotsc,v_k]=0.$$
+If $f[v_0,\dotsc,\widehat{v_i},\dotsc,v_k]=0$ for all $i$, then the induction hypothesis finishes the proof. If not, there must exist a pair $i<j$ so that $f[v_0,\dotsc,\widehat{v_i},\dotsc,v_k]=f[v_0,\dotsc,\widehat{v_j},\dotsc,v_k]\neq0$. By Claim 1. that implies $$[Fv_0,\dotsc,\widehat{Fv_i},\dotsc,Fv_k]=[Fv_0,\dotsc,\widehat{Fv_j},\dotsc,Fv_k]$$ so $Fv_i=Fv_{i+1}$.
+\end{proof}
+
+The next two groups of proofs rely on the standard identities, listed below, satisfied by the degeneracy and face maps of simplicial sets. These identities will be used without comment throughout the proofs.
+\begin{enumerate}[i)]
+\item $d_i d_j = d_{j-1} d_i \text{ if } i < j$,
+\item $d_i s_j = s_{j-1} d_i \text{ if } i < j$,
+\item $d_i s_j = id \text{ if } i = j \text{ or } i = j + 1$,
+\item $d_i s_j = s_j d_{i-1} \text{ if } i > j + 1$,
+\item $s_i s_j = s_{j+1} s_i \text{ if } i = j$.
+\end{enumerate}
+
+\begin{proof}[Proof of 1.]
+Let $F,F':X\to Y$  be based simplicial maps inducing the same chain map $f$. Identifying non-degenerate simplices with their corresponding chains, for any simplex $\sigma$, if $f\sigma\neq0$ then $F\sigma=f\sigma=F'\sigma$. Since there are no degenerate $0$-dimensional simplices, $F$ and $F'$ agree on $X_0$. Assume for an induction argument that $F$ and $F'$ agree up to a certain skeleton $X_{k-1}$ and let $\sigma\in X_k$. If $\sigma=s_i\rho$ is degenerate then, using the induction hypothesis,
+$$F\sigma=Fs_i\rho=s_iF\rho=s_iF\rho=F's_i\rho=F'\sigma.$$
+The case $f\sigma\neq0$ was already treated so assume $\sigma$ is non-degenerate with $f\sigma=0$. There must exist $i,j$ and $\rho,\rho'$ such that $F\sigma=s_i\rho$ and $F'\sigma=s_j\rho'$ with this data satisfying one of the following possibilities:
+
+\begin{enumerate}[a)]
+\item If $j=i$ then $\rho=\rho'$ since $\rho=d_iF\sigma=Fd_i\sigma=F'd_i\sigma=d_iF'\sigma=\rho'$. It follows that $F\sigma=s_i\rho=s_i\rho'=F'\sigma$.
+
+\item If $j=i+1$ then $\rho=s_id_i\rho'$ and $\rho=\rho'$ since $\rho=d_iF\sigma=Fd_i\sigma=F'd_i\sigma=d_iF'\sigma=d_is_{i+1}\rho'=s_id_i\rho'$ and $\rho=d_{i+1}F\sigma=Fd_{i+1}\sigma=F'd_{i+1}\sigma=d_{i+1}F'\sigma=\rho'$. It follows that $F\sigma=s_i\rho=s_is_id_i\rho'=s_{i+1}s_id_i\rho'=s_{i+1}\rho'=F'\sigma.$
+
+\item If $j=i+k$ with $k>1$ then $\rho=s_{i+k-1}d_{i+1}\rho'$ and $\rho'=s_{i}d_{i+k-1}\rho$ since $\rho=d_{i+1}F\sigma=Fd_{i+1}\sigma=F'd_{i+1}\sigma=d_{i+1}F'\sigma=d_{i+1}s_{i+k}\rho'=s_{i+k-1}d_{i+1}\rho'$ and $\rho'=d_{i+k}F'\sigma=F'd_{i+k}\sigma=Fd_{i+k}\sigma=d_{i+k}F\sigma=d_{i+k}s_{i}\rho=s_{i}d_{i+k-1}\rho'$. Applying $d_{i+1}$ to the $\rho'=s_{i}d_{i+k-1}\rho$ gives $d_{i+1}\rho'=d_{i+k-1}\rho$. It follows that $F\sigma=s_i\rho=s_is_{i+k-1}d_{i+1}\rho'=s_{i+k}s_id_{i+1}\rho'=s_{i+k}s_id_{i+k-1}\rho=s_{i+k}\rho'=F'\sigma.$
+\end{enumerate}
+\end{proof}
+
+\begin{proof}[Proof of 2, 3 and 4]
+Lemma \ref{simplices to simplices} will be use throughout this proof without mention, as will be the identification of non-degenerate simplices with their corresponding chains. Given a morphism $f$ between the appropriate coalgebras, the following case-by-case procedure constructs a based simplicial map $F$ with $\chains(F,\ast)=f:$ \hfill \vspace*{5pt}\\
+$\sigma\in X_0$:
+    \begin{enumerate}[a)]
+    \item $\underline{f\sigma\neq0}$: set $$F\sigma=f\sigma.$$
+    \item $\underline{f\sigma=0 \text{ or } \sigma=\ast}$: set $$F\sigma=\ast.$$
+    \end{enumerate}
+$\sigma\in X_1$:
+    \begin{enumerate}[a)]
+    \item $\underline{f\sigma\neq0}$: set $$F\sigma=f\sigma.$$
+    Since $(f\tensor f)\cop_0\sigma=\cop_0f\sigma$ and $\cop_0\sigma = d_1\sigma\tensor \sigma+\sigma\tensor d_0\sigma$ one has
+    $$fd_j\sigma=d_jf\sigma\text{ for }j=0,1.$$
+    $\cdot)$ If $fd_j\sigma\neq0$ then $Fd_j\sigma=fd_j\sigma=d_jf\sigma=d_jF\sigma$ for $j=0,1$.\par
+
+    $\cdot)$ If $fd_j\sigma=0$ then $d_jf\sigma=0$, therefore $d_jF\sigma=\ast=Fd_j\sigma$ for $j=0,1$.\par
+
+    \item $\underline{f\sigma=0}$: set $$F\sigma=s_0Fd_0\sigma \, \big(=s_0Fd_1\sigma\big).$$
+
+        Since $\partial f\sigma = f\partial\sigma$ one has $fd_0\sigma = fd_1\sigma$.\par
+
+        $\cdot)$ $d_0F\sigma=d_0s_0Fd_0\sigma=Fd_0\sigma$.\par
+
+        $\cdot)$ $d_1F\sigma=d_1s_0Fd_0\sigma=Fd_0\sigma=Fd_1\sigma$.
+    \end{enumerate}
+$\sigma\in X_2$: (assuming $Y$ has Property A) \par
+    \begin{enumerate}[a)]
+    \item $\underline{f\sigma\neq0}$: set $$F\sigma=f\sigma.$$
+
+    By Property A, $d_jF\sigma$ is non-degenerate for all possible $j$. It follows that $$d_jf\sigma\neq0\text{ for }j=0,1,2.$$
+
+    Since $(f\tensor f)\cop_0\sigma=\cop_0f\sigma$ and
+    $\cop_0\sigma=d_1d_2\sigma\tensor\sigma + d_2\sigma\tensor d_0\sigma + \sigma\tensor d_0d_0\sigma,$
+    one has in particular that $fd_2\sigma\tensor fd_0\sigma=d_2f\sigma\tensor d_0f\sigma$. It follows that $$fd_2\sigma=d_2f\sigma \text{ and } fd_0\sigma=d_0f\sigma.$$
+
+    Since $(f\tensor f)\cop_1\sigma=\cop_1f\sigma$ and
+    $\cop_1\sigma=d_1\sigma\tensor\sigma - \sigma\tensor d_0\sigma - \sigma\tensor d_2\sigma,$
+    one has in particular that $$fd_1\sigma=d_1f\sigma.$$
+
+    Therefore, $d_jF\sigma=d_jf\sigma=fd_j\sigma=Fd_j\sigma$ for $j=1,2,3$. \par
+
+    \item $\underline{f\sigma=0}$: \vspace*{5pt}\par
+
+    Since $f\partial\sigma=\partial f\sigma$ implies $fd_0\sigma-fd_1\sigma+fd_2\sigma=0$ one has the following possibilities:
+
+        \begin{enumerate}[i)]
+
+        \item $\underline{fd_0\sigma=fd_1\sigma\neq0\ \&\ fd_2\sigma=0}$: set $$F\sigma=s_0Fd_0\sigma.$$
+
+        $\cdot)\ d_0F\sigma=d_0s_0Fd_0\sigma=Fd_0\sigma.$\par
+        $\cdot)\ d_1F\sigma=d_1s_0Fd_0\sigma=Fd_0\sigma=Fd_1\sigma.$\par
+        $\cdot)\ d_2F\sigma=d_2s_0Fd_0\sigma=s_0d_1Fd_0\sigma=s_0Fd_1d_0\sigma=s_0Fd_1d_0\sigma=s_0Fd_0d_2\sigma=Fd_2\sigma.$
+
+        \item $\underline{fd_0\sigma=0\ \&\ fd_1\sigma=fd_2\sigma\neq0}$: set $$F\sigma=s_1Fd_1\sigma$$
+
+        $\cdot)\ d_0F\sigma=d_0s_1Fd_1\sigma=s_0d_0Fd_1\sigma=s_0Fd_0d_1\sigma=s_0Fd_0d_0\sigma=Fd_0\sigma.$\par
+        $\cdot)\ d_1F\sigma=d_1s_1Fd_1\sigma=Fd_1\sigma.$\par
+        $\cdot)\ d_2F\sigma=d_2s_1Fd_1\sigma=Fd_1\sigma=Fd_2\sigma.$
+
+        \item $\underline{fd_0\sigma=fd_1\sigma=fd_2\sigma=0}$: set $$F\sigma=s_0Fd_0\sigma.$$
+
+        $\cdot)\ d_0F\sigma=d_0s_0Fd_0\sigma=Fd_0\sigma$.\par
+        $\cdot)\ d_1F\sigma=d_1s_0Fd_0\sigma=Fd_0\sigma=s_0Fd_0d_0\sigma=s_0Fd_0d_1\sigma=Fd_1\sigma.$\par
+        $\cdot)\ d_2F\sigma=d_2s_0Fd_0\sigma=d_2s_0s_0Fd_1d_0\sigma=d_2s_1s_0Fd_0d_2\sigma=s_0Fd_0d_2\sigma=Fd_2\sigma.$
+
+        \end{enumerate}
+    \end{enumerate}
+$\sigma\in X_3$: (assuming $Y$ has Property B) \par
+    \begin{enumerate}[a)]
+    \item $\underline{f\sigma\neq0}$: \vspace*{5pt}\par
+
+    By Property A, $d_jF\sigma$ and $d_jd_iF\sigma$ are non-degenerate for all possible $i,j$. It follows that $$d_jf\sigma\neq0 \text{ and } d_jd_if\sigma\neq 0 \text{ for all possible }i,j.$$ \par
+
+    Since $(f\tensor f)\cop_0\sigma=\cop_0f\sigma$ and
+    $\cop_0\sigma=d_1d_2d_3\sigma\tensor\sigma + d_2d_3\sigma\tensor d_0\sigma + d_3\sigma\tensor d_0d_0\sigma + \sigma\tensor d_0d_0d_0\sigma,$
+    one has in particular that $$fd_0\sigma=d_0f\sigma\text{ and }fd_3\sigma=d_3f\sigma.$$
+
+    Since $(f\tensor f)\cop_2\sigma=\cop_2f\sigma$ and
+    $\cop_2\sigma=-d_1\sigma\tensor\sigma - d_3\sigma\tensor\sigma - \sigma\tensor d_0\sigma - \sigma\tensor d_2\sigma,$
+    one has in particular that $fd_1\sigma+fd_3\sigma=d_1f\sigma+d_3f\sigma$ and $fd_0\sigma+fd_2\sigma=d_0f\sigma+d_2f\sigma$. It follows that $$fd_1\sigma=d_1f\sigma\text{ and }fd_2\sigma=d_2f\sigma.$$
+
+    Therefore, $d_jF\sigma=d_jf\sigma=fd_j\sigma=Fd_j\sigma$ for $j=0,1,2,3$. \par
+
+    \item $\underline{f\sigma=0}$: \vspace*{5pt}\par
+
+    The following observation will restrict the cases to be analyzed. For any of the three specific pairs $(i,j)=(0,2)$, $(0,3)$ or $(1,3)$ one has $$fd_i\sigma\neq 0\text{ or } fd_j\sigma\neq 0 \text{ imply } fd_i\sigma\neq fd_j\sigma.$$
+
+    $\cdot)$ Assume $fd_0\sigma=fd_2\sigma\neq0$. By property B $d_1d_1Fd_0\sigma\neq d_1d_0Fd_0\sigma$. But $d_1d_1Fd_0\sigma=Fd_1d_1d_0\sigma=Fd_1d_0d_2\sigma=d_1d_0Fd_2\sigma=d_1d_0Fd_0\sigma$. A contradiction. \par
+
+    $\cdot)$ Assume $fd_0\sigma=fd_3\sigma\neq0$. By property B $d_1d_1Fd_0\sigma\neq d_1d_0Fd_0\sigma$. But $d_1d_1Fd_0\sigma=Fd_1d_1d_0\sigma=Fd_1d_0d_3\sigma=d_1d_0Fd_3\sigma=d_1d_0Fd_0\sigma$. A contradiction. \par
+
+    $\cdot)$ Assume $fd_1\sigma=fd_3\sigma\neq0$. By property B $d_1d_0Fd_0\sigma\neq d_0d_0Fd_0\sigma$. But $d_1d_0Fd_0\sigma=Fd_1d_0d_0\sigma=Fd_0d_0d_3\sigma=d_0d_0Fd_3\sigma=d_0d_0Fd_0\sigma$. A contradiction. \par
+
+    Since $f\partial\sigma=\partial f\sigma$ implies $fd_0\sigma-fd_1\sigma+fd_2\sigma-fd_3\sigma=0$ one has the following possibilities:
+
+        \begin{enumerate}[i)]
+
+        \item \underline{$fd_0\sigma=fd_1\sigma\neq0\ \&\ fd_2\sigma=fd_3\sigma=0$}: set $$F\sigma=s_0Fd_0\sigma.$$
+        The faces of $Fd_0\sigma=Fd_1\sigma$ are non-degenerate by property A. In particular $0\neq fd_0d_1=fd_0d_2$ and $0\neq fd_2d_0=fd_0d_3$ implying that $$Fd_2\sigma=s_0Fd_0d_2\sigma \text{ and } Fd_3=s_0Fd_0d_3\sigma.$$
+
+        $\cdot)$ $d_0F\sigma=d_0s_0Fd_0\sigma=Fd_0\sigma$.
+
+        $\cdot)$ $d_1F\sigma=d_1s_0Fd_0\sigma=Fd_0\sigma=Fd_1\sigma$.
+
+        $\cdot)$ $d_2F\sigma=d_2s_0Fd_0\sigma=s_0d_1Fd_0\sigma=s_0Fd_1d_0\sigma=s_0Fd_0d_2\sigma=Fd_2\sigma$.
+
+        $\cdot)$ $d_3F\sigma=d_3s_0Fd_0\sigma=s_0d_2Fd_0\sigma=s_0Fd_2d_0\sigma=s_0Fd_0d_3\sigma=Fd_3\sigma$.
+
+        \item \underline{$fd_0\sigma=0\ \&\ fd_1\sigma=fd_2\sigma\neq0\ \&\ fd_3\sigma=0$}: set $$F\sigma=s_1Fd_1\sigma.$$
+        The faces of $Fd_1\sigma=Fd_2\sigma$ are non-degenerate by property A. In particular $0\neq fd_0d_1=fd_0d_0$ and $0\neq fd_2d_2=fd_2d_3$ implying that $$Fd_0\sigma=s_0Fd_0d_0\sigma \text{ and } Fd_3=s_1Fd_1d_3\sigma.$$
+
+        $\cdot)$ $d_0F\sigma=d_0s_1Fd_1\sigma=s_0d_0Fd_1\sigma=s_0Fd_0d_1\sigma=s_1Fd_0d_0\sigma=Fd_0\sigma$.
+
+        $\cdot)$ $d_1F\sigma=d_1s_1Fd_1\sigma=Fd_1\sigma.$
+
+        $\cdot)$ $d_2F\sigma=d_2s_1Fd_1\sigma=Fd_1\sigma=Fd_2\sigma$.
+
+        $\cdot)$ $d_3F\sigma=d_3s_1Fd_1\sigma=s_1d_2Fd_1\sigma=s_1Fd_2d_1\sigma=s_1Fd_1d_3\sigma=Fd_3\sigma$.
+
+        \item \underline{$fd_0\sigma=fd_1\sigma=0\ \&\ fd_2\sigma=fd_3\sigma\neq0$}: set $$F\sigma=s_2Fd_2\sigma.$$
+        The faces of $Fd_2\sigma=Fd_3\sigma$ are non-degenerate by property A. In particular $0\neq fd_0d_3=fd_2d_0$ and $0\neq fd_1d_3=fd_2d_1$ implying that $$Fd_0\sigma=s_1Fd_1d_0\sigma\text{ and } Fd_1=s_1Fd_1d_1\sigma.$$
+
+        $\cdot)$ $d_0F\sigma=d_0s_2Fd_2\sigma=s_1d_0Fd_2\sigma=s_1Fd_0d_2\sigma=s_1Fd_1d_0\sigma=Fd_0\sigma$.
+
+        $\cdot)$ $d_1F\sigma=d_1s_2Fd_0\sigma=s_1d_1Fd_2\sigma=s_1Fd_1d_2\sigma=s_1Fd_1d_1\sigma=Fd_1\sigma$.
+
+        $\cdot)$ $d_2F\sigma=d_2s_2Fd_2\sigma=Fd_2\sigma$.
+
+        $\cdot)$ $d_3F\sigma=d_3s_2Fd_2\sigma=Fd_2\sigma=Fd_3\sigma$.
+
+        \item \underline{$fd_0\sigma=fd_1\sigma=fd_2\sigma=fd_3\sigma=0$}. \vspace*{5pt}\par
+        If $fd_1d_1\sigma=fd_1d_2\sigma\neq 0$ then in order to determine the values of $Fd_1\sigma$ and $Fd_2\sigma$ one needs to know if $fd_0d_1\sigma=0$ or not and if $fd_0d_2\sigma=0$ or not. Since $fd_0d_1\sigma=fd_2d_0\sigma$ and $fd_0d_2\sigma=fd_1d_0\sigma$ this choice also determines $Fd_0\sigma$ and shows one of the combinations is impossible, namely $fd_0d_1\sigma\neq0$ and $fd_0d_2\sigma=0$. Since $fd_2d_1\sigma=fd_1d_3\sigma$ and $fd_2d_2\sigma=fd_2d_3\sigma$ this choice also determines $Fd_3\sigma$.\par
+
+        Similarly, if $fd_1d_1\sigma=fd_1d_2\sigma=0$ then all $fd_id_j\sigma=0$. Therefore, one has the following possibilities:\par
+        \end{enumerate}
+
+            \begin{enumerate}[{iv}-a.]
+            \item\underline{$fd_0d_1\sigma=fd_1d_1\sigma=fd_0d_2\sigma\neq0\ \&\ fd_1d_3=0$}: set
+            $$F\sigma=s_1s_0Fd_1d_1\sigma.$$
+
+            $\cdot)$ $Fd_0\sigma=s_0Fd_0d_0\sigma=s_0Fd_0d_1\sigma=s_0Fd_1d_1\sigma=$ $s_0d_0s_0Fd_1d_1\sigma=$ $d_0s_1s_0Fd_1d_1\sigma=$ $d_0F\sigma$.
+
+            $\cdot)$ $Fd_1\sigma=s_0Fd_0d_1\sigma=s_0Fd_1d_1\sigma=d_1s_1s_0Fd_1d_1\sigma=d_1Fd_\sigma$.
+
+            $\cdot)$ $Fd_2\sigma=s_0Fd_0d_2\sigma=s_0Fd_1d_1\sigma=d_2s_1s_0Fd_1d_1\sigma=d_2F\sigma$.
+
+            $\cdot)$ $Fd_3\sigma=s_0Fd_0d_3\sigma=s_0s_0Fd_0d_0d_3\sigma=$ $s_1s_0Fd_0d_0d_3\sigma=$ $s_1s_0Fd_1d_0d_1\sigma=$ $s_1s_0Fd_1d_1d_1\sigma=$ $d_3s_1s_0Fd_1d_1\sigma=d_3F\sigma.$
+
+            \item\underline{$fd_1d_1\sigma=fd_2d_1\sigma=fd_0d_2\sigma=fd_0d_3\sigma=fd_2d_0\sigma\neq0$}: set $$F\sigma=s_0s_1Fd_1d_1\sigma.$$
+
+            $\cdot)$ $Fd_0\sigma=s_1Fd_1d_0\sigma=s_1Fd_0d_2\sigma=s_1Fd_1d_1\sigma=d_0s_0s_1Fd_1d_1\sigma=d_0F\sigma.$
+
+            $\cdot)$ $Fd_1\sigma=s_1Fd_1d_1\sigma=d_1s_1s_1Fd_1d_1\sigma=d_1F\sigma$.
+
+            $\cdot)$ $Fd_2\sigma=s_0Fd_0d_2\sigma=s_0Fd_1d_1\sigma=d_2s_2s_0Fd_1d_1\sigma=d_2s_0s_1Fd_1d_1\sigma=d_2F\sigma.$
+
+            $\cdot)$ $Fd_3\sigma=s_0Fd_0d_3\sigma=s_0Fd_1d_1\sigma=d_3s_2s_0Fd_1d_1\sigma=d_3s_0s_1Fd_1d_1\sigma=d_3F\sigma.$
+
+            \item\underline{$fd_1d_1\sigma=fd_2d_1\sigma=fd_2d_2\sigma=fd_2d_3\sigma\neq0\ \&\ fd_1d_0=0$}: set $$F\sigma=s_1s_1Fd_1d_1\sigma.$$
+
+            $\cdot)$ $fd_0\sigma=s_0Fd_0d_0\sigma=s_0s_0Fd_0d_0d_0\sigma=s_0s_0Fd_0d_1d_1\sigma=d_0s_1s_1Fd_1d_1=d_0F\sigma$.
+
+            $\cdot)$ $Fd_1\sigma=s_1Fd_1d_1\sigma=d_1s_1s_1Fd_1d_1\sigma=d_1F\sigma.$
+
+            $\cdot)$ $Fd_2\sigma=s_1Fd_1d_2\sigma=s_1Fd_1d_1\sigma=d_2s_1s_1Fd_1d_1=d_2F\sigma.$
+
+            $\cdot)$ $Fd_3\sigma=s_1Fd_1d_3\sigma=s_1Fd_1d_1\sigma=s_1d_2s_1Fd_1d_1=d_3s_1s_1Fd_1d_1=d_3F\sigma.$
+
+            \item\underline{$fd_jd_i\sigma=0$}: set $$F\sigma=s_0s_0s_0Fd_0d_0d_0\sigma.$$
+
+            $Fd_i\sigma=s_0s_0Fd_0d_0d_i\sigma=s_0s_0Fd_0d_0d_0\sigma=d_is_0s_0s_0Fd_0d_0d_i\sigma=d_iF\sigma.$
+
+            \end{enumerate}
+
+    \end{enumerate}
+\end{proof}
+\end{document}
+
+

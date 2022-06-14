@@ -1,0 +1,189 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+In this appendix the notions of limits, colimits and Kan extensions are collected, emphasizing their use in constructions associated to simplicial sets.
+
+\begin{adefn} (Diagrams)
+A \textbf{diagram} in $\C$ indexed by $\I$ is a functor $\I\to\C$ with $\I$ a small category.
+\end{adefn}
+
+\begin{aex}(Constant diagrams)
+For any small category $\I$ and object $c$ in a category $\C$, define the \textbf{constant diagram} indexed by $\I$ with value $c$ by declaring the image of any objet in $\I$ to be $c$ and of any morphism to be $\id_c$.
+\end{aex}
+
+\begin{aex} \label{group as category}
+Let $G$ be a group and $\G$ be the category with one object $\ast$ and $\Hom_{\G}(\ast,\ast)\cong G$. A diagram $\G\to\C$ is the same data as and object in $\C$ with a $G$ action.
+\end{aex}
+
+\paragraph{Limits}
+
+\begin{adefn} (Limits)
+Let $D:\I\to\C$ be a diagram. The \textbf{limit} of $D$ consists of an object $\lim_{\I} D$ in $\C$ and a natural transformation $\varphi$ from the constant diagram indexed by $\I$ with value $\lim_{\I} D$ to $D$, satisfying the following universal property. For any constant diagram indexed by $\I$ provided with a natural transformation $\phi$ to $D$, there exists a unique morphism $f$ from its constant value $cone$ to $\lim_{\I} D$ such that for every $i\in\I$ one has $\varphi(i)\circ f=\phi(i)$. Diagrammatically,
+$$\xymatrix@C=.8pc @R=1.8pc{D(i)\ar[rr]^{D(i\to j)}& &D(j)\\ &\ar[lu]_{\varphi(i)}\lim_{\I} D\ar[ru]^{\varphi(j)} & \\ & \ar@/^/[luu]^{\phi(i)}cone\ar^f[u]\ar@/_/[ruu]_{\phi(j)} &}$$
+commutes for every $(i\to j)\in\Hom_{\I}(i,j)$.
+\end{adefn}
+
+\begin{aex}(Orbits) \label{orbits}
+Let $\C$ be a small category. Recall from Example \ref{group as category} that an object in $\C$ with an action of a group $G$ can be thought of as a diagram $D:\G\to\C$. Denote $D(\ast)=X\in\C$ and notice that for any $g\in G$ one has the commutative diagram $$\xymatrix@C=.8pc @R=1.8pc{X\ar[rr]^{g}& & X \\  &\ar[lu]\ar[ru]\lim_{\G} D & }.$$
+The universal property of limits implies that the limit of $D$ equals the set of \textbf{orbits} of the action, i.e. $\colim_{\G}D=X_G$.
+\end{aex}
+
+\begin{aex}(Initial objects, products and equalizers) \label{products and equalizers}
+Consider a diagram in $\C$ with index category one of the following:
+$$\text{a)} \ \ \emptyset \hspace*{2cm} \text{b)}\ \stackrel{\Lambda}{\overbrace{\xymatrix{\bullet &\bullet \ \ ... &\bullet}}} \hspace*{2cm} \text{c)}\ \xymatrix{\bullet\ar@/^/[r]\ar@/_/[r] & \bullet}.$$
+If the limit of the diagram exists it is called respectively
+\begin{enumerate}[a)]
+\item The \textbf{initial object}. For example, the empty topological space or the zero abelian group.
+\item The \textbf{product}, which is denoted $\prod_\Lambda$ or $\times\, ...\,\times$. For example, cartesian product of topological spaces or tensor product of abelian groups.
+\item The \textbf{equalizer}, which is denoted $\eq(-)$. For example, for spaces one has $\coeq(X\stackbin[g]{f}{\rightrightarrows}Y)=\{x\in X:f(x)=g(x)\}$. For abelian groups, the equalizer of a pair of maps where one of them is the zero map equals the kernel of the other map.
+\end{enumerate}
+\end{aex}
+
+The following statement, whose proof can be found in \cite[p.112]{MaL98}, shows that a category where all products and equalizers exist is such that the limit of any diagram exists. Such categories are called \textbf{complete}.
+
+\begin{alemma}\label{formula for lim}
+Let $D:\I\to\C$ be an diagram in a complete category $\C$. The limit of $D$ is given by $$\eq\Big(\prod_{i}D(i)\rightrightarrows\prod_{i\to j}D(j)\Big)$$
+where one of the maps comes from projecting to the source of each morphism and then applying the corresponding morphism induced by $D$, while the other is induced from directly projecting to the target of each morphism.
+\end{alemma}
+
+\begin{aex}(Pullbacks)
+The limit of a diagram in a cocomplete small category of the form \vspace*{-10pt}
+$$\begin{array}{l}
+\xymatrix{ & \bullet\ar[d] \\ \bullet\ar[r] & \bullet}
+\end{array}\longrightarrow\begin{array}{l}
+\xymatrix{& C\ar[d]_g\\ A\ar[r]^f & B}
+\end{array}$$
+is according to Lemma \ref{formula for lim} equal to $$\eq\Big(A\times C\times B\stackbin[f\circ p_1\times g\circ p_2]{p_3\times p_3}{\rightrightarrows}B\times B \Big)=\{(x,y,b):f(x)=g(y)=b\}.$$
+This limit will be denoted by $A\times_B C\cong\{(x,y):f(x)=g(y)\}$ and referred to as the \textbf{pullback} of $A\stackrel{f}{\to}B\stackrel{g}{\leftarrow}C$.
+\end{aex}
+
+\paragraph{Colimits}
+
+\begin{adefn} (Colimits)
+Let $D:\I\to\C$ be a diagram. The \textbf{colimit} of $D$ consists of an object $\colim_{\I} D$ in $\C$ and a natural transformation $\varphi$ from $D$ to the constant diagram indexed by $\I$ with value $\colim_{\I} D$, satisfying the following universal property. For any constant diagram indexed by $\I$ provided with a natural transformation $\phi$ to $D$, there exists a unique morphism $f$ from $\colim_{\I}D$ to its constant value $cocone$ such that for every $i\in\I$ one has $\phi(i)=f\circ\varphi(i)$. Diagrammatically,
+$$\xymatrix@C=.8pc @R=1.8pc{D(i)\ar[rr]^{D(i\to j)}\ar[rd]^{\varphi(i)}\ar@/_/[rdd]_{\phi(i)}& &\ar@/^/[ddl]^{\phi(j)}\ar[dl]_{\varphi(j)}D(j)\\ &\colim_{\I} D \ar_f[d]& \\
+& cocone &}$$
+commutes for every $(i\to j)\in\Hom_{\I}(i,j)$.
+\end{adefn}
+
+\begin{aex}(Fix points) \label{fix points}
+Let $\C$ be a small category. Recall from Example \ref{group as category} that an object in $\C$ with an action of a group $G$ can be thought of as a diagram $D:\G\to\C$. Denote $D(\ast)=X\in\C$ and notice that for any $g\in G$ one has the commutative diagram $$\xymatrix@C=.8pc @R=1.8pc{X\ar[rr]^{g}\ar[rd]& &\ar[dl] X \\  &\colim_{\G} D & }.$$
+The universal property of colimits implies that the colimit of $D$ equals the \textbf{fix point} set of the action, i.e. $\colim_{\G}D=X^G$.
+\end{aex}
+
+\begin{aex}(Terminal objects, coproducts and coequalizers) \label{coproducts and coequalizers}
+Consider a diagram in $\C$ with index category one of the following:
+$$\text{a)} \ \ \emptyset \hspace*{2cm} \text{b)}\ \stackrel{\Lambda}{\overbrace{\xymatrix{\bullet &\bullet \ \ ... &\bullet}}} \hspace*{2cm} \text{c)}\ \xymatrix{\bullet\ar@/^/[r]\ar@/_/[r] & \bullet}.$$
+If the colimit of the diagram exists it is called respectively
+\begin{enumerate}[a)]
+\item The \textbf{terminal object}. For example, the topological space with one element or the zero abelian group.
+\item The \textbf{coproduct}, which is denoted $\coprod_\Lambda$ or $\sqcup\, ...\, \sqcup$. For example, disjoint union of topological spaces or direct sum of abelian groups.
+\item The \textbf{coequalizer}, which is denoted $\coeq(-)$. For example, for spaces one has $\coeq(X\stackbin[g]{f}{\rightrightarrows}Y)=Y\Big/f(x)\sim g(x)$. For abelian groups, the coequalizer of a pair of maps where one of them is the zero map equals the cokernel of the other map.
+\end{enumerate}
+\end{aex}
+
+The following lemma shows that a category where all coproducts and coequalizers exist is such that the colimit of any diagram exists. Such categories are called \textbf{cocomplete}.
+
+\begin{alemma}\label{formula for colim}
+Let $D:\I\to\C$ be an diagram in a cocomplete category $\C$. The colimit of $D$ is given by $$\coeq\Big(\coprod_{i\to j}D(i)\rightrightarrows\coprod_{i}D(i)\Big)$$
+where one of the maps comes from the identity $D(i)\to D(i)$, while the other comes from the morphism $D(i)\to D(j)$ induced by $D$ from the morphisms $i\to j$.
+\begin{proof}
+This is a variation of the proof of the analogue statement for limits in Lemma \ref{formula for lim}.
+\end{proof}
+\end{alemma}
+
+\begin{aex}(Pushouts)
+The colimit of a diagram in a cocomplete small category of the form \vspace*{-10pt}
+$$\begin{array}{l}
+\xymatrix{\bullet\ar[d]\ar[r] & \bullet \\ \bullet &}
+\end{array}\longrightarrow\begin{array}{l}
+\xymatrix{B\ar[d]_g\ar[r]^f & C\\ A &}
+\end{array}$$
+is according to Lemma \ref{formula for colim} equal to $$\coeq\Big(B\sqcup B\stackbin[f\sqcup g]{\id\sqcup\id}{\rightrightarrows}A\sqcup B\sqcup C \Big)=A\sqcup C\big/f(b)\sim g(b).$$
+This colimit will be denoted by $A\sqcup_B C$ and referred to as the \textbf{pushout} of $A\stackrel{g}{\leftarrow}B\stackrel{f}{\to}C$.
+\end{aex}
+
+\paragraph{Kan extensions}
+
+\begin{adefn} (Kan extensions)
+Let $F:\C\to\A$ and $E:\C\to\B$ be a pair of functors. The \textbf{right Kan extension} of $F$ along $E$ is a functor $\Ran_E F:\B\to\A$ and a natural transformation $\phi: F \to\Ran_E F\circ E$ satisfying the following universal property. For any pair $R:\B\to\A$ and $\psi:F\to\R\circ E$ there exists a unique $\theta:R\to \Ran_E F$ such that $\psi=\phi\circ\theta_F$ with $\theta_F(c)=\theta(F(c))$ for all $c\in\C$. Diagrammatically,
+$$\xymatrix@C=2pc @R=2pc{ \C \ar[rr]^F \ar[dd]_E & \ar@{}[ldd]^(.15){}="c"^(.55){}="d" \ar_{\phi}@{<=} "c";"d" & \A  \\ & & \\
+\B \ar@{-->}[rruu]_(.55){\Ran_E F} \ar@/_3.4pc/[rruu]_(.45){R} & & \ar@{}[lu]^(.25){}="b"^(.90){}="a" \ar_{\theta}@<-2ex>@{<=} "a";"b"}$$
+
+The \textbf{left Kan extension} of $F$ along $E$ is a functor $\Lan_E F:\B\to\A$ and a natural transformation $\phi: \Lan_E F\circ E \to F$ satisfying the following universal property. For any pair $R:\B\to\A$ and $\psi:\R\circ E\to F$ there exists a unique $\theta:\Lan_E F\to R$ such that $\psi=\theta_F\circ\phi$ with $\theta_F(c)=\theta(F(c))$ for all $c\in\C$. Diagrammatically,
+
+$$\xymatrix@C=2pc @R=2pc{ \C \ar[rr]^F \ar[dd]_E & \ar@{}[ldd]^(.15){}="c"^(.55){}="d" \ar_{\phi}@{=>} "c";"d" & \A  \\ & & \\
+\B \ar@{-->}[rruu]_(.55){\Lan_E F} \ar@/_3.4pc/[rruu]_(.45){R} & & \ar@{}[lu]^(.25){}="b"^(.90){}="a" \ar_{\theta}@<-2ex>@{=>} "a";"b"}$$
+\end{adefn}
+
+Kan extensions need not exist. But if $\A$ is cocomplete then one can prove the existence of the right Kan extension by exhibiting a formula. Correspondingly, if $\A$ is complete then the left Kan extension exists and it is also given by a formula, both of which are presented in Lemma \ref{formula for Kan extensions}. One begins by defining the following category.
+
+\begin{adefn}(Comma category) \label{comma category}
+Let $\A\stackrel{S}{\to}\C\stackrel{T}{\leftarrow}\B$ be a diagram of categories. The \textbf{comma category} $(S\downarrow T)$ has objects all triples $(h,a,b)$ with $S(a)\stackrel{h}{\mapsto}T(b)$ and morphisms $(f,g):(h,a,b)\to(h',a',b')$ all pairs satisfying $$\xymatrix{S(a)\ar^h[r]\ar_{S(f)}[d] & T(b)\ar^{T(g)}[d]\\ S(a')\ar^{h'}[r] & T(b').}$$
+When $\A$ is the category with one object $\ast$ and one morphism and $S(\ast)=c$, the category $(S\downarrow T)$ will be denoted simply by $(c\downarrow T)$. The category $(S\downarrow c)$ is similarly defined.
+\end{adefn}
+
+The following statement and a proof can be found in \cite[p.237]{MaL98} and \cite[p.244]{MaL98}.
+
+\begin{alemma}\label{formula for Kan extensions}
+Let $F:\C\to\A$ and $E:\C\to\B$ be a pair of functors.
+\begin{enumerate}[1.]
+\item If $\A$ is cocomplete then for any $b\in B$
+$$\Ran_E F(b)=\,\stackrel[(E\downarrow\, b)]{}{\colim}F.$$
+\item If $\A$ is complete then for any $b\in B$
+$$\Lan_E F(b)=\,\stackrel[(b\,\downarrow\, E)]{}{\lim}F.$$
+\end{enumerate}
+\end{alemma}
+
+\begin{adefn}(Simplicial category and simplicial sets) \label{Simplicial category and simplicial sets}
+Let $\Delta$ denote the \textbf{simplicial category} whose objects are the finite non-empty totally ordered sets, commonly denoted $[0, 1, \dotsc, n]$, and whose morphisms are the order preserving functions. Any such function can be obtained as a composition of basic ones, called \textbf{cofaces} and \textbf{codegeneracies}, which insert or delete a single element. The cofaces and codegeneracies will be respectively denoted $d_i:[n-1]\to[n]$ and $s_i:[n+1]\to[n]$ and they satisfy well know relations.
+
+Define the category of \textbf{simplicial sets} to be
+$$s\Set=\Hom_{\Cat}(\Delta^{op},\Set),$$
+the category of contravariant functors from the simplicial category to the category of sets.
+
+For $X\in\sSet$, the image of $[0,\dotsc,n]$ will be denoted $X_n$ and referred to as the set of \textbf{$n$-simplices} of $X$. Simplices which are the image of lower dimensional simplices are said to be \textbf{degenerate} and a simplicial set is said to be \textbf{$n$-dimensional} if there exists a non-degenerate $n$-simplex and for $m>n$ all $m$-simplices are degenerate.
+\end{adefn}
+
+\begin{aremark}(Yoneda)\label{Yoneda}
+There exists a full and faithful functor from the simplicial category $\Delta$ into the category of simplicial sets given on objects by $$\begin{array}{ccl}
+\ \Delta &\longrightarrow & s\Set \\
+\ [0,\dotsc,n] &\longmapsto & \Hom_{\Delta}([0,\dotsc,n],-).
+\end{array}$$
+Such functor will be called the \textbf{Yoneda embedding} and the images of $[0,\dotsc,n]\in\Delta$ will be denoted by $\Delta^n$. Notice that for any $X_\bullet\in s\Set$ one has $$\Hom_{s\Set}(\Delta^n,X_\bullet)=X_n,$$
+a fact referred to as \textbf{Yoneda lemma}.
+\end{aremark}
+
+\begin{adefn}(Realization and nerve) \label{realization and nerve}
+Let $\C$ be a cocomplete category and $F:\Delta\to\C$ a functor. Denote the Yoneda embedding $\Delta\to s\Set$ by $\Y$. The \textbf{realization with respect to $F$} is the right Kan extension of $F$ along $\Y$. The \textbf{nerve with respect to $F$} is the functor defined on objects by $c \longmapsto \big([0,\dotsc,n]\mapsto\Hom_{\C}(F[0,\dotsc,n],c)\big)$. Diagrammatically,
+$$\xymatrix{\Delta\ar[r]^F\ar[d]_\Y & \C \ar@/^/@{-->}[dl] \\
+s\Set. \ar@/^/@{-->}[ur] & }$$
+\end{adefn}
+
+\begin{aremark}
+It is a theorem of Daniel Kan \cite{Kan58} that the realization and nerve with respect to a functor form a universal adjoint pair.
+\end{aremark}
+
+\begin{aex}(Geometric realization and singular complex) \label{geometric realization}
+Consider the embedding $\Delta\to\Top$ of the simplicial category into the category of topological spaces sending $[0,\dotsc,n]$ to the standard topological $n$-simplex $|\Delta^n|$. The realization with respect to this functor of any $X_\bullet\in s\Set$ can be described by Lemma \ref{formula for Kan extensions} and Lemma \ref{formula for colim} as the coequalizer of
+$$\coprod_{\ \ \xymatrix@C=.3pc @R=-.3pc{\Delta^n\ar@/^.8pc/[rd]\ar@/_1.2pc/[dd]& \\ & X_\bullet\\ \Delta^k\ar@/_.8pc/[ru]&}}\hspace*{-.41cm}|\Delta^n| \ \ \rightrightarrows\hspace*{-.41cm}\coprod_{\xymatrix@C=-.3pc@R=.1pc{& \\ \Delta^n&\to&X_\bullet}}\hspace*{-.41cm}|\Delta^n|$$or equivalently using the Yoneda lemma as
+$$\coeq\Big(\coprod_{n\geq0}X_n\times|\Delta^n|\rightrightarrows\coprod_{n\geq0}X_n\times|\Delta^n|\Big),$$
+which utilizing the cofaces and codegeneracies $d_i:[0,\dotsc,n-1]\to[0,\dotsc,n]$ and $s_i:[0,\dotsc,n+1]\to[0,\dotsc,n]$ in $\Delta$ can be expressed as
+$$\coprod_{n\geq0}X_n\times|\Delta^n|\Big/\begin{array}{c} d_i^{\,*}x\times p\sim x\times d_{i\,*}p\\ s_i^{\,*}x\times p\sim x\times s_{i\,*}p.\end{array}$$
+This topological space will be called the \textbf{geometric realization} of $X_\bullet$ and will be denoted by $|X_\bullet|$.\par
+In this context, the nerve of a topological space $X$ will be called the \textbf{singular simplicial complex} of $X$ and it is the simplicial set $\Sing_\bullet(X)$ given by $$[0,\dotsc,n]\mapsto\Hom_{\Top}(|\Delta^n|,X).$$
+\end{aex}
+
+\begin{aex}(Normalized chain complex) \label{normalized chain complex}
+Consider the embedding $\Delta\to\Ch$ of the simplicial category into the category of chains complexes sending $[0,\dotsc,n]$ to the standard chain complex $\chains(\Delta^n)$. As in the previous example the realization with respect to this functor of any $X_\bullet\in s\Set$ can be described as
+$$\bigoplus_{n\geq0}X_n\tensor\chains(\Delta^n)\Big/\begin{array}{l} d_i^{\,*}x\tensor c\sim x\tensor d_{i\,*}c\\ s_i^{\,*}x\tensor c\sim 0.\end{array}$$
+This chain complex will be called the \textbf{normalized chain complex} of $X_\bullet$.
+\end{aex}
+
+\begin{aex}(Nerve of a category)\label{nerve of a category}
+Consider the embedding $\Delta\to\Cat$ of the simplicial category into the category of small categories sending $[0,\dotsc,n]$ to the category $\underline n$ with one object for each $i\in\{0,1,...,n\}$ and one morphisms $i\to j$ whenever $i\leq j$. The \textbf{nerve of a category} $\C\in\Cat$ is the simplicial set $\mathrm N_\bullet(\C)$ defined as the nerve with respect to this functor. Explicitly $\mathrm N_\bullet(\C)$ is given by $$[0,\dotsc,n]\mapsto\Hom_{\Cat}(\underline n,\C).$$
+\end{aex}
+
+\end{document}
+

@@ -1,0 +1,71 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+In this section, the definition of an algebraic operad is presented as well as the less common notions of coalgebra over an operad and comodule over one such coalgebra.
+
+\begin{defn}(Operad \cite{May72})
+An (algebraic) \textbf{operad} consists of a collection of chain complexes $\O(n),{n\geq0}$, a collection of chain maps $$\gamma:\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k)\to\O(j_1+\dotsb+j_k),$$
+a chain map $\eta:R\to\O(1)$ and an action of the symmetric group $\Sigma_k$ on $\O(k)$ satisfying the following conditions.
+\begin{enumerate}[$O$1:]
+\item (Associativity) The following diagram commutes, where $\sum^k_{s=1}j_s=j$, $\sum^j_{r=1}i_r=i$, $g_s=j_1+\dotsb+j_s$ and $h_s=i_{g_{s-1+1}}+..+i_{g_s}$ for $1\leq s\leq k$:\\ \vspace*{-13pt}
+    $$\xymatrix@C=3.5pc{{\displaystyle\O(k)\tensor\big(\bigotimes_{s=1}^k\O(j_s)\big)\tensor\big(\bigotimes_{r=1}^j\O(i_r)\big) \ar^-{\gamma\tensor\id}[r] \ar[dd]_{\text{shuffle}}} & {\displaystyle{\O(j)\tensor\big(\bigotimes_{r=1}^j\O(i_r)\big)}} \ar[d]^{\gamma}\\ &\O(i) \\ {\displaystyle \O(k)\tensor\Big(\bigotimes_{s=1}^k\big(\O(j_s)\tensor\bigotimes_{q=1}^{j_s}\O(i_{g_s-1+q})\big)\Big) \ar_-{\id\tensor(\tensor_s\gamma)}[r]} & \displaystyle{\O(k)\tensor\big(\bigotimes_{s=1}^k\O(h_s)\big)} \ar[u]_{\gamma}.}$$
+\item (Unit) The following diagrams commute:
+    $$\xymatrix{{\displaystyle\O(k)\tensor R^k \ar[r]^-{\cong} \ar[d]_{\id\tensor\,\eta^{k}}} & \displaystyle{\O(k)} \\ \displaystyle{\O(k)\tensor\O(1)^{k} \ar_{\gamma}[ru]}, & }\hspace*{2cm}
+    \xymatrix{{\displaystyle R\tensor\O(j) \ar[r]^-{\cong} \ar[d]_{\eta\tensor\id}} & \displaystyle{\O(j)} \\ \displaystyle{\O(1)\tensor\O(j) \ar_{\gamma}[ru]}. & }$$
+\item (Equivariance) The following diagrams commute, where $\sigma\in\Sigma_k, \tau_s\in\Sigma_{j_s}$, the permutation $\sigma(j_1,\dotsc,j_k)\in\Sigma_j$ permutes $k$ blocks of letters as $\sigma$ permutes $k$ letters, and $\tau_1\oplus\dotsb\oplus\tau_k\in\Sigma_j$ is the block sum:
+    $$\xymatrix{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k) \ar^-{\sigma\tensor\sigma^{-1}}[r] \ar_{\gamma}[d] & \O(k)\tensor\O(j_{\sigma(1)})\tensor\dotsb\tensor\O(j_{\sigma(k)}) \ar[d]^{\gamma} \\ \O(j) \ar_-{\sigma(j_{\sigma(1)},\dotsc,j_{\sigma(k)})}[r] & \O(j),}$$
+    $$\xymatrix{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k) \ar^-{\sigma\tensor\sigma^{-1}}[r] \ar_{\gamma}[d] & \O(k)\tensor\O(j_{\sigma(1)})\tensor\dotsb\tensor\O(j_{\sigma(k)}) \ar[d]^{\gamma} \\ \O(j) \ar_-{\sigma(j_{\sigma(1)},\dotsc,j_{\sigma(k)})}[r] & \O(j).}$$
+\end{enumerate}
+\end{defn}
+
+\begin{defn}(Coalgebra) Let $\O$ be an operad. An $\O$\textbf{-coalgebra} is a chain complex $C$ together with chain maps
+$$\theta:\O(j)\tensor C\to C^j$$
+satisfying the following conditions.
+\begin{enumerate}[$c{A}$1:]
+\item (Associativity) Let $\sum^k_{s=1}j_s=j$, then the following diagram commutes:
+    $$\xymatrix@C=3.5pc{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k)\tensor C \ar[r]^-{\gamma\tensor \id} \ar[dd]_{\id\tensor\theta} & \O(j)\tensor C \ar[d]^\theta \\ & C^j \\
+    \O(j_1)\tensor\dotsb\tensor\O(j_k)\tensor C^k \ar[r]_-{\text{shuffle}} & \O(j_1)\tensor C\tensor\dotsb\tensor\O(j_k)\tensor C \ar[u]_{\theta^k}.
+     }$$
+\item (Unit) The following diagram commutes:
+    $$\xymatrix{{\displaystyle R\tensor C \ar[r]^-{\cong} \ar[d]_{\gamma\tensor\id}} & \displaystyle{C} \\ \displaystyle{\O(1)\tensor C \ar_{\theta}[ru]}. & }$$
+\item (Equivariance) Let $\sigma\in\Sigma_j$, then the following diagram commutes:
+    $$\xymatrix{\O(j)\tensor C \ar[r]^{\sigma\tensor\id} \ar[d]_\theta & \O(j)\tensor C \ar[d]^\theta \\
+    C^j \ar[r]_\sigma & C^j.}$$
+\end{enumerate}
+
+A \textbf{morphisms of $\O$-coalgebras} is a chain map commuting strictly with all the above structure. The category of $\O$-coalgebras will be denoted by $\coAlg_{\O}$.
+\end{defn}
+
+\begin{defn}(Comodule) Let $\O$ be an operad and $C$ an $\O$-coalgebra. A $C$\textbf{-comodule} is a chain complex $D$ together with chains maps $$\lambda:\O(j)\tensor D\to D\tensor C^{j-1}$$ satisfying the following conditions.
+\begin{enumerate}[$cM$1:]
+\item (Associativity) Let $\sum^k_{s=1}j_s=j$, then the following diagram commutes:
+    $$\xymatrix@C=3.5pc{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k)\tensor D \ar[r]^-{\gamma\tensor \id} \ar[dd]_{\id\tensor\lambda} & \O(j)\tensor M\ar[d]^\theta \\ & D\tensor C^{j-1} \\
+    \O(j_1)\tensor\dotsb\tensor\O(j_k)\tensor D\tensor C^{k-1} \ar[r]_-{\text{shuffle}} & \O(j_1)\tensor D\tensor\dotsb\tensor\O(j_k)\tensor C \ar[u]_{\lambda\tensor\theta^{k-1}}.
+     }$$
+\item (Unit) The following diagram commutes:
+    $$\xymatrix{{\displaystyle R\tensor D \ar[r]^-{\cong} \ar[d]_{\gamma\tensor\id}} & \displaystyle{D} \\ \displaystyle{\O(1)\tensor D \ar_{\theta}[ru]}. & }$$
+\item (Equivariance) Let $\sigma\in\Sigma_{j-1}\subset\Sigma_j$, then the following diagram commutes:
+    $$\xymatrix{\O(j)\tensor D \ar[r]^{\sigma\tensor\id} \ar[d]_\theta & \O(j)\tensor D \ar[d]^\theta \\
+    D\tensor C^{j-1} \ar[r]_{\id\tensor\sigma} & D\tensor C^{j-1}.}$$
+\end{enumerate}
+
+A \textbf{morphisms of $C$-comodules} is a homeomorphism of abelian groups commuting strictly with all the above structure. The category of $\O$-comodules is enriched over $\Ch$ and will be denoted by $\coMod^{\O}_{C}$.
+\end{defn}
+
+\begin{ex}
+The operad $\A$ has $\A(j)=\Z[\Sigma_j]$ with unit map equal to the identity
+and product maps dictated by the equivariance formulas. An
+$\A$-coalgebra $C$ is the same thing as a coassociative coalgebra. The operad product encodes all of
+the iterates and permutations of the coproduct of the coalgebra. A $C$-comodule $D$ in the operadic sense is an $C$-bicomodule in the classical sense. \end{ex}
+
+\begin{defn}($E_\infty$-operad \cite{KM95}) \label{E infinity operad}
+An operad $\O$ is said to be an $E_{\infty}$ operad if it satisfies:
+\begin{enumerate}[$E$1:]
+\item (Unital) $\O(0)=\Z$.
+\item ($\Sigma$-free) Each $\Sigma_j$ acts freely on $\O(j)$.
+\item (Contractible) Each $\O(j)$ has the homology of a point.
+\end{enumerate}
+\end{defn}
+
+\end{document} 
