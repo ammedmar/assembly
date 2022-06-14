@@ -29,10 +29,10 @@ By forgetting structure, $\D_\bullet\tensor_X\chains$ is also a comodule over $\
 with the notation $\Delta_n$ introduced in \ref{notation for Deltas}.
 \end{remark}
 
-\begin{thm}\label{sheaves fully-faithful to comodules}
-The differential graded functor 
-$$-\stackrel[X]{}{\tensor}\chains:\Sh(X,\Ab)_\bullet\longrightarrow\coMod^{\S(2)}_{\chains(X)}$$ 
-is full and faithful. 
+\begin{theorem}\label{sheaves fully-faithful to comodules}
+The differential graded functor
+$$-\stackrel[X]{}{\tensor}\chains:\Sh(X,\Ab)_\bullet\longrightarrow\coMod^{\S(2)}_{\chains(X)}$$
+is full and faithful.
 \begin{proof}
 Let $F:\D_\bullet\to\D'_\bullet$ be a morphisms of complexes of sheaves and assume the morphism induced by the functor $-\tensor_X\chains$ is $0$. Using canonical representatives, this implies that the abelian group homomorphism
 $$\bigoplus_{\sigma\in X}(F[\sigma]\tensor\id_{\sigma}):\bigoplus_{\sigma\in X}\D_\bullet[\sigma]\tensor\sigma\longrightarrow\bigoplus_{\sigma\in X}\D'_\bullet[\sigma]\tensor\sigma$$ is $0$, hence $F[\sigma]=0$ for each $\sigma\in X$, i.e. $F=0$.
@@ -73,43 +73,43 @@ $$f\big(d\tensor\iota^i_\bullet\sigma_i\big)\sim f_\sigma(d)\tensor\iota^i_\bull
 which implies
 $$\big(f_{\sigma_i}\circ \D_\bullet[\iota^i]\big)(d)=\big(\D'_\bullet[\iota^i] \circ f_{\sigma}\big)(d)$$ and completes the verification of equation $(\ref{to be verified})$.
 \end{proof}
-\end{thm}
+\end{theorem}
 
 \begin{remark} One can consider the functor tensor product over $X$ of the cochain functor $\cochains$ and any $\E_\bullet\in\coSh(X,\A)_\bullet$. The analogue of the results above can be proven by similar arguments, but they will not be used in this work. In particular, the category of complexes of cosheaves over $X$ can be thought of as a full subcategory of the category of modules on the $\S$-algebra of cochains on $X$.
 \end{remark}
 
 \paragraph{$L$-theory for sheaf-like $\S$-comodules}
 
-\begin{defn}(Sheaf-like comodules and duality) An $\S$-comodules $D$ over $\chains(X)$ is said to be \textbf{sheaf-like} if it is isomorphic to one of the form $\D_\bullet\tc$ with $\D_\bullet$ a projective complex of sheaves with values on the category $\Ab_{\f}$ of finitely generated abelian groups. The Ranicki duality functor, Definition \ref{Ranicki duality functors}, induces by Lemma \ref{sheaves fully-faithful to comodules} a contravariant functor on the subcategory of sheaf-like comodules. Explicitly, let $D\cong\D_\bullet\tc$ and $D'\cong\D'_\bullet\tc$ be sheaf-like and $f\in\Hom_{\coMod}(D,D')$. By Lemma \ref{sheaves fully-faithful to comodules} there exists $F\in\Hom_{\Sh}(\D,\D')$ so that $F\tc=f$. Define, abusing notation, $\T f:\T D'\to\T D$ to be $$(\T F)\tc:(\T\D')\tc\to(\T\D)\tc.$$
-\end{defn}
+\begin{definition}(Sheaf-like comodules and duality) An $\S$-comodules $D$ over $\chains(X)$ is said to be \textbf{sheaf-like} if it is isomorphic to one of the form $\D_\bullet\tc$ with $\D_\bullet$ a projective complex of sheaves with values on the category $\Ab_{\f}$ of finitely generated abelian groups. The Ranicki duality functor, Definition \ref{Ranicki duality functors}, induces by Lemma \ref{sheaves fully-faithful to comodules} a contravariant functor on the subcategory of sheaf-like comodules. Explicitly, let $D\cong\D_\bullet\tc$ and $D'\cong\D'_\bullet\tc$ be sheaf-like and $f\in\Hom_{\coMod}(D,D')$. By Lemma \ref{sheaves fully-faithful to comodules} there exists $F\in\Hom_{\Sh}(\D,\D')$ so that $F\tc=f$. Define, abusing notation, $\T f:\T D'\to\T D$ to be $$(\T F)\tc:(\T\D')\tc\to(\T\D)\tc.$$
+\end{definition}
 
 \begin{remark} \label{duality for comodules}
 The natural transformation $\varepsilon:T^2\to\id_{\Sh}$ of Lemma \ref{T^2 = id} induces an analogous natural transformation for the duality of sheaf-like comodules. In particular, the chain complex $\Hom_{\coMod}(\T D,D)$ has an action of $\Sigma_2$ given by $f\mapsto \varepsilon_{D}\circ Tf$. For any sheaf-like comodule $D=\D\tc$, Theorem \ref{sheaves fully-faithful to comodules} gives a chain isomorphism $$\Hom_{\Sh}(\T\D,\D)^{\Sigma_2}\cong\Hom_{\coMod}(\T D,D)^{\Sigma_2}.$$
 See \ref{homotopy fix points} for the definition of these complexes.
 \end{remark}
 
-\begin{defn}(Connective sheaf-like and Poincar\'e comodules)
+\begin{definition}(Connective sheaf-like and Poincar\'e comodules)
 A sheaf-like comodule is said to be \textbf{connective} if it is chain homotopy equivalent, as $\S$-comodule, to one which equals $0$ in negative degrees.
 
 An $n$-\textbf{dimensional weak Poincar\'e comodule} is a pair $(D,\varphi)$ with $D$ a connective sheaf-like comodule and $\varphi$ a cycle of degree $n$ in $\Hom_{\coMod}(\T D,D)^{\Sigma_2}$ such that $\varphi_0$ is a homology isomorphism. (See Remark \ref{homotopy fix points} for unfamiliar notation.)
 
 An $n$-\textbf{dimensional strong Poincar\'e comodule} is an $n$-dimensional weak Poincar\'e comodule $(D,\varphi)$ so that $\varphi_0$ is a chain homotopy equivalence of $\S$-comodules.
-\end{defn}
+\end{definition}
 
 \begin{notation}
 Let $f:C\to C'$ be a chain map between chain complexes. Denote the \textbf{mapping cone} of $f$ by $\Cone(f)$, i.e. the chain complex $\Sigma C\oplus C'$ with boundary defined by $(\Sigma(c)+c')\mapsto \Sigma(\partial(c))+f(c)+\partial(c')$, where $\Sigma(-)$ stands for suspension.
 \end{notation}
 
-\begin{defn}(Cobordism)\label{cobordism definition}
+\begin{definition}(Cobordism)\label{cobordism definition}
 A \textbf{weak cobordism} between $n$-dimensional weak Poincar\'e comodules $(D,\varphi)$ and $(D',\varphi')$ consists of a connective sheaf-like comodule $E$ with a degree $(n+1)$-chain $\phi\in\Hom_{\coMod}(\T E,E)^{\Sigma_2}$ and a couple of maps $f:D\to E$ and $f:D'\to E$ satisfying:
 \begin{enumerate}
 \item $\partial\phi=(f\circ\varphi\circ\T f)-(f'\circ\varphi'\circ\T f')$.
 \item $(\phi/\!\varphi)_0\stackrel{\mathrm{def}}{=}\big(\phi_0+(\varphi_0\circ\T f)+(\varphi'_0\circ\T f')\big):\T E\to\Cone(f\oplus(-f'))$ is a homology isomorphism.
 \end{enumerate}
-\end{defn}
+\end{definition}
 A \textbf{strong cobordism} between $n$-dimensional strong Poincar\'e comodules $(D,\varphi)$ and $(D',\varphi')$ is a weak cobordism between them such that $(\phi/\!\varphi)_0$ is a chain homotopy equivalence of $\S$-comodules.
 
-\begin{ex}
+\begin{example}
 The central example of a weak Poincar\'e comodule for the applications of this work comes from Construction \ref{visible symmetric complex}. Let $X$ be a simply-connected regular pseudomanifold which is an $n$-dimensional Poincar\'e duality space. By Theorem \ref{sheaves fully-faithful to comodules} and Remark \ref{duality for comodules} the image by $-\tc$ of the visible symmetric complex, denoted $(\mathrm P,\varphi_{\mathrm{P}})$, would be an $n$-dimensional weak Poincar\'e comodule if $(\varphi_{\mathrm{P}})_0$ induces a homology isomorphism.
 
 To see this is the case, recall that by definition one has for any complex of sheaves $\D_\bullet$ that $\D_\bullet\tc=\bigoplus_{\sigma\in X}\D_\bullet[\sigma]\tensor\chains[\sigma]/\!\!\sim$ and $\chains[\sigma]=\chains(\cl\sigma)$. Contracting each second factor one gets a chain map inducing an isomorphism in homology
@@ -125,34 +125,34 @@ By the previous two observations, the morphism (\ref{contracting DxC to D}) and 
 $$\xymatrix{\!\!\!\!\T\Ps\stackrel[X]{}{\tensor}\chains \ar[r]^-{(\varphi_{\mathrm{P}})_0} \ar[d] & \Ps\stackrel[X]{}{\tensor}\chains \ar[d]\\
  \cochains(X') \ar[r]_{-\cap[X']} & \chains(X')}$$
 with vertical arrows representing homology isomorphisms. Since $X'$ is a Poincar\'e duality space, the morphism $-\cap[X']$ induces an isomorphism in homology with a degree shift of $n$ and therefore, the morphism $(\varphi_{\mathrm{P}})_0$ does as well.
-\end{ex}
+\end{example}
 
-\begin{defn}
+\begin{definition}
 An ANR homology $n$-manifold is a finite dimensional absolute neighborhood retract $X$ satisfying for every $x\in X$
 $$\H_i(X,X\setminus\{x\})=\begin{cases}\Z &\text{if } i=n\\ 0 &\text{if } i\neq n. \end{cases}$$
-\end{defn}
+\end{definition}
 
-\begin{thm} \label{existence and uniqueness for hom mnfds}
+\begin{theorem} \label{existence and uniqueness for hom mnfds}
 Let $X$ be a simply-connected regular pseudomanifold which is an $n$-dimensional Poincar\'e duality space with $n>4$.
 
 For any homotopy equivalence between an ANR homology $n$-manifold and $X$, there exists a weak cobordism between a strong $n$-dimensional Poincar\'e comodule and $(\mathrm P,\varphi_{\mathrm{P}})$. Conversely, for every weak cobordism between a strong $n$-dimensional Poincar\'e comodule and $(\mathrm P,\varphi_{\mathrm{P}})$, there exists a homotopy equivalence between $X$ and an ANR homology $n$-manifold.
 
 Two such homotopy equivalences are related by an $h$-cobordism relative to boundary if and only if their corresponding strong Poincar\'e comodules are related by a strong cobordism.
-\end{thm}
+\end{theorem}
 
 In order to obtain existence and uniqueness statements for topological manifold structures on $X$ one needs to ``tame the fundamental group" of the weak cobordisms involved.
 
-\begin{defn}(Admissible cobordisms)
+\begin{definition}(Admissible cobordisms)
 Using the notation of Definition \ref{cobordism definition}, a weak cobordism is said to be \textbf{admissible} if the the mapping cone of $(\phi/\!\varphi)_0$ is chain homotopy equivalent as $\S$-comodule to a sheaf-like comodule which equals $0$ in degrees less than or equal to $1$.
-\end{defn}
+\end{definition}
 
-\begin{thm}\label{existence and uniqueness for top mnfds}
+\begin{theorem}\label{existence and uniqueness for top mnfds}
 Let $X$ be a simply-connected regular pseudomanifold which is an $n$-dimensional Poincar\'e duality space with $n>4$.
 
 For any homotopy equivalence between a topological $n$-manifold and $X$, there exists an admissible weak cobordism between a strong $n$-dimensional Poincar\'e comodule and $(\mathrm P,\varphi_{\mathrm{P}})$. Conversely, for every admissible weak cobordism between a strong $n$-dimensional Poincar\'e comodule and $(\mathrm P,\varphi_{\mathrm{P}})$, there exists a homotopy equivalence between $X$ and a topological $n$-manifold.
 
 Two such homotopy equivalences are related by an $h$-cobordism relative to boundary if and only if their corresponding strong Poincar\'e comodules are related by a strong cobordism.
-\end{thm}
+\end{theorem}
 
 \begin{remark}
 Starting with a homotopy equivalence in either of the theorems above, the weak cobordism obtained has the further property that the morphism from each of its boundary components induces an isomorphism in homology.

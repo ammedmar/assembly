@@ -129,7 +129,7 @@ For every choice of $\pi$ define an element in $\chains[0,\dotsc,n]^{\tensor r}$
 and set
 $$u[0,\dotsc,n]=\sum_\pi\varepsilon_{u,\pi}\cdot u_\pi[0,\dotsc,n]$$ with $\varepsilon_{u,\pi}$ a sign to be specified.
 
-\begin{ex} \label{Delta_0 (no signs)}
+\begin{example} \label{Delta_0 (no signs)}
 If $u=(1,2)$, the value of $u[0,1,..,n]$ is equal to
 \begin{align*}
 \xymatrix@C=1.2pc@R=1.2pc{
@@ -138,7 +138,7 @@ If $u=(1,2)$, the value of $u[0,1,..,n]$ is equal to
 &  \begin{matrix}\\ =\  \\ \end{matrix}\xymatrix@C=.01pc@R=.1pc{0& \\ 0&1 \ \dotsc \ n } \begin{matrix}\\ \ + \ \\ \end{matrix} \xymatrix@C=.01pc@R=.1pc{0& 1 &\\\ & 1 &\dotsc \ n } \begin{matrix}\\ \ + \cdots \\ \end{matrix} \begin{matrix}\\ \ + \ \\ \end{matrix} \xymatrix@C=.01pc@R=.1pc{0\ 1 \ \dotsc & n \\ & \,n,}
 \end{align*}
 with signs computed to be all positive in Example \ref{Delta_0 (the signs)}.
-\end{ex}
+\end{example}
 
 \paragraph{Signs of the $\S$-coalgebra structure}
 In order to specify the sign $\varepsilon_{u,\pi}$ one distinguishes between two types of intervals.
@@ -154,11 +154,11 @@ $$\big([0,\dotsc,n_1],[n_1,\dotsc,n_2],\dotsc,[n_{r+d-1},\dotsc,n_{r+d}]\big).$$
 Consider all internal intervals $[n_{i-1},\dotsc,n_i]$ to be the indexing set of the sum $\sum n_i$. Let this sum be the exponent of a sign $\varepsilon_{u,\pi}^{pos}$ and set
 $$\varepsilon_{u,\pi}=\varepsilon_{u,\pi}^{per}\cdot\varepsilon_{u,\pi}^{pos}.$$
 
-\begin{ex}\label{Delta_0 (the signs)}
+\begin{example}\label{Delta_0 (the signs)}
 Let $u=(1,2)$ as in Example \ref{Delta_0 (no signs)}. For any $[0,\dotsc,n]$ and any $\pi$, all signs $\varepsilon_{u,\pi}$ are positive since every $[n_{i-1},\dotsc,n_i]$ is final, so $\varepsilon_{u,\pi}^{pos}=1$, and $\varepsilon_{u,\pi}^{per}=1$ because $(1,2)$ is already in the correct order.
-\end{ex}
+\end{example}
 
-\begin{ex} \label{Delta_n on n-simplices (with signs)}
+\begin{example} \label{Delta_n on n-simplices (with signs)}
 Let $u=(\dotsc,2,1,2)$ be one of the two generators of $\S(2)_d$ and consider $[0,\dotsc,d]\in\Delta$ of the same dimension as the degree of $u$.
 
 In order to compute the coaction of $u$ on $[0,\dotsc,d]$, thought of as one of the generators of $\chains[0,\dotsc,d]$, one notices that the only choice for $\pi$ $$0=n_0\leq n_1\leq\dotsb\leq n_{r+d-1}\leq n_{r+d}=d$$ leading to a non-zero $u_{\pi}[0,\dotsc,d]$ satisfies $n_i\neq n_{i+1}$ for all  $i=1,\dotsc,d$. Because of the relation between the degree of the surjection and the dimension of the simplex, this choice is unique and given by $n_i=i-1$ for all $i=1,\dotsc,d$, in other words
@@ -176,9 +176,9 @@ so up to a sign $\varepsilon_d$ one has \vspace*{-30pt}
 
 In order to determine the sign $\varepsilon_d$ notice that only the last two intervals $[d-1,d]$ and $[d,d]$ are final with degrees $1$ and $0$ respectively. All other intervals $[i-1,i]$ are internal and have degree $2$ except for $[0,0]$ which has degree $1$. Therefore, a permutation contributes with a negative sign if and only if it exchanges $[0,0]$ and $[d-1,d]$.
 Consequently, the permutation $$(\dotsc,2,1,2)\mapsto(1,1,\dotsc,2,2)$$ induces the permutation sign $\varepsilon_d^{per}=(-1)^d$. The position sign $\varepsilon_{d}^{pos}$, determined by the internal intervals, is equal in this case to $\sum_{i=0}^{d-1}i$ so $$\varepsilon_d=\varepsilon_d^{per}\cdot\varepsilon_{d}^{pos}=(-1)^d\cdot\sum_{i=0}^{d-1}i=(-1)^{d(d+1)/2}.$$
-\end{ex}
+\end{example}
 
-\begin{ex}
+\begin{example}
 Let $u=(1,2,3,1)$ and $[0,1,2]\in\Delta$, this example will compute $u[0,1,2]$. A choice of
 $$\pi:0=n_0\leq n_1\leq n_2\leq n_3\leq n_4=2$$
 leads to a non-zero term $u_{\pi}$ if and only if $n_1\neq n_3$. The following table summarizes for such possible choices the degrees of the associated internal and final intervals, as well as the resulting permutation and position signs.
@@ -204,7 +204,7 @@ $$\xymatrix@C=1.5pc@R=1pc{
  &\t &\t \ar@{-}[r]&\t \ar@{-}[u]& \\}$$
 equals
 $$\begin{matrix} &0 &1 &2 \\ -& 0& & \\ & 0& 1&\end{matrix}\ \ \ \begin{matrix} &0 & &2 \\ +& 0& & \\ & 0& 1& 2\end{matrix}\ \ \ \begin{matrix} &0 &1 &2 \\ -& 0& 1& \\ & & 1&\end{matrix}$$\ \par$$\begin{matrix} &0 & &2 \\ +& 0& 1& \\ & & 1& 2\end{matrix}\ \ \ \begin{matrix} &0 & &2 \\ +& 0& 1& 2\\ & & & 2\end{matrix}\ \ \ \begin{matrix} &0 &1 &2 \\ -& & 1& \\ & & 1& 2\end{matrix}\ \ \ \begin{matrix} &0 &1 &2 \\ -& & 1& 2\\ & 0& &\ 2.\end{matrix}$$
-\end{ex}
+\end{example}
 
 \begin{lemma} \label{chains as S-coalgebra}
 The maps define above
@@ -215,7 +215,7 @@ This follows from part $(b)$ of Theorem 2.15 in \cite{MS03}, see also part $(b)$
 \end{proof}
 \end{lemma}
 
-\begin{defn}\label{coalgebra in normalized chains}
+\begin{definition}\label{coalgebra in normalized chains}
 As in Definition \ref{realization and nerve}, a functor can be constructed by taking the left Kan extension along the Yoneda embedding of the functor of Lemma \ref{chains as S-coalgebra}. Such functor is represented by the dotted arrow in the following commutative diagram
 $$\xymatrix{ & \coAlg_{\S}\ar[d]^{\text{forget}}\\ \sSet \ar[r]_{\chains}\ar@{-->}[ru] & \Ch}$$
 and the image of any simplicial set $X$ by this functor will be referred to as the \textbf{$\S$-coalgebra structure on} $\chains(X)$.
@@ -223,7 +223,7 @@ and the image of any simplicial set $X$ by this functor will be referred to as t
 For any $1\leq k\leq\infty$, let $\S^k(2)$ denote the suboperad generated by the arity $2$ part of the $k$-level of the filtration described in Lemma \ref{filtration by E_n}. Composing the above functor with the forgetful functor one has
 $$\xymatrix{ & \coAlg_{\S}\ar[d]^{\text{forget}}\\ \sSet \ar@{-->}[r]_-{\chains}\ar[ru]^-{\chains} & \coAlg_{\S^k(2),}}$$
 and the image of any simplicial set $X$ by this functor will be referred to as the \textbf{$\S^k(2)$-coalgebra structure on} $\chains(X)$.
-\end{defn}
+\end{definition}
 
 \begin{notation}\label{notation for Deltas}
 Let $X$ be a simplicial set and consider the $\S$-coalgebra structure on $\chains(X)$. For every surjection $u\in S(k)_\bullet$ one has an abelian group homomorphism $$\chains(X)\to\chains(X)^{\tensor k}.$$
@@ -232,4 +232,4 @@ $$\Delta_d:\chains(X)\to\chains(X)\tensor\chains(X).$$
  \end{notation}
 
 
-\end{document} 
+\end{document}

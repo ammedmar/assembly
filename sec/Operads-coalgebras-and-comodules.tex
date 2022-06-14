@@ -4,7 +4,7 @@
 
 In this section, the definition of an algebraic operad is presented as well as the less common notions of coalgebra over an operad and comodule over one such coalgebra.
 
-\begin{defn}(Operad \cite{May72})
+\begin{definition}(Operad \cite{May72})
 An (algebraic) \textbf{operad} consists of a collection of chain complexes $\O(n),{n\geq0}$, a collection of chain maps $$\gamma:\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k)\to\O(j_1+\dotsb+j_k),$$
 a chain map $\eta:R\to\O(1)$ and an action of the symmetric group $\Sigma_k$ on $\O(k)$ satisfying the following conditions.
 \begin{enumerate}[$O$1:]
@@ -17,9 +17,9 @@ a chain map $\eta:R\to\O(1)$ and an action of the symmetric group $\Sigma_k$ on 
     $$\xymatrix{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k) \ar^-{\sigma\tensor\sigma^{-1}}[r] \ar_{\gamma}[d] & \O(k)\tensor\O(j_{\sigma(1)})\tensor\dotsb\tensor\O(j_{\sigma(k)}) \ar[d]^{\gamma} \\ \O(j) \ar_-{\sigma(j_{\sigma(1)},\dotsc,j_{\sigma(k)})}[r] & \O(j),}$$
     $$\xymatrix{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k) \ar^-{\sigma\tensor\sigma^{-1}}[r] \ar_{\gamma}[d] & \O(k)\tensor\O(j_{\sigma(1)})\tensor\dotsb\tensor\O(j_{\sigma(k)}) \ar[d]^{\gamma} \\ \O(j) \ar_-{\sigma(j_{\sigma(1)},\dotsc,j_{\sigma(k)})}[r] & \O(j).}$$
 \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{defn}(Coalgebra) Let $\O$ be an operad. An $\O$\textbf{-coalgebra} is a chain complex $C$ together with chain maps
+\begin{definition}(Coalgebra) Let $\O$ be an operad. An $\O$\textbf{-coalgebra} is a chain complex $C$ together with chain maps
 $$\theta:\O(j)\tensor C\to C^j$$
 satisfying the following conditions.
 \begin{enumerate}[$c{A}$1:]
@@ -35,9 +35,9 @@ satisfying the following conditions.
 \end{enumerate}
 
 A \textbf{morphisms of $\O$-coalgebras} is a chain map commuting strictly with all the above structure. The category of $\O$-coalgebras will be denoted by $\coAlg_{\O}$.
-\end{defn}
+\end{definition}
 
-\begin{defn}(Comodule) Let $\O$ be an operad and $C$ an $\O$-coalgebra. A $C$\textbf{-comodule} is a chain complex $D$ together with chains maps $$\lambda:\O(j)\tensor D\to D\tensor C^{j-1}$$ satisfying the following conditions.
+\begin{definition}(Comodule) Let $\O$ be an operad and $C$ an $\O$-coalgebra. A $C$\textbf{-comodule} is a chain complex $D$ together with chains maps $$\lambda:\O(j)\tensor D\to D\tensor C^{j-1}$$ satisfying the following conditions.
 \begin{enumerate}[$cM$1:]
 \item (Associativity) Let $\sum^k_{s=1}j_s=j$, then the following diagram commutes:
     $$\xymatrix@C=3.5pc{\O(k)\tensor\O(j_1)\tensor\dotsb\tensor\O(j_k)\tensor D \ar[r]^-{\gamma\tensor \id} \ar[dd]_{\id\tensor\lambda} & \O(j)\tensor M\ar[d]^\theta \\ & D\tensor C^{j-1} \\
@@ -51,21 +51,21 @@ A \textbf{morphisms of $\O$-coalgebras} is a chain map commuting strictly with a
 \end{enumerate}
 
 A \textbf{morphisms of $C$-comodules} is a homeomorphism of abelian groups commuting strictly with all the above structure. The category of $\O$-comodules is enriched over $\Ch$ and will be denoted by $\coMod^{\O}_{C}$.
-\end{defn}
+\end{definition}
 
-\begin{ex}
+\begin{example}
 The operad $\A$ has $\A(j)=\Z[\Sigma_j]$ with unit map equal to the identity
 and product maps dictated by the equivariance formulas. An
 $\A$-coalgebra $C$ is the same thing as a coassociative coalgebra. The operad product encodes all of
-the iterates and permutations of the coproduct of the coalgebra. A $C$-comodule $D$ in the operadic sense is an $C$-bicomodule in the classical sense. \end{ex}
+the iterates and permutations of the coproduct of the coalgebra. A $C$-comodule $D$ in the operadic sense is an $C$-bicomodule in the classical sense. \end{example}
 
-\begin{defn}($E_\infty$-operad \cite{KM95}) \label{E infinity operad}
+\begin{definition}($E_\infty$-operad \cite{KM95}) \label{E infinity operad}
 An operad $\O$ is said to be an $E_{\infty}$ operad if it satisfies:
 \begin{enumerate}[$E$1:]
 \item (Unital) $\O(0)=\Z$.
 \item ($\Sigma$-free) Each $\Sigma_j$ acts freely on $\O(j)$.
 \item (Contractible) Each $\O(j)$ has the homology of a point.
 \end{enumerate}
-\end{defn}
+\end{definition}
 
-\end{document} 
+\end{document}

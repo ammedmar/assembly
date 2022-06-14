@@ -18,7 +18,7 @@ The only way these equations are satisfied is if all but possibly one of the coe
 
 The next definition comes from \cite{May03}.
 
-\begin{defn} The following are three properties that a simplicial set $X$ might have.
+\begin{definition} The following are three properties that a simplicial set $X$ might have.
 \begin{enumerate}[$(A)$]
 \item $X$ has property $A$ if every
 face of a non-degenerate simplex of $X$ is non-degenerate.
@@ -28,17 +28,17 @@ of any non-degenerate $n$-simplex of $X$ are distinct.
 $n+1$ distinct vertices of $X$, there is at most one non-degenerate $n$-simplex of
 $X$ whose vertices are the elements of that set.
 \end{enumerate}
-\end{defn}
+\end{definition}
 
-\begin{defn} (Based simplicial sets) A simplicial set is said to \textbf{based} if it comes with a chosen vertex $\ast$. A \textbf{based simplicial map} between based simplicial sets is a simplicial map of the underlying simplicial sets preserving the base point. Denote the category of based simplicial sets by $\sSet_\ast$ and let $(-)_+:\sSet\to\sSet_\ast$ be the functor adding a disjoint base point. Notice that $\chains(X_+,\ast)$ is isomorphic to $\chains(X)$ as $\S$-coalgebras.
-\end{defn}
+\begin{definition} (Based simplicial sets) A simplicial set is said to \textbf{based} if it comes with a chosen vertex $\ast$. A \textbf{based simplicial map} between based simplicial sets is a simplicial map of the underlying simplicial sets preserving the base point. Denote the category of based simplicial sets by $\sSet_\ast$ and let $(-)_+:\sSet\to\sSet_\ast$ be the functor adding a disjoint base point. Notice that $\chains(X_+,\ast)$ is isomorphic to $\chains(X)$ as $\S$-coalgebras.
+\end{definition}
 
 \begin{terminology}
 A functor $F:\C\to\C'$ is said to be \textbf{faithful}, respectively \textbf{full}, if for every $a,b\in\C$ the function $$\Hom_{\C}(a,b)\to\Hom_{\C'}(Fa,Fb)$$
 is injective, respectively surjective.
 \end{terminology}
 
-\begin{thm} \label{based simplicial sets embed into coalgebras}
+\begin{theorem} \label{based simplicial sets embed into coalgebras}
 Let $\sSet^{(n)}_\ast$ denote the full subcategory of $n$-dimensional based simplicial sets as described in Definition \ref{Simplicial category and simplicial sets}. Let $\S^k$ be the $E_n$-suboperad of $\S$ which is the $k$-th level of the filtration described in Lemma \ref{filtration by E_n}, see also Definition \ref{coalgebra in normalized chains}.
 \begin{enumerate}[1.]
 
@@ -52,38 +52,38 @@ Let $\sSet^{(n)}_\ast$ denote the full subcategory of $n$-dimensional based simp
 
 \item The functor\, $\chains(-,\ast):\sSet_\ast^{(n)}\to\coAlg_{\S^{n+1}(2)}$ if full when restricted to simplicial sets satisfying properties $B$ and $C$.
 \end{enumerate}
-\end{thm}
+\end{theorem}
 
 To improve the readability of this work, the proof of Theorem \ref{based simplicial sets embed into coalgebras} will be postponed until after a few corollaries are drawn from it.
 
-\begin{defn}(Ordered simplicial complexes) \label{ordered simplicial complexes}
+\begin{definition}(Ordered simplicial complexes) \label{ordered simplicial complexes}
 An \textbf{ordered simplicial complex} $X=(V,S)$ is a pair consisting of a partially ordered set $V$ and a collection $S$ of nonempty subsets of $V$ with each $s\in S$ inheriting a total order, such that $$\forall v\in V,\ [v]\in S \ \ \text{ and } \ \ s'\subset s\in S\Rightarrow s'\in S.$$
 A \textbf{map of ordered simplicial complexes} $(V,S)\to(V',S')$ is an order preserving map $F:V\to V'$ such that $$[v_1,...,v_k]\in S \Rightarrow[Fv_1,...,Fv_k]\in S'.$$ This category is denoted $\SC$ and its based version is denoted $\SC_\ast$.
-\end{defn}
+\end{definition}
 
 \begin{remark}
 The functor sending an ordered simplicial complex to the simplicial set whose non-degenerate $n$-simplices correspond to subsets in $S$ of cardinality $n-1$, and whose degenerate simplices are freely generated; is a full and faithful functor whose essential image is the full subcategory of simplicial sets satisfying properties $B$ and $C$. See \cite{MS03} for more on this. The categories $\SC$ and $\SC_\ast$ will be identified with their essential image.
 \end{remark}
 
-\begin{cor}\label{SC to coalgebras}
+\begin{corollary}\label{SC to coalgebras}
 The functor $$\chains(-,\ast):\SC_\ast\to\coAlg_{\S(2)}$$ is full and faithful.
 \begin{proof}
 Notice that an $\S(2)$-coalgebra map is in particular an $\S^k(2)$-coalgebra map for every $k>0$. By part \textit{1} of Theorem \ref{based simplicial sets embed into coalgebras}, $\chains(-,\ast):\SC_\ast\to\coAlg_{\S(2)}$ is faithful and by part \textit{5} it is full.
 \end{proof}
-\end{cor}
+\end{corollary}
 
 \begin{remark}
 A consequences of this corollary is that the category of based simplicial complexes fully embeds into that of coalgebras over an $E_\infty$-operad.
 \end{remark}
 
-\begin{cor}\label{CAT to coalgebras}
+\begin{corollary}\label{CAT to coalgebras}
 Let $\,\Cat_\ast$ be the category of pointed small categories, $\mathrm N$ the nerve functor as described in Example $\ref{nerve of a category}$, and $\pi^{(1)}$ the functor projecting to the $1$-dimensional skeleton. The composition
 $$\xymatrix{\Cat_\ast\ar[r]^{\mathrm N} & \sSet_\ast \ar[r]^{\pi^{(1)}} & \sSet_\ast^{(1)} \ar[r]^-{\chains} & \coAlg_{\S^2(2)}}$$
 is a full and faithful functor.
 \begin{proof}
 The composition $\pi^{(1)}\circ\,\mathrm N$ is a full and faithful functor, while the functor $\chains:\sSet_\ast^{(1)} \to \coAlg_{\S^2(2)}$ is faithful and full by parts \textit{1} and \textit{2} of Theorem \ref{based simplicial sets embed into coalgebras}.
 \end{proof}
-\end{cor}
+\end{corollary}
 
 \begin{remark}
 A consequences of this corollary is that the category of pointed small categories fully embeds into that of coalgebras over an $E_2$ operad.
