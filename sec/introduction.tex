@@ -1,7 +1,76 @@
-\documentclass[thesis.tex]{subfiles}
+% !TeX root = ../thesis.tex
 
-\section{Introduction}
+\subsection{Introduction} \label{ss:introduction}
 
-Steenrod's construction of higher chain approximations to the diagonal inclusion has been encoded, by several authors, as a functor from simplicial sets to their normalized chains enriched with the structure of a coalgebra over an $E_\infty$-operad. The first section of Chapter~$1$ presents the definition of an algebraic operad as well as the less common notions of coalgebra over an operad and comodule over one such coalgebra. The second section presents the specific $E_\infty$-operad $\S$ related to Steenrod's construction following the work of McClure-Smith \cite{MS03}, Berger-Fresse \cite{BF04} and others. In the last section of Chapter~1, the first of the two main technical results of this dissertation is presented as Theorem \ref{based simplicial sets embed into coalgebras}. It has as a corollary that the category of based ordered simplicial complexes embeds as a full subcategory into the category of $\S$-coalgebras. Similar results have been obtained at the level of the homotopy category by Mandell \cite{Man06}, Smirnov \cite{Smi98}, Smith \cite{Smi15} and others.
+We begin with a quote from Andrew's ``Algebraic L-theory and topological manifolds.''
+\begin{displaycquote}{ranicki1992topological}
+	Generically, \textit{assembly} is the passage from a local input to a global output.
+	The input is usually topologically invariant and the output is homotopy invariant.
+	This is the case in the original geometric assembly map of Quinn, and the algebraic L-theory assembly map defined here.
+\end{displaycquote}
+In this note, we will consider the chain complex assembly of Andrew and Michael Weiss \cite{ranicki1990assembly}, which can be extended to the L-theory assembly maps mentioned in the quote by considering chain complexes with derived Poincar\'e duality.
+The connections to assembly via stable homotopy theory \cite{weiss1995asssembly} or equivariant homotopy theory \cite{davis1998assembly} will not be discussed.
+In the context of this work, locality is encoded via a simplicial complex $X$, which for simplicity will be assumed simply connected.
+We will focus on contravariant functors from $X$, regarded as a poset category, to the category of chain complexes $\Ch$.
+The assembly of one such functor is the chain complex obtained by applying a chain homotopy colimit construction to it.
+%Andrew and Michael Weiss studied the essential image of this functor.
+%They showed that any chain complex in it is equipped with the structure of a comodule over the Alexander--Whitney coalgebra of chains on $X$.
+Andrew and Michael Weiss factored the assembly functor
+\[
+\assembly \colon \Fun(X^\op, \Ch) \to \coMod_{\chains(X)} \to \Ch
+\]
+through the category of comodules over the Alexander--Whitney coalgebra of chains on $X$, and constructed, for any such comodule $M$, a zig-zag of comodule quasi-isomorphisms
+\[
+M \to M' \leftarrow \assembly \cC.
+\]
+In this work we will focus on the chain maps induced by the assembly functor on morphism
+\[
+\Nat(\cC,\cC') \to \Ch(\assembly \cC, \assembly \cC').
+\]
+In the domain of this map the morphisms are defined locally, whereas on the target they are global in nature.
+Naturally, there are many more morphisms in the target than in the domain.
+That is to say, the assembly functor is not full.
+The purpose of this article is to describe a subcategory $\coMod^{\Sym_2}_{\chains(X)}$ of $\coMod_{\chains(X)}$ and a further factorization
+\[
+\assembly \colon \Fun(X^\op, \Ch) \to \coMod^{\Sym_2}_{\chains(X)} \to \Ch
+\]
+with the first arrow being a fully faithful functor and the second a forgetful one.
+%This construction can be interpreted as a algebraic encoding of the locality structure of functors over $X$.
 
-The first section of Chapter~2 revisits the theory of sheaves and cosheaves over posets, see \cite{Cur13}, \cite{she85} or \cite{Lad08} for other sources. It uses the connection between posets and Alexandrov topological spaces, extended in Lemma \ref{Alexandorv spaces, posets and their dualities} to a duality preserving equivalence, to emphasize the symmetry between sheaves and cosheaves over posets. This section closes with some homological algebra of such sheaves and cosheaves with values in an abelian category. In the second section of Chapter~2, the sheaf theory developed in the previous section is specialized to posets associated to ordered simplicial complexes. The notion of tensor product of functor is used to define the Ranicki duality functors of complexes of sheaves and cosheaves, whose geometry is made apparent by the pair subdivision sheaf and cosheaf. The pair subdivision sheaf is also used to define the visible symmetric complex of a regular pseudomanifold, see Construction \ref{visible symmetric complex}, which plays a central role in the application of the theory to manifold existence and uniqueness problems. The third section of Chapter~2 contains, as Theorem \ref{sheaves fully-faithful to comodules}, the second main technical result of this work. It states that the category of complexes of sheaves over an ordered simplicial complex $X$ with values in $\Ab$ embeds, as a full differential graded subcategory, into the category of comodules over the $\S$-coalgebra $\chains(X)$. This theorem is used to relate the algebraic surgery theory of Ranicki with comodules over $E_\infty$-coalgebras. In particular, Theorem \ref{existence and uniqueness for hom mnfds} and Theorem \ref{existence and uniqueness for top mnfds} provide existence and uniqueness statements for ANR homology manifold structures and topological manifold structures on the homotopy type of a Poincar\'e duality regular pseudomanifold, in terms of comodules on its $\S$-coalgebra of chains.
+Let us now motivate and describe the category $\coMod^{\Sym_2}_{\chains(X)}$.
+For Andrew's L-theory assembly functors, it is important to provide the objects in $\Fun(X^\op, \Ch)$ with derived Poincar\'e duality.
+For example, let us consider a (geometric) Poincar\'e duality complex $X$ with a preferred fundamental cycle, also denoted by $X$.
+The Alexander--Whitney diagonal $\Delta_0 \colon \chains(X) \to \chains(X) \ot \chains(X)$ defines a Poincar\'e duality chain map
+\[
+\begin{tikzcd}[column sep=tiny,row sep=0]
+	\cochains^{-k}(X) \arrow[r] & \chains_{n-k}(X) \\
+	\alpha \arrow[r,mapsto] & (\alpha \ot \id)\Delta_0(X).
+\end{tikzcd}
+\]
+We could have used $T\Delta_0$ instead of $\Delta_0$ above, where $T$ is the transposition of tensor factors, and obtained by doing so a new Poincar\'e duality chain map.
+These are different in general since $\Delta_0$ is not equal to $T \Delta_0$, but they are chain homotopic.
+Steenrod \cite{steenrod1947products} coherently systematized this situation by explicitly constructing natural ``higher diagonals'' $\Delta_i$ with $\partial \Delta_{i+1} = (1 \pm T) \Delta_i$.
+The evaluation of the fundamental cycle on this richer structure provides $\chains(X)$ with the structure of a (symmetric) algebraic Poincar\'e complex as defined by Andrew.
+
+We will focus on the Steenrod cup-$i$ coalgebra structure on $\chains(X)$ for $X$ not necessarily a Poincar\'e duality complex.
+This structure can be expressed as an $\Sym_2$-equivariant chain map
+\[
+\Delta \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
+\]
+where $W$ is the minimal free resolution of $\Z$ by $\Z[\Sym_2]$-modules.
+We will show that the assembly of any functor $\cC \colon X^\op \to \Ch$ is equipped with a chain map
+\[
+W \ot \assembly \cC \to \assembly \cC \ot \chains(X)
+\]
+specializing to the comodule structure of Andrew and Michael Weiss \cite[Proposition 5.3]{ranicki1990assembly}.
+The category $\coMod^{\Sym_2}_{\chains(X)}$ is defined using strictly commuting linear maps, i.e., those $f$ making the diagram
+\[
+\begin{tikzcd}
+	W \ot M \arrow[d, "\nabla"] \arrow[r, "\id\, \ot f"] &
+	W \ot M' \arrow[d, "\nabla"] & \\
+	M \ot \chains(X) \arrow[r, "f \ot\, \id"] &
+	M' \ot \chains(X)
+\end{tikzcd}
+\]
+commute.
+%Our result can be interpreted as an algebraic encoding, using the Steenrod cup-$i$ coalgebra, of the local nature of morphisms in the
