@@ -7,30 +7,42 @@
 \addbibresource{aux/usualpapers.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%
-
 \input{aux/commands} % add new commands
+
+%\usepackage[utf8]{inputenc}
 \addbibresource{aux/bibliography.bib} % add references
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\setcounter{subsection}{-1}
+%\usepackage{subfiles}
+%\input{aux/oldcmds}
 
-\title{Ranicki's total surgery obstruction and the Steenrod construction}
+%%%%%%%%%%%%%%%%%%%%%%
+\title{Ranicki--Weiss assembly and the Steenrod construction}
 
-\author[A.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
+\author{Anibal~M.~Medina-Mardones}
 \address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
 \email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
 
 \date{\today}
 \subjclass[2020]{TBW}
 \keywords{TBW}
+\dedicatory{In memory of Andrew Ranicki}
 
 \begin{document}
-	\subfile{sec/abstract}
+	\input{sec/abstract}
 	\maketitle
-	\subfile{sec/introduction}
-	\subfile{sec/operads}
-	\subfile{sec/surjection}
-	\subfile{sec/ssets}
-	\subfile{sec/sheaves}
-	\subfile{sec/duality}
-	\subfile{sec/top_man}
+%	Structure idea:
+%	\begin{itemize}
+%		\item Surgery, algebraization, L-groups, symmetry, Steenrod construction, Assembly, local to global structure, factor assembly with a fully faithful and a forgetful
+%	\end{itemize}
+
+	\input{sec/introduction}
+	\input{sec/acknowledgement}
+	\input{sec/body}
+%	\input{sec/proof}
+%	\input{sec/example}
+%	\appendix
+%	\input{sec/signs}
 	\sloppy
 	\printbibliography
 \end{document}
