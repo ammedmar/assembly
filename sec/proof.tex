@@ -1,8 +1,8 @@
 % !TeX root = ../thesis.tex
 
-Consider two presheaves $\cC$ and $\cC'$ over $X$ and the function
+Consider two presheaves $\cN$ and $\cN'$ over $X$ and the function
 \[
-\Fun(X^\op, \Ch)(\cC, \cC') \to \coMod^{\Sym_2}_{\chains(X)}(\assembly \cC, \assembly \cC').
+\Fun(X^\op, \Ch)(\cN, \cN') \to \coMod^{\Sym_2}_{\chains(X)}(\assembly \cN, \assembly \cN').
 \]
 induced by the assembly functor.
 We will show this to be a bijection.
@@ -10,23 +10,23 @@ We will show this to be a bijection.
 For a simplex $x$ in $X$ we write throughout this proof $x$ for both the basis element it represents in $\chains(X)$ and in $\chains(\bar x)$ which corresponds to the identity $(x \to x)$.
 
 We start by showing that the chain map above is injective.
-Consider a morphism of presheaves $F \colon \cC \to \cC'$ with $\assembly F = 0$.
-For each simplex $x$ choose a basis $B_x$ of $\cC_x$ and notice that
+Consider a morphism of presheaves $F \colon \cN \to \cN'$ with $\assembly F = 0$.
+For each simplex $x$ choose a basis $B_x$ of $\cN_x$ and notice that
 \[
 B = \set[\big]{[x \ot b] \mid x \in X, b \in B_x}
 \]
-is a basis for $\assembly \cC$.
+is a basis for $\assembly \cN$.
 By assumption we have $\assembly F [x \ot b] = [x \ot F_x(b)] = 0$ for each $[x \ot b] \in B$, which implies $F_x(b) = 0$ and consequently $F = 0$.
 
 Let us now move to surjectivity.
-Consider a morphism of comodules $f \colon \assembly \cC \to \assembly \cC'$.
-We will construct a morphisms f presheaves $F \colon \cC \to \cC'$ such that $\assembly F = f$.
-Consider $x \in X$, $c \in \cC[x]$ and the class $[x \ot c] \in \assembly \cC$.
+Consider a morphism of comodules $f \colon \assembly \cN \to \assembly \cN'$.
+We will construct a morphisms f presheaves $F \colon \cN \to \cN'$ such that $\assembly F = f$.
+Consider $x \in X$, $c \in \cN[x]$ and the class $[x \ot c] \in \assembly \cN$.
 Its image under $f$ is of the form
 \[
 f[x \ot c] = \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda]
 \]
-where $x_\lambda \in X$ and $c_\lambda \in \cC'[x_\lambda]$.
+where $x_\lambda \in X$ and $c_\lambda \in \cN'[x_\lambda]$.
 We will first show that for each $\lambda$ in the (finite) sum above $\bars{x_\lambda} \leq \bars{x}$.
 Let $i = \max \set[\big]{\bars{x_\lambda} : \lambda \in \Lambda}$ and $\Lambda_i = \set[\big]{\lambda \in \Lambda : \bars{x_\lambda} = i}$.
 Notice that $\Delta_i(x_{\lambda}) = x_{\lambda} \ot x_{\lambda}$ for $\lambda \in \Lambda_i$ and $\Delta_i(x_{\lambda}) = 0$ for $\lambda \notin \Lambda_i$.
@@ -64,9 +64,9 @@ from which the claim follows.
 Denoting $c_\lambda$ by $c'$ we have that $f \big( [x \ot c] \big) = [x \ot c']$, which we use to define $F_x(c) = c'$.
 
 We will next verify that $F$ is a well defined morphism of presheaves.
-That is to say, that for any morphism $x \to y$ and $c \in \cC_y$ we have
+That is to say, that for any morphism $x \to y$ and $c \in \cN_y$ we have
 \[
-\cC'_{x \to y} \circ F_y(c) = F_x \circ \cC_{x \to y}(c).
+\cN'_{x \to y} \circ F_y(c) = F_x \circ \cN_{x \to y}(c).
 \]
 It suffices to consider morphisms $d_u x \to x$ where $d_u x$ is obtained by removing the vertex of $x$ in position $u$.
 Let $i = \bars{x}-1$ so that
@@ -79,29 +79,29 @@ Therefore, on one hand we have that $(\id \ot f) \circ \nabla_i [x \ot c]$ is eq
 \begin{align*}
 %	&\sum_{u \text{ even}} \pm f [c \ot \face_u(x) \to x] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, f [c \ot x] \ot \face_u(x) \\ =
-%	&\sum_{u \text{ even}} \pm f [\cC_{\face_u(x) \to x}(c) \ot \face_u(x)] \ot x \ +
+%	&\sum_{u \text{ even}} \pm f [\cN_{\face_u(x) \to x}(c) \ot \face_u(x)] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, f [c \ot x] \ot \face_u(x) \\ =
-	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cC_{\face_u(x) \to x}(c)'] \ +
+	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cN_{\face_u(x) \to x}(c)'] \ +
 	\sum_{u \text{ odd}} \pm \, \face_u(x) \ot [x \ot c'],
 \end{align*}
 while on the other that $\nabla_i \circ f [x \ot c] = \nabla_i [x \ot c']$ is equal to
 \begin{align*}
 %	&\sum_{u \text{ even}} \pm [c' \ot \face_u(x) \to x] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, [c' \ot x] \ot \face_u(x) \\
-	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cC'_{\face_u(x) \to x}(c')] \ +
+	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cN'_{\face_u(x) \to x}(c')] \ +
 	\sum_{u \text{ odd}} \pm \, \face_u(x) \ot [x \ot c'].
 \end{align*}
 Putting these together it follows that
 \[
-	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cC_{\face_u(x) \to x}(c)'] \ =
-	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cC'_{\face_u(x) \to x}(c')]
+	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cN_{\face_u(x) \to x}(c)'] \ =
+	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cN'_{\face_u(x) \to x}(c')]
 \]
 and, consequently, that for $u$ even
 \begin{align*}
-	F_{\face_u(x)} \circ \cC_{\face_u(x) \to x}(c) &=
-	\cC_{\face_u(x) \to x}(c)' =
-	\cC'_{\face_u(x) \to x}(c') \\ &=
-	\cC'_{\face_u(x) \to x} \circ F_{x}(c)
+	F_{\face_u(x)} \circ \cN_{\face_u(x) \to x}(c) &=
+	\cN_{\face_u(x) \to x}(c)' \\ &=
+	\cN'_{\face_u(x) \to x}(c') \\ &=
+	\cN'_{\face_u(x) \to x} \circ F_{x}(c)
 \end{align*}
 as desired.
 For $u$ odd we repeat the same argument using $\nabla_i^T$ instead of $\nabla_i$.

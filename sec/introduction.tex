@@ -19,13 +19,13 @@ Andrew and M. Weiss factored the assembly functor
 \[
 \assembly \colon \Fun(X^\op, \Ch) \to \coMod_{\chains(X)} \to \Ch
 \]
-through the category of comodules over the Alexander--Whitney coalgebra of chains on $X$, and constructed, for any such comodule $M$, a zig-zag of comodule quasi-isomorphisms
+through the category of comodules over the Alexander--Whitney coalgebra of chains on $X$, and constructed, for any finite such comodule $N$, a zig-zag of comodule quasi-isomorphisms
 \[
-M \to M' \leftarrow \assembly \cC.
+N \to N' \leftarrow \assembly \cN.
 \]
 In this work we will focus on the chain maps induced by the assembly functor on the chain complexes of morphism
 \[
-\Fun(X^\op,\Ch)(\cC,\cC') \to \Ch(\assembly \cC, \assembly \cC').
+\Fun(X^\op,\Ch)(\cN,\cN') \to \Ch(\assembly \cN, \assembly \cN').
 \]
 In the domain of this map the morphisms are defined locally, whereas on the target they are global in nature.
 Naturally, there are many more morphisms in the target than in the domain.
@@ -61,22 +61,22 @@ This structure can be expressed as an $\Sym_2$-equivariant chain map
 \Delta \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
 \]
 where $W$ is the minimal free resolution of $\Z$ by $\Z[\Sym_2]$-modules.
-We will show that the assembly of any functor $\cC \colon X^\op \to \Ch$ is equipped with a chain map
+We will show that the assembly of any functor $\cN \colon X^\op \to \Ch$ is equipped with a chain map
 \[
-W \ot \assembly \cC \to \chains(X) \ot \assembly \cC
+W \ot \assembly \cN \to \chains(X) \ot \assembly \cN
 \]
 specializing to the comodule structure of Andrew and Michael Weiss \cite[Proposition 5.3]{ranicki1990assembly}.
 The category $\coMod^{\Sym_2}_{\chains(X)}$ is defined using strictly commuting linear maps, i.e., those $f$ making the diagram
 \[
 \begin{tikzcd}
-	W \ot M \arrow[d, "\nabla"] \arrow[r, "\id\, \ot f"] &
-	W \ot M' \arrow[d, "\nabla"] & \\
-	\chains(X) \ot M \arrow[r, "f \ot\, \id"] &
-	\chains(X) \ot M'
+	W \ot N \arrow[d, "\nabla"] \arrow[r, "\id\, \ot f"] &
+	W \ot N' \arrow[d, "\nabla"] & \\
+	\chains(X) \ot N \arrow[r, "f \ot\, \id"] &
+	\chains(X) \ot N'
 \end{tikzcd}
 \]
 commute.
-We can now state the theorem of this paper.
+We can now state the contribution of this paper.
 
 \begin{theorem*}
 	Let $X$ be a simply-connected simplicial complex.
@@ -87,5 +87,5 @@ We can now state the theorem of this paper.
 	with the first arrow a fully faithful functor and the second a forgetful one.
 \end{theorem*}
 
-This statement is 1-categorical, and it is intended to model the local properties of $\Fun(X^\op,\Ch)$ algebraically.
-The $(\infty,1)$-categorical version will be discussed in future work.
+This statement is 1-categorical, the $(\infty,1)$-categorical version will be discussed in future work.
+This result is intended to model the local properties of $\Fun(X^\op,\Ch)$ algebraically, serving as a possible step in the path connecting algebraic models of homotopy types \cite{quillen1969rational, sullivan1977infinitesimal,mandell2001padic} and Andrew's total surgery obstruction for topological manifold structures on them \cite{ranicki1979obstruction,ranicki1992topological,macko2013obstruction}.
