@@ -2,7 +2,7 @@
 
 Consider two presheaves $\cC$ and $\cC'$ over $X$ and the function
 \[
-\Fun(X^\op, \Ch_\k)(\cC, \cC') \to \coMod^{\Sym_2}_{\chains(X;\, \k)}(\assembly \cC, \assembly \cC').
+\Fun(X^\op, \Ch)(\cC, \cC') \to \coMod^{\Sym_2}_{\chains(X)}(\assembly \cC, \assembly \cC').
 \]
 induced by the assembly functor.
 We will show this to be a bijection.
@@ -13,18 +13,18 @@ We start by showing that the chain map above is injective.
 Consider a morphism of presheaves $F \colon \cC \to \cC'$ with $\assembly F = 0$.
 For each simplex $x$ choose a basis $B_x$ of $\cC_x$ and notice that
 \[
-B = \set[\big]{[b \ot x] \mid x \in X, b \in B_x}
+B = \set[\big]{[x \ot b] \mid x \in X, b \in B_x}
 \]
 is a basis for $\assembly \cC$.
-By assumption we have $\assembly F [b \ot x] = [F_x(b) \ot x] = 0$ for each $[b \ot x] \in B$, which implies $F_x(b) = 0$ and consequently $F = 0$.
+By assumption we have $\assembly F [x \ot b] = [x \ot F_x(b)] = 0$ for each $[x \ot b] \in B$, which implies $F_x(b) = 0$ and consequently $F = 0$.
 
 Let us now move to surjectivity.
 Consider a morphism of comodules $f \colon \assembly \cC \to \assembly \cC'$.
 We will construct a morphisms f presheaves $F \colon \cC \to \cC'$ such that $\assembly F = f$.
-Consider $x \in X$, $c \in \cC[x]$ and the class $[c \ot x] \in \assembly \cC$.
+Consider $x \in X$, $c \in \cC[x]$ and the class $[x \ot c] \in \assembly \cC$.
 Its image under $f$ is of the form
 \[
-f[c \ot x] = \sum_{\lambda \in \Lambda} \, [c_\lambda \ot x_\lambda]
+f[x \ot c] = \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda]
 \]
 where $x_\lambda \in X$ and $c_\lambda \in \cC'[x_\lambda]$.
 We will first show that for each $\lambda$ in the (finite) sum above $\bars{x_\lambda} \leq \bars{x}$.
@@ -36,32 +36,32 @@ Assume $i > \bars{x}$ so $\Delta_i(x) = 0$.
 Therefore,
 \begin{align*}
 	0 =
-	(f \ot \id) \circ \nabla_i [c \ot x] =
-	\nabla_i \sum_{\lambda \in \Lambda} \, [c_\lambda \ot x_\lambda] =
-	\sum_{\lambda \in \Lambda_i} \, [c_{\lambda} \ot x_{\lambda}] \ot x_{\lambda},
+	(\id \ot f) \circ \nabla_i [x \ot c] =
+	\nabla_i \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda] =
+	\sum_{\lambda \in \Lambda_i} \, x_\lambda \ot [x_\lambda \ot c_\lambda],
 \end{align*}
-which implies $[c_{\lambda} \ot x_{\lambda}] = 0$ and consequently $c_{\lambda} = 0$ for each $\lambda \in \Lambda_i$.
+which implies $[x_\lambda \ot c_\lambda] = 0$ and consequently $c_{\lambda} = 0$ for each $\lambda \in \Lambda_i$.
 
 We will now show that $\Lambda$ has a single element $\lambda$ with $x_\lambda = x$.
 Let $i = \bars{x}$, so
 \begin{equation*} % \label{e:first in surjectivity}
-	(f \ot \id) \circ \nabla_i \big( [c \ot x] \big) =
-	f \big( [c \ot x] \big) \ot x =
-	\sum_{\lambda \in \Lambda} \, [c_\lambda \ot x_\lambda] \ot x
+	(\id \ot f) \circ \nabla_i \big( [x \ot c] \big) =
+	x \ot f \big( [x \ot c] \big) =
+	\sum_{\lambda \in \Lambda} \, x \ot [x_\lambda \ot c_\lambda]
 \end{equation*}
 and
 \begin{equation*} % \label{e:second in surjectivity}
-	\nabla_i \circ f \big( [c \ot x] \big) =
-	\sum_{\lambda \in \Lambda_i} \, [c_\lambda \ot x_\lambda] \ot x_\lambda.
+	\nabla_i \circ f \big( [x \ot c] \big) =
+	\sum_{\lambda \in \Lambda_i} \, x_\lambda \ot [x_\lambda \ot c_\lambda].
 \end{equation*}
 Consequently
 \[
-\sum_{\lambda \in \Lambda} \, [c_\lambda \ot x_\lambda] \ot x =
-\sum_{\lambda \in \Lambda_i} \, [c_\lambda \ot x_\lambda] \ot x_\lambda,
+\sum_{\lambda \in \Lambda} \, x \ot [x_\lambda \ot c_\lambda] =
+\sum_{\lambda \in \Lambda_i} \, x_\lambda \ot [x_\lambda \ot c_\lambda],
 \]
 from which the claim follows.
 %The comodule property of $f$ implies the elements in \cref{e:first in surjectivity,e:second in surjectivity} are equal, from which it follows that $\Lambda$ contains a single element $\lambda$ and $x_{\lambda} = x$.
-Denoting $c_\lambda$ by $c'$ we have that $f \big( [c \ot x] \big) = [c' \ot x]$, which we use to define $F_x(c) = c'$.
+Denoting $c_\lambda$ by $c'$ we have that $f \big( [x \ot c] \big) = [x \ot c']$, which we use to define $F_x(c) = c'$.
 
 We will next verify that $F$ is a well defined morphism of presheaves.
 That is to say, that for any morphism $x \to y$ and $c \in \cC_y$ we have
@@ -75,26 +75,26 @@ Let $i = \bars{x}-1$ so that
 \sum_{u \text{ even}} \pm \face_u(x) \ot x \ +
 \sum_{u \text{ odd}} \pm \, x \ot \face_u(x).
 \]
-Therefore, on one hand we have that $(f \ot \id) \circ \nabla_i [c \ot x]$ is equal to
+Therefore, on one hand we have that $(\id \ot f) \circ \nabla_i [x \ot c]$ is equal to
 \begin{align*}
 %	&\sum_{u \text{ even}} \pm f [c \ot \face_u(x) \to x] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, f [c \ot x] \ot \face_u(x) \\ =
 %	&\sum_{u \text{ even}} \pm f [\cC_{\face_u(x) \to x}(c) \ot \face_u(x)] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, f [c \ot x] \ot \face_u(x) \\ =
-	&\sum_{u \text{ even}} \pm [\cC_{\face_u(x) \to x}(c)' \ot \face_u(x)] \ot x \ +
-	\sum_{u \text{ odd}} \pm \, [c' \ot x] \ot \face_u(x),
+	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cC_{\face_u(x) \to x}(c)'] \ +
+	\sum_{u \text{ odd}} \pm \, \face_u(x) \ot [x \ot c'],
 \end{align*}
-while the other that $\nabla_i \circ f [c \ot x] = \nabla_i [c' \ot x]$ is equal to
+while on the other that $\nabla_i \circ f [x \ot c] = \nabla_i [x \ot c']$ is equal to
 \begin{align*}
 %	&\sum_{u \text{ even}} \pm [c' \ot \face_u(x) \to x] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, [c' \ot x] \ot \face_u(x) \\
-	&\sum_{u \text{ even}} \pm [\cC'_{\face_u(x) \to x}(c') \ot \face_u(x)] \ot x \ +
-	\sum_{u \text{ odd}} \pm \, [c' \ot x] \ot \face_u(x).
+	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cC'_{\face_u(x) \to x}(c')] \ +
+	\sum_{u \text{ odd}} \pm \, \face_u(x) \ot [x \ot c'].
 \end{align*}
 Putting these together it follows that
 \[
-\sum_{u \text{ even}} \pm [\cC_{\face_u(x) \to x}(c)' \ot \face_u(x)] \ =
-\sum_{u \text{ even}} \pm [\cC'_{\face_u(x) \to x}(c') \ot \face_u(x)]
+	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cC_{\face_u(x) \to x}(c)'] \ =
+	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cC'_{\face_u(x) \to x}(c')]
 \]
 and, consequently, that for $u$ even
 \begin{align*}
