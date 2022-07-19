@@ -16,27 +16,28 @@ For each simplex $x$ choose a basis $B_x$ of $\cN_x$ and notice that
 B = \set[\big]{[x \ot b] \mid x \in X, b \in B_x}
 \]
 is a basis for $\assembly \cN$.
-By assumption we have $\assembly F [x \ot b] = [x \ot F_x(b)] = 0$ for each $[x \ot b] \in B$, which implies $F_x(b) = 0$ and consequently $F = 0$.
+By assumption we have $\assembly F [x \ot b] \defeq [x \ot F_x(b)] = 0$ for each $[x \ot b] \in B$, which implies $F_x(b) = 0$ and consequently $F = 0$.
 
 Let us now move to surjectivity.
 Consider a morphism of comodules $f \colon \assembly \cN \to \assembly \cN'$.
-We will construct a morphisms f presheaves $F \colon \cN \to \cN'$ such that $\assembly F = f$.
-Consider $x \in X$, $c \in \cN[x]$ and the class $[x \ot c] \in \assembly \cN$.
+We will construct a morphism of presheaves $F \colon \cN \to \cN'$ such that $\assembly F = f$.
+Consider $x \in X$, $c \in \cN_x$ and the class $[x \ot c] \in \assembly \cN$.
 Its image under $f$ is of the form
 \[
-f[x \ot c] = \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda]
+f \big( [x \ot c] \big) = \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda]
 \]
-where $x_\lambda \in X$ and $c_\lambda \in \cN'[x_\lambda]$.
-We will first show that for each $\lambda$ in the (finite) sum above $\bars{x_\lambda} \leq \bars{x}$.
+where $x_\lambda \in X$ and $c_\lambda \in \cN'_{x_\lambda}$.
+We will first show that for each $\lambda$ in the (finite) sum above the dimensions satisfy $\bars{x_\lambda} \leq \bars{x}$.
 Let $i = \max \set[\big]{\bars{x_\lambda} : \lambda \in \Lambda}$ and $\Lambda_i = \set[\big]{\lambda \in \Lambda : \bars{x_\lambda} = i}$.
 Notice that $\Delta_i(x_{\lambda}) = x_{\lambda} \ot x_{\lambda}$ for $\lambda \in \Lambda_i$ and $\Delta_i(x_{\lambda}) = 0$ for $\lambda \notin \Lambda_i$.
-Assume $i > \bars{x}$ so $\Delta_i(x) = 0$.
+Assume $i > \bars{x}$ so that $\Delta_i(x) = 0$.
 %and considering $\nabla_i$.
 %The comodule map property of $f$ implies, since , that
 Therefore,
 \begin{align*}
 	0 =
 	(\id \ot f) \circ \nabla_i [x \ot c] =
+	\nabla_i \circ f \big( [x \ot c] \big) =
 	\nabla_i \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda] =
 	\sum_{\lambda \in \Lambda_i} \, x_\lambda \ot [x_\lambda \ot c_\lambda],
 \end{align*}
@@ -68,7 +69,7 @@ That is to say, that for any morphism $x \to y$ and $c \in \cN_y$ we have
 \[
 \cN'_{x \to y} \circ F_y(c) = F_x \circ \cN_{x \to y}(c).
 \]
-It suffices to consider morphisms $d_u x \to x$ where $d_u x$ is obtained by removing the vertex of $x$ in position $u$.
+It suffices to consider morphisms $\face_u x \to x$ where $\face_u x$ is obtained by removing the vertex of $x$ in position $u$.
 Let $i = \bars{x}-1$ so that
 \[
 \Delta_i(x) \ =
@@ -84,7 +85,7 @@ Therefore, on one hand we have that $(\id \ot f) \circ \nabla_i [x \ot c]$ is eq
 	&\sum_{u \text{ even}} \pm x \ot [\face_u(x) \ot \cN_{\face_u(x) \to x}(c)'] \ +
 	\sum_{u \text{ odd}} \pm \, \face_u(x) \ot [x \ot c'],
 \end{align*}
-while on the other that $\nabla_i \circ f [x \ot c] = \nabla_i [x \ot c']$ is equal to
+while on the other that $\nabla_i \circ f \big( [x \ot c] \big) = \nabla_i [x \ot c']$ is equal to
 \begin{align*}
 %	&\sum_{u \text{ even}} \pm [c' \ot \face_u(x) \to x] \ot x \ +
 %	\sum_{u \text{ odd}} \pm \, [c' \ot x] \ot \face_u(x) \\

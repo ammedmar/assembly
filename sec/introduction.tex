@@ -23,6 +23,7 @@ through the category of comodules over the Alexander--Whitney coalgebra of chain
 \[
 N \to N' \leftarrow \assembly \cN.
 \]
+
 In this work we will focus on the chain maps induced by the assembly functor on the chain complexes of morphism
 \[
 \Fun(X^\op,\Ch)(\cN,\cN') \to \Ch(\assembly \cN, \assembly \cN').
@@ -50,7 +51,7 @@ The Alexander--Whitney diagonal $\Delta_0 \colon \chains(X) \to \chains(X) \ot \
 	\alpha \arrow[r,mapsto] & (\alpha \ot \id)\Delta_0(X).
 \end{tikzcd}
 \]
-We could have used $T\Delta_0$ instead of $\Delta_0$ above, where $T$ is the transposition of tensor factors, and obtained by doing so a new Poincar\'e duality quasi-isomorphism.
+We could have used $T\Delta_0$ instead of $\Delta_0$ above, where $T$ is the transposition of tensor factors, and by doing so obtained a new Poincar\'e duality quasi-isomorphism.
 These are different in general since $\Delta_0$ is not equal to $T \Delta_0$, but they are chain homotopic.
 Steenrod \cite{steenrod1947products} coherently systematized this situation by explicitly constructing natural ``higher diagonals'' $\Delta_i$ with $\partial \Delta_{i+1} = (1 \pm T) \Delta_i$.
 The evaluation of the fundamental cycle on this richer structure provides $\chains(X)$ with the structure of a (symmetric) algebraic Poincar\'e complex as defined by Andrew.
@@ -65,8 +66,8 @@ We will show that the assembly of any functor $\cN \colon X^\op \to \Ch$ is equi
 \[
 W \ot \assembly \cN \to \chains(X) \ot \assembly \cN
 \]
-specializing to the comodule structure of Andrew and Michael Weiss \cite[Proposition 5.3]{ranicki1990assembly}.
-The category $\coMod^{\Sym_2}_{\chains(X)}$ is defined using strictly commuting linear maps, i.e., those $f$ making the diagram
+specializing to the comodule structure of Andrew and M. Weiss \cite[Proposition~5.3]{ranicki1990assembly}.
+This is the data of an object in the category $\coMod^{\Sym_2}_{\chains(X)}$, a morphisms is a linear map $f \colon N \to N'$ making the diagram
 \[
 \begin{tikzcd}
 	W \ot N \arrow[d, "\nabla"] \arrow[r, "\id\, \ot f"] &
@@ -80,12 +81,12 @@ We can now state the contribution of this paper.
 
 \begin{theorem*}
 	Let $X$ be a simply-connected simplicial complex.
-	The Ranicki--Weiss assembly functor to comodules over the Alexander--Whitney coalgebra factors through comodules over the Steenrod cup-$i$ coalgebra
+	The Ranicki--Weiss assembly functor to comodules over the Alexander--Whitney coalgebra of $X$ factors through comodules over its Steenrod cup-$i$ coalgebra
 	\[
 	\Fun(X^\op, \Ch) \to \coMod^{\Sym_2}_{\chains(X)} \to \coMod_{\chains(X)}
 	\]
 	with the first arrow a fully faithful functor and the second a forgetful one.
 \end{theorem*}
 
-This statement is 1-categorical, the $(\infty,1)$-categorical version will be discussed in future work.
-This result is intended to model the local properties of $\Fun(X^\op,\Ch)$ algebraically, serving as a possible step in the path connecting algebraic models of homotopy types \cite{quillen1969rational, sullivan1977infinitesimal,mandell2001padic} and Andrew's total surgery obstruction for topological manifold structures on them \cite{ranicki1979obstruction,ranicki1992topological,macko2013obstruction}.
+This statement is 1-categorical, the $(\infty,1)$-categorical version will be discussed elsewhere.
+The goal of the theorem above is to provide an algebraic model of the local properties of $\Fun(X^\op,\Ch)$, serving as a possible step in the path connecting algebraic models of homotopy types \cite{quillen1969rational, sullivan1977infinitesimal,mandell2001padic} and Andrew's total surgery obstruction for topological manifold structures \cite{ranicki1979obstruction,ranicki1992topological,macko2013obstruction}.

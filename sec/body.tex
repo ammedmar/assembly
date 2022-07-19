@@ -48,7 +48,7 @@ The examples we will encounter are equipped with an augmentation $\varepsilon \c
 
 A strict infinity category is the limiting concept obtained from the recursive definition of an $n$-category as a category enriched in $(n-1)$-categories.
 Building on ideas from \cite{brown1981cubes, kapranov1991polycategory, steiner2004omega}, in \cite{medina2020globular} a functor from a full subcategory of symmetric coalgebras to strict infinity categories was constructed and shown to be an equivalence onto a full subcategory recently characterized intrinsically in \cite{ozornova2022steiner}.
-Additionally, this functor applied to the symmetric coalgebras of standard simplices defined by Steenrod and recalled in \cref{ss:cup-i}, yield Street's orientals \cite{street1987orientals} defining the nerve of infinity categories.
+Additionally, this functor applied to the symmetric coalgebras of standard simplices defined by Steenrod and recalled in \cref{ss:cup-i} defines the nerve of infinity categories \cite{street1987orientals}.
 
 %\subsection{Simplicial chains}
 
@@ -60,7 +60,7 @@ Additionally, this functor applied to the symmetric coalgebras of standard simpl
 %where $\face_u(x)$ is the simplex obtained from $x$ by removing its vertex in position $u$.
 
 
-\subsection{Alexander--Whitney coproduct} \label{ss:aw diagonal}
+\subsection{Alexander--Whitney} \label{ss:aw}
 
 The \textit{Alexander--Whitney coproduct}
 \[
@@ -104,7 +104,7 @@ is defined on a basis element $[v_0, \dots, v_n]$ by
 %(\Delta_0 \ot \, \id) \circ \Delta_0^k = (\id \ot \Delta_0) \circ \Delta_0^k.
 %\]
 
-\subsection{The join product}
+\subsection{Join}
 
 The \textit{join product}
 \[
@@ -141,8 +141,9 @@ be the $\Sym_2$-equivariant chain map determined by the linear maps $\Delta_i = 
 	\copr_i =
 	(\ast \ot \id) \circ (\id \ot T\copr_{i-1}) \circ \copr_0.
 \end{equation*}
+
 We refer to \cite{real1996computability, gonzalez-diaz1999steenrod, mcclure2003multivariable, medina2021fast_sq} for alternative descriptions of cup-$i$ coproducts, all shown to be equivalent to Steenrod's original via an axiomatic characterization \cite{medina2022axiomatic}.
-These cup-$i$ coproducts seem to be combinatorially fundamental, being constructed from the convex geometry of the standard simplex $\gsimplex^n$ in $\R^n$ given a generic orthonormal basis \cite{medina2022fib_poly}.
+These axiomatized cup-$i$ coproducts seem to be combinatorially fundamental, being constructed from the convex geometry of the standard simplex $\gsimplex^n$ in $\R^n$ given a generic orthonormal basis \cite{medina2022fib_poly}.
 
 \subsection{Special cases}
 
@@ -155,16 +156,16 @@ For a basis element $x$ of $\chains(X)_n$ and $i > n$ we have:
 	\sum_{u \text{ even}} \pm \face_u(x) \ot x \ +
 	\sum_{u \text{ odd}} \pm \, x \ot \face_u(x),
 \end{align}
-where $\pm$ stands for an unspecified sign.
+where $\pm$ stands for an unspecified sign and $\face_u [v_0,\dots,v_n] = [v_0,\dots,\widehat{v}_u,\dots,v_n]$.
 
 \subsection{Remark on Steenrod squares} \label{ss:steenrod squares}
 
 We mention that Steenrod's introduction of the cup-$i$ coproducts $\Delta_i$ was motivated by the desire to construct finer invariants on the cohomology of spaces with mod 2 coefficients.
 These are the celebrated \textit{Steenrod squares}
 \[
-Sq^k \colon H(X; \Ftwo) \to \colon H(X; \Ftwo)
+Sq^k \colon H^\bullet(X; \Ftwo) \to H^\bullet(X; \Ftwo)
 \]
-defined on a class $[\alpha]$ represented by a cocycle $\alpha$ of cohomological degree $n$ by
+defined on a class $[\alpha]$ of cohomological degree $n$ represented by a cocycle $\alpha$ by
 \[
 Sq^k [\alpha] = \big[ (\alpha \ot \alpha) \Delta_{n-k}(-) \big].
 \]
@@ -174,7 +175,8 @@ Sq^k [\alpha] = \big[ (\alpha \ot \alpha) \Delta_{n-k}(-) \big].
 Although we do not use the following fact in this work, we mention that the cup-$i$ coproducts of Steenrod are part of much larger structure derived from the diagonal of spaces; that of an $E_\infty$-coalgebra structure.
 Explicitly, this structure is given by all maps $\chains(X) \to \chains(X)^{\ot r}$ for any $r > 0$ obtained from compositions of the Alexander--Whitney coproduct and the join product.
 The underlying model for the $E_\infty$-operad use in this statement is presented in \cite{medina2020prop1, medina2021prop2}.
-We mention that this $E_\infty$-coalgebra structure on simplicial chains is compatible with the $E_\infty$-coalgebras of McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial}, and that analogues of the cup-$i$ coproducts for higher values of $r$ were defined in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
+We mention that this $E_\infty$-coalgebra structure on simplicial chains is compatible with the $E_\infty$-coalgebras of McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial}.
+We also mention that analogues of the cup-$i$ coproducts for odd prime values of $r$ were defined in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
 
 \subsection{Comodules}
 
@@ -191,7 +193,7 @@ The examples of comodules that we will construct make the following diagram comm
 	N \ot C \ot C,
 \end{tikzcd}
 \]
-but we do need this additional property for our theorem (see \cref{ss:full embedding}).
+but this additional property is not needed for our theorem.
 We will denote by $\coMod_C^{\Sym_2}$ the category of such comodules with strict morphisms, i.e. linear maps $f \colon N \to N'$ making the following diagram
 \[
 \begin{tikzcd}
@@ -285,6 +287,9 @@ $\beta_\lambda = \pm \alpha_\lambda$ with the sign of the transposition of $x_\l
 	\end{align*}
 	so $\nabla$ is well defined.
 \end{proof}
+
+A similar construction making $\assembly \cN$ into a comodule over the Alexander--Whitney coalgebra of a simply-connected $X$ is given by Andrew and M. Weiss in \cite[Proposition~5.3]{ranicki1990assembly}.
+It is clear that $\nabla_0$ as defined above agrees with their coaction in this case.
 
 \subsection{Full embedding} \label{ss:full embedding}
 
