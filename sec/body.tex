@@ -25,60 +25,48 @@ Furthermore, it can be verified that these topological presheaves are indeed she
 
 \subsection{Symmetric coalgebras}
 
-We now introduce a derived notion of $\Sym_2$-symmetric coalgebras.
-We avoid the term cocommutative since we do not consider higher arity compositions.
-Let $W$ be the minimal free resolution of $\Z$ by free $\Z[\Sym_2]$-modules
+%We now introduce a derived notion of $\Sym_2$-symmetric coalgebra.
+%We avoid the term cocommutative since we do not consider higher arity compositions.
+Let $W$ be the minimal free resolution of $\Z$ by free $\Z[\Sym_2]$-modules:
 \[
-\Z[\Sym_2]\set{e_0} \xla{1-T} \Z[\Sym_2]\set{e_1} \xla{1+T} \Z[\Sym_2]\set{e_2} \xla{1-T} \dotsb
+\Z[\Sym_2]\set{e_0} \xla{1-T} \Z[\Sym_2]\set{e_1} \xla{1+T} \Z[\Sym_2]\set{e_2} \xla{1-T} \dotsb.
 \]
-A \textit{symmetric coalgebra} is a chain complex $C$ with an $\Sym_2$-equivariant chain map
+The data of a \textit{symmetric coalgebra} is an augmented chain complex $\varepsilon \colon C \to \Z$ and an $\Sym_2$-equivariant chain map
 \[
-W \ot C \to C \ot C
+W \ot C \to C \ot C,
 \]
 where the action of $\Sym_2$ in the domain is induced from that in $W$ and in the target is given by transposition.
-We will write $\Delta_i$ for $\Delta(e_i \ot -)$, noticing that
+We will write $\copr_i$ for $\copr(e_i \ot -)$, noticing that
 \[
-\partial(\Delta_i) = \big( 1+(-1)^i T \big) \Delta_{i-1}
+\partial(\copr_i) = \big( 1+(-1)^i T \big) \copr_{i-1}
 \]
-with the convention $\Delta_{-1} = 0$.
-The examples we will encounter are equipped with an augmentation $\varepsilon \colon C \to \Z$ making $(C, \Delta_0, \varepsilon)$ into a comonoid in $\Ch$.
+with the convention $\copr_{-1} = 0$, and demand the triple $(C, \copr_0, \varepsilon)$ to be a coalgebra.
+More specifically, a comonoid in $\Ch$.
 
 \subsection{Remark on higher categories}
 \label{ss:higher categories}
 
-A strict infinity category is the limiting concept obtained from the recursive definition of an $n$-category as a category enriched in $(n-1)$-categories.
-Building on ideas from \cite{brown1981cubes, kapranov1991polycategory, steiner2004omega}, in \cite{medina2020globular} a functor from a full subcategory of symmetric coalgebras to strict infinity categories was constructed and shown to be an equivalence onto a full subcategory recently characterized intrinsically in \cite{ozornova2022steiner}.
-Additionally, this functor applied to the symmetric coalgebras of standard simplices defined by Steenrod and recalled in \cref{ss:cup-i} defines the nerve of infinity categories \cite{street1987orientals}.
+An $\omega$-category is the limiting concept obtained from the recursive definition of an $n$-category as a category enriched in $(n-1)$-categories.
+Building on ideas from \cite{brown1981cubes, kapranov1991polycategory, steiner2004omega}, in \cite{medina2020globular} a functor from a full subcategory of symmetric coalgebras to $\omega$-categories was constructed and shown to be an equivalence onto a full subcategory recently characterized intrinsically in \cite{ozornova2022steiner}.
+This functor applied to Steenrod's cup-$i$ coalgebra (\cref{ss:cup-i}) recovers Street's orientals \cite{street1987orientals}.
 
-%\subsection{Simplicial chains}
-
-%Explicitly,
-%\[
-%\chains(X)_m = \Z\set[\big]{x \in X : \bars{x} = m},
-%\qquad \partial(x) = \textstyle\sum (-1)^u \face_u(x)
-%\]
-%where $\face_u(x)$ is the simplex obtained from $x$ by removing its vertex in position $u$.
-
-
-\subsection{Alexander--Whitney} \label{ss:aw}
+\subsection{Diagonal, augmentation and join}
 
 The \textit{Alexander--Whitney coproduct}
 \[
-\Delta_0 \colon \chains(X) \to \chains(X) \ot \chains(X)
+\copr_0 \colon \chains(X) \to \chains(X) \ot \chains(X)
 \]
 is defined on a basis element $[v_0, \dots, v_n]$ by
 \begin{equation*} \label{e:alexander-whitney coalgebra}
-	\Delta_0 \big( [v_0, \dots, v_n] \big) =
+	\copr_0 \big( [v_0, \dots, v_n] \big) =
 	\sum_{k=0}^n \ [v_0, \dots, v_k] \ot [v_k, \dots, v_n].
 \end{equation*}
-%and \textit{augmentation map}
+We mention that the triple $(\chains(X), \copr_0, \aug)$ where $\aug \colon \chains(X) \to \Z$ is the usual \textit{augmentation map} is a coalgebra.
+
 %\[
 %\aug \colon \chains(X) \to \Z
 %\]
-%is defined on a basis element $x \in \chains(X)_n$ by
-%\begin{equation*} \label{e:alexander-whitney coalgebra}
-%	\Delta_0(x) = \sum_{u=0}^n \ \face_{u+1} \dotsm \face_{n}(x) \ot \face_{0} \dotsm \face_{u-1}(x).
-%\end{equation*}
+%is defined $x \in \chains(X)_n$ by
 %\begin{equation*} \label{e:augmentation map}
 %	\aug(x) =
 %	\begin{cases}
@@ -89,23 +77,21 @@ is defined on a basis element $[v_0, \dots, v_n]$ by
 %It satisfies
 %\begin{gather}
 %	\label{e:coassociativity relation}
-%	(\Delta_0 \ot \, \id) \circ \Delta_0 = (\id \ot \Delta_0) \circ \Delta_0.
+%	(\copr_0 \ot \, \id) \circ \copr_0 = (\id \ot \copr_0) \circ \copr_0.
 %	\label{e:counital relation}
-%	(\aug \ot \, \id) \circ \Delta_0 = \id = (\id \ot \aug) \circ \Delta_0.
+%	(\aug \ot \, \id) \circ \copr_0 = \id = (\id \ot \aug) \circ \copr_0.
 %\end{gather}
 %making the (normalized) chains $\chains(X)$ of any simplicial set $X$ into a natural coassociative counital coalgebra, referred to as the \textit{Alexander--Whitney coalgebra} of $X$.
 %We will use the following recursively defined notation:
 %\begin{align*}
-%	\Delta_0^1 &= \Delta_0, \\
-%	\Delta_0^k &= (\Delta_0 \ot \, \id) \circ \Delta_0^{k-1},
+%	\copr_0^1 &= \copr_0, \\
+%	\copr_0^k &= (\copr_0 \ot \, \id) \circ \copr_0^{k-1},
 %\end{align*}
 %remarking that
 %\[
-%(\Delta_0 \ot \, \id) \circ \Delta_0^k = (\id \ot \Delta_0) \circ \Delta_0^k.
+%(\copr_0 \ot \, \id) \circ \copr_0^k = (\id \ot \copr_0) \circ \copr_0^k.
 %\]
-
-\subsection{Join}
-
+%\subsection{Join}
 The \textit{join product}
 \[
 \ast \colon \chains(X) \ot \chains(X) \to \chains(X)
@@ -134,15 +120,16 @@ where $\pi$ is the permutation that orders the vertices.
 We will now describe Steenrod's construction of cup-$i$ coproducts \cite[p.293]{steenrod1947products} making $\chains(X)$ into a symmetric coalgebra.
 Let
 \[
-\Delta \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
+\copr \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
 \]
-be the $\Sym_2$-equivariant chain map determined by the linear maps $\Delta_i = \Delta(e_i \ot -)$ recursively defined for $i > 1$ by
+be the $\Sym_2$-equivariant chain map determined by the linear maps $\copr_i = \copr(e_i \ot -)$, referred to as \textit{cup-$i$ coproducts}, recursively defined for $i > 1$ by
 \begin{equation*} \label{e:cup-i coproducts}
 	\copr_i =
 	(\ast \ot \id) \circ (\id \ot T\copr_{i-1}) \circ \copr_0.
 \end{equation*}
+The triple $(\chains(X), \copr, \aug)$ forms a symmetric coalgebra which we refer to as the \textit{Steenrod cup-$i$ coalgebra} of $X$.
 
-We refer to \cite{real1996computability, gonzalez-diaz1999steenrod, mcclure2003multivariable, medina2021fast_sq} for alternative descriptions of cup-$i$ coproducts, all shown to be equivalent to Steenrod's original via an axiomatic characterization \cite{medina2022axiomatic}.
+Alternative descriptions of cup-$i$ coproducts, all shown to be equivalent to Steenrod's original via an axiomatic characterization \cite{medina2022axiomatic}, can be found in \cite{real1996computability, gonzalez-diaz1999steenrod, mcclure2003multivariable, medina2021fast_sq}.
 These axiomatized cup-$i$ coproducts seem to be combinatorially fundamental, being constructed from the convex geometry of the standard simplex $\gsimplex^n$ in $\R^n$ given a generic orthonormal basis \cite{medina2022fib_poly}.
 
 \subsection{Special cases}
@@ -150,9 +137,9 @@ These axiomatized cup-$i$ coproducts seem to be combinatorially fundamental, bei
 We will use the following special values of the Steenrod cup-$i$ coalgebra.
 For a basis element $x$ of $\chains(X)_n$ and $i > n$ we have:
 \begin{align}
-	&\Delta_i(x) = 0, \\
-	&\Delta_n(x) = \pm \, x \ot x, \\
-	&\Delta_{n-1}(x) =
+	&\copr_i(x) = 0, \\
+	&\copr_n(x) = \pm \, x \ot x, \\
+	&\copr_{n-1}(x) =
 	\sum_{u \text{ even}} \pm \face_u(x) \ot x \ +
 	\sum_{u \text{ odd}} \pm \, x \ot \face_u(x),
 \end{align}
@@ -160,40 +147,32 @@ where $\pm$ stands for an unspecified sign and $\face_u [v_0,\dots,v_n] = [v_0,\
 
 \subsection{Remark on Steenrod squares} \label{ss:steenrod squares}
 
-We mention that Steenrod's introduction of the cup-$i$ coproducts $\Delta_i$ was motivated by the desire to construct finer invariants on the cohomology of spaces with mod 2 coefficients.
+We mention that Steenrod's introduction of the cup-$i$ coproducts $\copr_i$ was motivated by the desire to construct finer invariants on the cohomology of spaces with mod 2 coefficients.
 These are the celebrated \textit{Steenrod squares}
 \[
 Sq^k \colon H^\bullet(X; \Ftwo) \to H^\bullet(X; \Ftwo)
 \]
-defined on a class $[\alpha]$ of cohomological degree $n$ represented by a cocycle $\alpha$ by
+defined on a class $[\alpha]$ of cohomological degree $n$ by
 \[
-Sq^k [\alpha] = \big[ (\alpha \ot \alpha) \Delta_{n-k}(-) \big].
+Sq^k [\alpha] = \big[ (\alpha \ot \alpha) \copr_{n-k}(-) \big].
 \]
 
 \subsection{Remark on $E_\infty$-structures}
 
-Although we do not use the following fact in this work, we mention that the cup-$i$ coproducts of Steenrod are part of much larger structure derived from the diagonal of spaces; that of an $E_\infty$-coalgebra structure.
+Although we do not use the following fact in this work, we mention that the cup-$i$ coproducts of Steenrod are part of much larger structure derived from the symmetry of the diagonal of spaces; that of an $E_\infty$-coalgebra structure.
 Explicitly, this structure is given by all maps $\chains(X) \to \chains(X)^{\ot r}$ for any $r > 0$ obtained from compositions of the Alexander--Whitney coproduct and the join product.
 The underlying model for the $E_\infty$-operad use in this statement is presented in \cite{medina2020prop1, medina2021prop2}.
 We mention that this $E_\infty$-coalgebra structure on simplicial chains is compatible with the $E_\infty$-coalgebras of McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial}.
-We also mention that analogues of the cup-$i$ coproducts for odd prime values of $r$ were defined in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
+We also mention that analogues of the cup-$i$ coproducts modeling Steenrod operations at odd primes were defined in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
 
 \subsection{Comodules}
 
-A \textit{comodule} over a symmetric coalgebra $(C, \Delta)$ is a chain complex $M$ together with a chain map
+The data of a \textit{comodule} over a symmetric coalgebra $(C, \copr, \aug)$ is a chain complex $N$ together with a chain map
 \[
 \nabla \colon W \ot N \to N \ot C.
 \]
-The examples of comodules that we will construct make the following diagram commute up to homotopy
-\[
-\begin{tikzcd}
-	W \ot W \ot N \arrow[r, "\id \ot \nabla"] \arrow[d, "\id \ot \nabla"'] &
-	W \ot N \ot C \arrow[d, "(\id \ot \Delta)(T \ot \id)"] \\
-	W \ot N \ot C \arrow[r, "\nabla \ot \id"] &
-	N \ot C \ot C,
-\end{tikzcd}
-\]
-but this additional property is not needed for our theorem.
+We will write $\nabla_i$ for $\nabla(e_i \ot -)$ and $\nabla_i^T$ for $\nabla(Te_i \ot -)$, and demand that $(N, \nabla_0)$ be a comodule over the coalgebra $(C, \copr_0, \aug)$.
+
 We will denote by $\coMod_C^{\Sym_2}$ the category of such comodules with strict morphisms, i.e. linear maps $f \colon N \to N'$ making the following diagram
 \[
 \begin{tikzcd}
@@ -205,14 +184,24 @@ We will denote by $\coMod_C^{\Sym_2}$ the category of such comodules with strict
 \]
 commute.
 We remark that this category is enriched in $\Ch$.
-We will write $\nabla_i$ for $\nabla(e_i \ot -)$ and $\nabla_i^T$ for $\nabla(Te_i \ot -)$.
+
+We mention that the examples of comodules we will construct make the following diagram commute up to homotopy
+\[
+\begin{tikzcd}
+	W \ot W \ot N \arrow[r, "\id \ot \nabla"] \arrow[d, "\id \ot \nabla"'] &
+	W \ot N \ot C \arrow[d, "(\id \ot \copr)(T \ot \id)"] \\
+	W \ot N \ot C \arrow[r, "\nabla \ot \id"] &
+	N \ot C \ot C.
+\end{tikzcd}
+\]
 
 \subsection{Closure cosheaf}
 
 For any simplex $x$ in $X$ denote by $\bar x$ the subcomplex of $X$ containing the subsimplices of $x$.
 The \textit{closure cosheaf} is the (covariant) functor from the poset category of $X$ to $\Ch$ defined on objects by $x \mapsto \chains(\bar x)$ and on morphisms by canonical inclusions $\chains_{x \to y} \colon \chains(\bar x) \to \chains(\bar y)$.
 
-For any simplex $y$ in $X$ and subsimplex $x$, we will find it convenient to identify the basis element $x$ in $\chains(\bar y)$ with the unique morphism $(x \to y)$, in particular $\chains_{y \to z} (x \to y) = (x \to z)$.
+For any simplex $y$ in $X$ and subsimplex $x$, we will find it convenient to identify the basis element $x$ in $\chains(\bar y)$ with the unique morphism $(x \to y)$.
+In particular, we have $\chains_{y \to z} (x \to y) = (x \to z)$.
 %, but we continue writing $y$ instead of $(y \to y)$.
 %In particular, the canonical inclusion associated to $y \to z$ is given by
 %\begin{align*}
@@ -267,7 +256,7 @@ and
 \]
 where
 \[
-\Delta_i(x) = \sum_{\lambda \in \Lambda} \alpha_\lambda \ x_\lambda^{(1)} \ot x_\lambda^{(2)}
+\copr_i(x) = \sum_{\lambda \in \Lambda} \alpha_\lambda \ x_\lambda^{(1)} \ot x_\lambda^{(2)}
 \]
 and
 $\beta_\lambda = \pm \alpha_\lambda$ with the sign of the transposition of $x_\lambda^{(1)}$ and $x_\lambda^{(2)}$.
@@ -283,17 +272,17 @@ $\beta_\lambda = \pm \alpha_\lambda$ with the sign of the transposition of $x_\l
 		\nabla_i [(x \to z) \ot c] &=
 		\sum {[(x^{(1)} \to z) \ot c]} \ot \alpha \, x^{(2)} \\ &=
 		\sum {[(x^{(1)} \to y) \ot \cN_{y \to z}(c)]} \ot \alpha \, x^{(2)} \\ &=
-		\nabla_i [(x \to y) \ot \cN_{y \to z}(c)]
+		\nabla_i [(x \to y) \ot \cN_{y \to z}(c)].
 	\end{align*}
-	so $\nabla$ is well defined.
+	A similar argument applies to $\nabla^T_i$,	so $\nabla$ is well defined.
 \end{proof}
 
-A similar construction making $\assembly \cN$ into a comodule over the Alexander--Whitney coalgebra of a simply-connected $X$ is given by Andrew and M. Weiss in \cite[Proposition~5.3]{ranicki1990assembly}.
-It is clear that $\nabla_0$ as defined above agrees with their coaction in this case.
+A similar construction was presented by Andrew and M. Weiss in \cite[Proposition~5.3]{ranicki1990assembly}.
+In the simply connected case, $\nabla_0$ agrees with their coaction of the Alexander--Whitney coalgebra of $X$ on $\assembly \cN$.
 
 \subsection{Full embedding} \label{ss:full embedding}
 
-We now prove the main result of this work.
+We now prove the main result of this work, for which we do \textbf{not} assume that the simplicial complex $X$ is simply-connected.
 %It states that the factorization of the assembly functor
 %\[
 %\assembly \colon \Fun(X^\op, \Ch) \to \coMod^{\Sym_2}_{\chains(X)} \to \Ch

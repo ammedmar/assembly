@@ -8,13 +8,11 @@ We begin with a quote from Andrew's ``Algebraic L-theory and topological manifol
 	The input is usually topologically invariant and the output is homotopy invariant.
 	This is the case in the original geometric assembly map of Quinn, and the algebraic L-theory assembly map defined here.
 \end{displaycquote}
-In this note, we will consider the chain complex assembly of Andrew and Michael Weiss \cite{ranicki1990assembly}, which can be extended to the L-theory assembly maps mentioned in the quote by considering chain complexes with derived Poincar\'e duality.
+In this note, we will consider the chain complex assembly of Andrew and M. Weiss \cite{ranicki1990assembly}, which can be extended to the L-theory assembly maps mentioned in the quote by considering chain complexes with derived Poincar\'e duality.
 The connections to assembly via stable homotopy theory \cite{weiss1995asssembly} or equivariant homotopy theory \cite{davis1998assembly} will not be discussed.
-In the context of this work, locality is encoded via a simplicial complex $X$, which for simplicity will be assumed simply connected.
+In the context of this work, locality is encoded via a simplicial complex $X$, which for simplicity will be assumed simply connected in this introduction.
 We will focus on contravariant functors from $X$, regarded as a poset category, to the category of chain complexes $\Ch$.
 The assembly of one such functor $\cN$ is its homotopy colimit, defined more precisely as its tensor product $\chains \Ot_X \cN$ with the covariant functor $\chains \colon X \to \Ch$ assigning to a simplex the chains on its closure subcomplex.
-%Andrew and Michael Weiss studied the essential image of this functor.
-%They showed that any chain complex in it is equipped with the structure of a comodule over the Alexander--Whitney coalgebra of chains on $X$.
 Andrew and M. Weiss factored the assembly functor
 \[
 \assembly \colon \Fun(X^\op, \Ch) \to \coMod_{\chains(X)} \to \Ch
@@ -23,13 +21,13 @@ through the category of comodules over the Alexander--Whitney coalgebra of chain
 \[
 N \to N' \leftarrow \assembly \cN.
 \]
-
-In this work we will focus on the chain maps induced by the assembly functor on the chain complexes of morphism
+Let us consider the chain maps
 \[
-\Fun(X^\op,\Ch)(\cN,\cN') \to \Ch(\assembly \cN, \assembly \cN').
+\Fun(X^\op,\Ch)(\cN,\cN') \to \Ch(\assembly \cN, \assembly \cN')
 \]
-In the domain of this map the morphisms are defined locally, whereas on the target they are global in nature.
-Naturally, there are many more morphisms in the target than in the domain.
+induced by the assembly functor.
+In the domain of each of these maps the morphisms are defined locally, whereas on the target they are global in nature.
+Unsurprisingly, there are many more morphisms in the target than in the domain.
 That is to say, the assembly functor is not full.
 The purpose of this article is to describe a subcategory $\coMod^{\Sym_2}_{\chains(X)}$ of $\coMod_{\chains(X)}$ and a further factorization
 \[
@@ -44,22 +42,22 @@ with the first arrow a fully faithful functor.
 Let us now motivate and describe the category $\coMod^{\Sym_2}_{\chains(X)}$.
 For Andrew's L-theory assembly functors, it is important to provide the objects in $\Fun(X^\op, \Ch)$ with derived Poincar\'e duality.
 For example, let us consider a (geometric) Poincar\'e duality complex $X$ with a preferred fundamental cycle, also denoted by $X$.
-The Alexander--Whitney diagonal $\Delta_0 \colon \chains(X) \to \chains(X) \ot \chains(X)$ defines a Poincar\'e duality quasi-isomorphism
+The Alexander--Whitney diagonal $\copr_0 \colon \chains(X) \to \chains(X) \ot \chains(X)$ defines a Poincar\'e duality quasi-isomorphism
 \[
 \begin{tikzcd}[column sep=tiny,row sep=0]
 	\cochains^{-k}(X) \arrow[r] & \chains_{n-k}(X) \\
-	\alpha \arrow[r,mapsto] & (\alpha \ot \id)\Delta_0(X).
+	\alpha \arrow[r,mapsto] & (\alpha \ot \id)\copr_0(X).
 \end{tikzcd}
 \]
-We could have used $T\Delta_0$ instead of $\Delta_0$ above, where $T$ is the transposition of tensor factors, and by doing so obtained a new Poincar\'e duality quasi-isomorphism.
-These are different in general since $\Delta_0$ is not equal to $T \Delta_0$, but they are chain homotopic.
-Steenrod \cite{steenrod1947products} coherently systematized this situation by explicitly constructing natural ``higher diagonals'' $\Delta_i$ with $\partial \Delta_{i+1} = (1 \pm T) \Delta_i$.
+Using $T\copr_0$ instead of $\copr_0$ above, where $T$ is the transposition of tensor factors, one obtains a new Poincar\'e duality quasi-isomorphism.
+These two are different in general since $\copr_0$ and $T\copr_0$ are not equal, but they are chain homotopic.
+Steenrod \cite{steenrod1947products} fully derived this symmetry by explicitly constructing natural ``higher diagonals'' $\copr_i$ with $\partial \copr_{i+1} = (1 \pm T) \copr_i$ and $\copr_{-1} = 0$.
 The evaluation of the fundamental cycle on this richer structure provides $\chains(X)$ with the structure of a (symmetric) algebraic Poincar\'e complex as defined by Andrew.
 
 We will focus on the Steenrod cup-$i$ coalgebra structure on $\chains(X)$ for $X$ not necessarily a Poincar\'e duality complex.
 This structure can be expressed as an $\Sym_2$-equivariant chain map
 \[
-\Delta \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
+\copr \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
 \]
 where $W$ is the minimal free resolution of $\Z$ by $\Z[\Sym_2]$-modules.
 We will show that the assembly of any functor $\cN \colon X^\op \to \Ch$ is equipped with a chain map
