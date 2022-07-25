@@ -1,0 +1,107 @@
+% !TeX root = ../assembly.tex
+
+\subsection{Full embedding}\label{ss:full embedding}
+
+We now prove the main result of this work, for which we are \textbf{not} assuming the simplicial complex $X$ to be simply-connected.
+
+\begin{theorem*}
+	The assembly functor from chain complex valued presheaves on $X$ to comodules over the symmetric coalgebra $\chains(X)$ is full and faithful.
+\end{theorem*}
+
+\begin{proof}
+	Consider two presheaves $\cN$ and $\cN'$ over $X$ and the function
+	\[
+	\Fun(X^\op, \Ch)(\cN, \cN') \to \coMod^{\Sym_2}_{\chains(X)}(\assembly \cN, \assembly \cN')
+	\]
+	induced by the assembly functor, which we will show to be a bijection.
+
+	For a simplex $x$ in $X$ we write throughout this proof $x$ for the basis element it represents in both $\chains(X)$ and $\chains(\bar x)$, where it corresponds to the identity $(x \to x)$.
+
+	We start by showing that the chain map above is injective.
+	Consider a morphism of presheaves $F \colon \cN \to \cN'$ over $X$ with $\assembly F = 0$.
+	For each simplex $x$ choose a basis $B_x$ of $\cN_x$ and notice that
+	\[
+	B = \set[\big]{[x \ot b] \mid x \in X, b \in B_x}
+	\]
+	is a basis for $\assembly \cN$.
+	By assumption we have $\assembly F [x \ot b] \defeq [x \ot F_x(b)] = 0$ for each $[x \ot b] \in B$, which implies $F_x(b) = 0$ and consequently $F = 0$.
+
+	Let us now prove the surjectivity of this map.
+	Consider a morphism of comodules $f \colon \assembly \cN \to \assembly \cN'$.
+	We will construct a morphism of presheaves $F \colon \cN \to \cN'$ such that $\assembly F = f$.
+	Consider $x \in X$, $c \in \cN_x$ and the class $[x \ot c] \in \assembly \cN$.
+	Its image under $f$ is of the form
+	\[
+	f \big( [x \ot c] \big) = \sum_{\lambda \in \Lambda} \, [x_\lambda \ot c_\lambda]
+	\]
+	where $x_\lambda \in X$ and $c_\lambda \in \cN'_{x_\lambda}$.
+	We will first show that for each $\lambda$ in the (finite) sum above the dimension of the simplex $x_\lambda$ satisfies $\bars{x_\lambda} \leq \bars{x}$.
+	Let $i = \max \set[\big]{\bars{x_\lambda} : \lambda \in \Lambda}$ and $\Lambda_i = \set[\big]{\lambda \in \Lambda : \bars{x_\lambda} = i}$.
+	Using \cref{ss:special_cases} we have $\copr_i(x_{\lambda}) = \pm \, x_{\lambda} \ot x_{\lambda}$ for $\lambda \in \Lambda_i$ and $\copr_i(x_{\lambda}) = 0$ for $\lambda \notin \Lambda_i$.
+	Assume $i > \bars{x}$ so $\copr_i(x) = 0$.
+	Therefore, using that $f$ is a comodule map we have
+	\begin{align*}
+		0 &=
+		(\id \ot f) \circ \nabla_i \big( [x \ot c] \big) \\&=
+		\nabla_i \circ f \big( [x \ot c] \big) \\&=
+		\sum_{\lambda \in \Lambda} \nabla_i \big( [x_\lambda \ot c_\lambda] \big) \\&=
+		\sum_{\lambda \in \Lambda_i} \pm \, x_\lambda \ot [x_\lambda \ot c_\lambda],
+	\end{align*}
+	which implies $[x_\lambda \ot c_\lambda] = 0$ and consequently $c_{\lambda} = 0$ for each $\lambda \in \Lambda_i$.
+
+	We will now show that $\Lambda$ has a single element $\lambda$ with $x_\lambda = x$.
+	Let $i = \bars{x}$, so
+	\begin{align*}
+		(\id \ot f) \circ \nabla_i \big( [x \ot c] \big) &=
+		\pm \, x \ot f \big( [x \ot c] \big) \\&=
+		\sum_{\lambda \in \Lambda} \pm \, x \ot [x_\lambda \ot c_\lambda]
+	\end{align*}
+	and
+	\[
+	\nabla_i \circ f \big( [x \ot c] \big) =
+	\sum_{\lambda \in \Lambda_i} \pm \, x_\lambda \ot [x_\lambda \ot c_\lambda].
+	\]
+	Using that $f$ is a comodule map we have
+	\[
+	\sum_{\lambda \in \Lambda} \pm \, x \ot [x_\lambda \ot c_\lambda] \, =
+	\sum_{\lambda \in \Lambda_i} \pm \, x_\lambda \ot [x_\lambda \ot c_\lambda],
+	\]
+	from which the claim follows.
+	Using this we can define a collection of maps $F = \set[\big]{F_x \colon \cN_x \to \cN'_x}$ parameterized by the simplices of $X$ by the identity $[x \ot F_x(c)] = f \big( [x \ot c] \big)$.
+	We claim that $F$ is a well defined morphism of presheaves on $X$.
+	That is to say, that for any morphism $x \to y$ and $c \in \cN_y$ we have
+	\[
+	\cN'_{x \to y} \circ F_y(c) = F_x \circ \cN_{x \to y}(c).
+	\]
+	It is clear that if this is the case then $\assembly F = f$.
+	To prove this claim, it suffices to consider morphisms $\face_u(x) \to x$ where $\face_u(x)$ is obtained by removing the vertex of $x$ in position $u$.
+	Let $i = \bars{x}-1$ and recall from \cref{ss:special_cases} that
+	\[
+	\copr_i(x) \ =
+	\sum_{u \text{ even}} \pm \, x \ot \face_u(x) \ +
+	\sum_{u \text{ odd}} \pm \face_u(x) \ot x.
+	\]
+	Therefore, on one hand we have that $(\id \ot f) \circ \nabla_i \big( [x \ot c] \big)$ is equal to
+	\begin{align*}
+		&\sum_{u \text{ even}} \pm \, x \ot [\face_u(x) \ot F_{\face_u(x)} \circ \cN_{\face_u(x) \to x}(c)] \ +
+		\sum_{u \text{ odd}} \pm \face_u(x) \ot [x \ot F_x(c)],
+	\end{align*}
+	while on the other we have that $\nabla_i \circ f \big( [x \ot c] \big) \defeq \nabla_i [x \ot F_x(c)]$ is equal to
+	\begin{align*}
+		&\sum_{u \text{ even}} \pm \, x \ot [\face_u(x) \ot \cN'_{\face_u(x) \to x} \circ F_x(c)] \ +
+		\sum_{u \text{ odd}} \pm \face_u(x) \ot [x \ot F_x(c)].
+	\end{align*}
+	Using the fact that $f$ is a comodule map we can deduce that
+	\[
+	\sum_{u \text{ even}} \pm [\face_u(x) \ot F_{\face_u(x)} \circ \cN_{\face_u(x) \to x}(c)] \ =
+	\sum_{u \text{ even}} \pm [\face_u(x) \ot \cN'_{\face_u(x) \to x} \circ F_x(c)]
+	\]
+	and, consequently, that for $u$ even
+	\[
+	F_{\face_u(x)} \circ \cN_{\face_u(x) \to x}(c) =
+	\cN'_{\face_u(x) \to x} \circ F_{x}(c)
+	\]
+	as desired.
+	For $u$ odd we repeat the same argument using $\nabla_i^T$ instead of $\nabla_i$.
+	This concludes the proof of our main theorem.
+\end{proof}
