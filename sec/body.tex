@@ -36,19 +36,20 @@ The data of a \textit{symmetric coalgebra} is an augmented chain complex $\varep
 \triangle \colon W \ot C \to C \ot C,
 \]
 where the action of $\Sym_2$ in the domain is induced from that in $W$ and in the target is given by transposition.
-We will write $\triangle_i$ for $\triangle(e_i \ot -)$, noticing that
+We will write $\triangle_i$ for $\triangle(e_i \ot -)$ and demand the triple $(C, \triangle_0, \varepsilon)$ to be a coalgebra, i.e.,
+a comonoid in $\Ch$.
+Notice that
 \[
 \partial(\triangle_i) = \big( 1+(-1)^i T \big) \triangle_{i-1}
 \]
-with the convention $\triangle_{-1} = 0$, and demand the triple $(C, \triangle_0, \varepsilon)$ to be a coalgebra.
-More specifically, a comonoid in $\Ch$.
+with the convention $\triangle_{-1} = 0$.
 
 \subsection{Remark on higher categories}
 \label{ss:higher categories}
 
 An $\omega$-category is the limiting concept obtained from the recursive definition of an $n$-category as a category enriched in $(n-1)$-categories.
 Building on ideas from \cite{brown1981cubes, kapranov1991polycategory, steiner2004omega}, in \cite{medina2020globular} a functor from a full subcategory of symmetric coalgebras to $\omega$-categories was constructed and shown to be an equivalence onto a full subcategory recently characterized intrinsically in \cite{ozornova2022steiner}.
-This functor applied to Steenrod's cup-$i$ coalgebra (\cref{ss:cup-i}) recovers Street's orientals \cite{street1987orientals}.
+Street's orientals \cite{street1987orientals} -- which define the nerve of $\omega$-categories -- are obtained by applying this functor to the chains on standard simplices with Steenrod's cup-$i$ coalgebra structure as described in \cref{ss:cup-i}.
 
 \subsection{Diagonal, augmentation and join}
 
@@ -92,6 +93,7 @@ We mention that the triple $(\chains(X), \copr_0, \aug)$ where $\aug \colon \cha
 %(\copr_0 \ot \, \id) \circ \copr_0^k = (\id \ot \copr_0) \circ \copr_0^k.
 %\]
 %\subsection{Join}
+
 The \textit{join product}
 \[
 \ast \colon \chains(X) \ot \chains(X) \to \chains(X)
@@ -130,9 +132,9 @@ be the $\Sym_2$-equivariant chain map determined by the linear maps $\copr_i = \
 The triple $(\chains(X), \copr, \aug)$ forms a symmetric coalgebra which we refer to as the \textit{Steenrod cup-$i$ coalgebra} of $X$.
 
 Alternative descriptions of cup-$i$ coproducts, all shown to be equivalent to Steenrod's original via an axiomatic characterization \cite{medina2022axiomatic}, can be found in \cite{real1996computability, gonzalez-diaz1999steenrod, mcclure2003multivariable, medina2021fast_sq}.
-These axiomatized cup-$i$ coproducts seem to be combinatorially fundamental, being constructed from the convex geometry of the standard simplex $\gsimplex^n$ in $\R^n$ given a generic orthonormal basis \cite{medina2022fib_poly}.
+These axiomatized cup-$i$ coproducts seem to be combinatorially fundamental, being constructed from the convex geometry of the standard simplex $\gsimplex^n$ in $\R^n$ using a generic orthonormal basis \cite{medina2022fib_poly}.
 
-\subsection{Special cases}
+\subsection{Special cases}\label{ss:special_cases}
 
 We will use the following special values of the Steenrod cup-$i$ coalgebra.
 For a basis element $x$ of $\chains(X)_n$ and $i > n$ we have:
@@ -140,8 +142,8 @@ For a basis element $x$ of $\chains(X)_n$ and $i > n$ we have:
 	&\copr_i(x) = 0, \\
 	&\copr_n(x) = \pm \, x \ot x, \\
 	&\copr_{n-1}(x) =
-	\sum_{u \text{ even}} \pm \face_u(x) \ot x \ +
-	\sum_{u \text{ odd}} \pm \, x \ot \face_u(x),
+	\sum_{u \text{ even}} \pm \, x \ot \face_u(x) \ +
+	\sum_{u \text{ odd}} \pm \face_u(x) \ot x.
 \end{align}
 where $\pm$ stands for an unspecified sign and $\face_u [v_0,\dots,v_n] = [v_0,\dots,\widehat{v}_u,\dots,v_n]$.
 
@@ -150,11 +152,11 @@ where $\pm$ stands for an unspecified sign and $\face_u [v_0,\dots,v_n] = [v_0,\
 We mention that Steenrod's introduction of the cup-$i$ coproducts $\copr_i$ was motivated by the desire to construct finer invariants on the cohomology of spaces with mod 2 coefficients.
 These are the celebrated \textit{Steenrod squares}
 \[
-Sq^k \colon H^\bullet(X; \Ftwo) \to H^\bullet(X; \Ftwo)
+\Sq^k \colon \rH^\bullet(X; \Ftwo) \to \rH^\bullet(X; \Ftwo)
 \]
 defined on a class $[\alpha]$ of cohomological degree $n$ by
 \[
-Sq^k [\alpha] = \big[ (\alpha \ot \alpha) \copr_{n-k}(-) \big].
+\Sq^k [\alpha] = \big[ (\alpha \ot \alpha) \copr_{n-k}(-) \big].
 \]
 
 \subsection{Remark on $E_\infty$-structures}
@@ -164,6 +166,7 @@ Explicitly, this structure is given by all maps $\chains(X) \to \chains(X)^{\ot 
 The underlying model for the $E_\infty$-operad use in this statement is presented in \cite{medina2020prop1, medina2021prop2}.
 We mention that this $E_\infty$-coalgebra structure on simplicial chains is compatible with the $E_\infty$-coalgebras of McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial}.
 We also mention that analogues of the cup-$i$ coproducts modeling Steenrod operations at odd primes were defined in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
+For a discussion using cubes instead of simplices please consult \cite{medina2021cubical}.
 
 \subsection{Comodules}
 
@@ -231,7 +234,7 @@ and for a morphism $F \colon \cN \to \cN'$ of presheaves on $X$ we have
 We remark that this is a functor of categories enriched in $\Ch$.
 
 If $X$ is simply-connected, this definition agrees with the one given by Andrew and M. Weiss in \cite[Definition 1.4]{ranicki1990assembly}.
-We will use the definition above for $X$ not necessarily simply-connected spaces, remarking that it can be applied to the the universal cover $\widetilde{X}$ of $X$ to recover their definition.
+We will use the definition above for $X$ not necessarily simply-connected, remarking that it can be applied to the the universal cover of $X$ to recover their definition.
 
 \subsection{Lift to comodules}
 
@@ -239,7 +242,7 @@ We will describe a factorization of the assembly functor
 \[
 \assembly \colon \Fun(X^\op, \Ch) \to \coMod^{\Sym_2}_{\chains(X)} \to \Ch
 \]
-where the second arrow is the obvious forgetful functor.
+where the second arrow is the forgetful functor.
 
 Let $\cN$ be a presheaf on $X$ and let
 \[
@@ -254,12 +257,12 @@ be the chain map defined by the linear maps
 which on a pair of simplices $x \to y$ and an element $c \in \cN_y$ are given by
 \[
 \nabla_i \big( [(x \to y) \ot c] \big) =
-\sum_{\lambda \in \Lambda} {[(x_\lambda^{(1)} \to y) \ot c]} \ot \alpha_\lambda \, x_\lambda^{(2)}
+\sum_{\lambda \in \Lambda} \alpha_\lambda \, x_\lambda^{(1)} \ot [(x_\lambda^{(2)} \to y) \ot c]
 \]
 and
 \[
 \nabla_i^T \big( [(x \to y) \ot c] \big) =
-\sum_{\lambda \in \Lambda} {[(x_\lambda^{(2)} \to y) \ot c]} \ot \alpha^T_\lambda \, x_\lambda^{(1)}
+\sum_{\lambda \in \Lambda} \alpha^T_\lambda \, x_\lambda^{(2)} \ot [(x_\lambda^{(1)} \to y) \ot c],
 \]
 where
 \[
@@ -276,14 +279,20 @@ T \copr_i(x) =
 \end{lemma*}
 
 \begin{proof}
-	The only part of the statement that is not immediate is that $\nabla$ is well defined.
+	The only part of the statement that is not immediate is the claim that $\nabla$ is well defined.
 	For $i \in \N$, consider a presheaf $\cN$ on $X$, simplices $x \to y \to z$ and an element $c \in \cN_z$, then
 	\begin{align*}
 		\nabla_i [(x \to z) \ot c] &=
-		\sum {[(x^{(1)}_\lambda \to z) \ot c]} \ot \alpha_\lambda \, x^{(2)}_\lambda \\ &=
-		\sum {[(x^{(1)}_\lambda \to y) \ot \cN_{y \to z}(c)]} \ot \alpha_\lambda \, x^{(2)}_\lambda \\ &=
+		\sum \alpha_\lambda \, x^{(1)}_\lambda \ot {[(x^{(2)}_\lambda \to z) \ot c]} \\ &=
+		\sum \alpha_\lambda \, x^{(1)}_\lambda \ot [(x^{(2)}_\lambda \to y) \ot \cN_{y \to z}(c)] \\ &=
 		\nabla_i [(x \to y) \ot \cN_{y \to z}(c)].
 	\end{align*}
+%	\begin{align*}
+%		\nabla_i [(x \to z) \ot c] &=
+%		\sum {[(x^{(1)}_\lambda \to z) \ot c]} \ot \alpha_\lambda \, x^{(2)}_\lambda \\ &=
+%		\sum {[(x^{(1)}_\lambda \to y) \ot \cN_{y \to z}(c)]} \ot \alpha_\lambda \, x^{(2)}_\lambda \\ &=
+%		\nabla_i [(x \to y) \ot \cN_{y \to z}(c)].
+%	\end{align*}
 	A similar argument applies to $\nabla^T_i$ and completes the proof.
 \end{proof}
 
