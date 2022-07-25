@@ -1,16 +1,16 @@
-% !TeX root = ../thesis.tex
+% !TeX root = ../assembly.tex
 
-\subsection{Introduction} \label{ss:introduction}
+\subsection{Introduction}\label{ss:introduction}
 
-We begin with a quote from Andrew's ``Algebraic L-theory and topological manifolds.''
+We begin with a quote from Andrew's ``Algebraic $L$-theory and topological manifolds.''
 \begin{displaycquote}{ranicki1992topological}
 	Generically, \textit{assembly} is the passage from a local input to a global output.
 	The input is usually topologically invariant and the output is homotopy invariant.
-	This is the case in the original geometric assembly map of Quinn, and the algebraic L-theory assembly map defined here.
+	This is the case in the original geometric assembly map of Quinn, and the algebraic $L$-theory assembly map defined here.
 \end{displaycquote}
-In this note, we will consider the chain complex assembly of Andrew and M. Weiss \cite{ranicki1990assembly}, which can be extended to the L-theory assembly maps mentioned in the quote by considering chain complexes with derived Poincar\'e duality.
+In this note, we will consider the chain complex assembly of Andrew and M. Weiss \cite{ranicki1990assembly}, which can be extended to the $L$-theory assembly functors mentioned in the quote by considering chain complexes with derived Poincar\'e duality.
 The connections to assembly via stable homotopy theory \cite{weiss1995asssembly} or equivariant homotopy theory \cite{davis1998assembly} will not be discussed.
-In the context of this work, locality is encoded via a simplicial complex $X$, which for simplicity will be assumed simply connected in this introduction.
+In the context of this work, locality is encoded via a simplicial complex $X$, which for simplicity will now be assumed simply-connected.
 We will focus on contravariant functors from $X$, regarded as a poset category, to the category of chain complexes $\Ch$.
 The assembly of one such functor $\cN$ is its homotopy colimit, defined more precisely as its tensor product $\chains \Ot_X \cN$ with the covariant functor $\chains \colon X \to \Ch$ assigning to a simplex the chains on its closure subcomplex.
 Andrew and M. Weiss factored the assembly functor
@@ -21,14 +21,13 @@ through the category of comodules over the Alexander--Whitney coalgebra of chain
 \[
 N \to N' \leftarrow \assembly \cN.
 \]
-Let us consider the chain maps
+For any two functors $\cN,\cN' \colon X^\op \to \Ch$ the chain map
 \[
 \Fun(X^\op,\Ch)(\cN,\cN') \to \Ch(\assembly \cN, \assembly \cN')
 \]
-induced by the assembly functor.
-In the domain of each of these maps the morphisms are defined locally, whereas on the target they are global in nature.
-Unsurprisingly, there are many more morphisms in the target than in the domain.
+induced by the assembly functor is not surjective in general.
 That is to say, the assembly functor is not full.
+Indeed, the morphisms in the domain are defined locally, whereas in the target they are global in nature.
 The purpose of this article is to describe a subcategory $\coMod^{\Sym_2}_{\chains(X)}$ of $\coMod_{\chains(X)}$ and a further factorization
 \[
 \assembly \colon \Fun(X^\op, \Ch) \to
@@ -37,10 +36,9 @@ The purpose of this article is to describe a subcategory $\coMod^{\Sym_2}_{\chai
 \Ch
 \]
 with the first arrow a fully faithful functor.
-%This construction can be interpreted as a algebraic encoding of the locality structure of functors over $X$.
 
 Let us now motivate and describe the category $\coMod^{\Sym_2}_{\chains(X)}$.
-For Andrew's L-theory assembly functors, it is important to provide the objects in $\Fun(X^\op, \Ch)$ with derived Poincar\'e duality.
+For Andrew's $L$-theory assembly functors, it is important to provide the objects in $\Fun(X^\op, \Ch)$ with derived Poincar\'e duality.
 For example, let us consider a (geometric) Poincar\'e duality complex $X$ with a preferred fundamental cycle, also denoted by $X$.
 The Alexander--Whitney diagonal $\copr_0 \colon \chains(X) \to \chains(X) \ot \chains(X)$ defines a Poincar\'e duality quasi-isomorphism
 \[
@@ -50,8 +48,8 @@ The Alexander--Whitney diagonal $\copr_0 \colon \chains(X) \to \chains(X) \ot \c
 \end{tikzcd}
 \]
 Using $T\copr_0$ instead of $\copr_0$ above, where $T$ is the transposition of tensor factors, one obtains a new Poincar\'e duality quasi-isomorphism.
-These two are different in general since $\copr_0$ and $T\copr_0$ are not equal, but they are chain homotopic.
-Steenrod \cite{steenrod1947products} fully derived this symmetry by explicitly constructing natural ``higher diagonals'' $\copr_i$ with $\partial \copr_{i+1} = (1 \pm T) \copr_i$ and $\copr_{-1} = 0$.
+These two quasi-isomorphisms are different in general since $\copr_0$ and $T\copr_0$ are not equal, but they are chain homotopic.
+Steenrod \cite{steenrod1947products} fully derived the $\Sym_2$ symmetry of the diagonal explicitly constructing natural ``higher diagonals'' $\copr_i$ with $\partial \copr_{i+1} = (1 \pm T) \copr_i$ and $\copr_{-1} = 0$.
 The evaluation of the fundamental cycle on this richer structure provides $\chains(X)$ with the structure of a (symmetric) algebraic Poincar\'e complex as defined by Andrew.
 
 We will focus on the Steenrod cup-$i$ coalgebra structure on $\chains(X)$ for $X$ not necessarily a Poincar\'e duality complex.
@@ -62,14 +60,14 @@ This structure can be expressed as an $\Sym_2$-equivariant chain map
 where $W$ is the minimal free resolution of $\Z$ by $\Z[\Sym_2]$-modules.
 We will show that the assembly of any functor $\cN \colon X^\op \to \Ch$ is equipped with a chain map
 \[
-W \ot \assembly \cN \to \chains(X) \ot \assembly \cN
+\nabla \colon W \ot \assembly \cN \to \chains(X) \ot \assembly \cN
 \]
-specializing to the comodule structure of Andrew and M. Weiss \cite[Proposition~5.3]{ranicki1990assembly}.
-This is the data of an object in the category $\coMod^{\Sym_2}_{\chains(X)}$, a morphisms is a linear map $f \colon N \to N'$ making the diagram
+specializing to the comodule structure of Andrew and M. Weiss.
+The pair $(\assembly \cN, \nabla)$ is an object in the category $\coMod^{\Sym_2}_{\chains(X)}$ whose morphisms are given by linear maps $f \colon N \to N'$ making the diagram
 \[
 \begin{tikzcd}
-	W \ot N \arrow[d, "\nabla"] \arrow[r, "\id\, \ot f"] &
-	W \ot N' \arrow[d, "\nabla"] & \\
+	W \ot N \arrow[d, "\triangledown"] \arrow[r, "\id\, \ot f"] &
+	W \ot N' \arrow[d, "\triangledown'"] & \\
 	\chains(X) \ot N \arrow[r, "f \ot\, \id"] &
 	\chains(X) \ot N'
 \end{tikzcd}
@@ -87,4 +85,5 @@ We can now state the contribution of this paper.
 \end{theorem*}
 
 This statement is 1-categorical, the $(\infty,1)$-categorical version will be discussed elsewhere.
-The goal of the theorem above is to provide an algebraic model of the local properties of $\Fun(X^\op,\Ch)$, serving as a possible step in the path connecting algebraic models of homotopy types \cite{quillen1969rational, sullivan1977infinitesimal,mandell2001padic} and Andrew's total surgery obstruction for topological manifold structures \cite{ranicki1979obstruction,ranicki1992topological,macko2013obstruction}.
+In the $(\infty,1)$-categorical setting we mention the paper \cite{rivera2020system} where a connection between assembly and Brown's twisted tensor product is explored.
+The goal of the theorem above is to provide an algebraic model of $\Fun(X^\op,\Ch)$ that retains its locality properties, serving as a possible step in the path connecting algebraic models of homotopy types \cite{quillen1969rational, sullivan1977infinitesimal,mandell2001padic} and Andrew's total surgery obstruction for topological manifold structures \cite{ranicki1979obstruction,ranicki1992topological,macko2013obstruction}.

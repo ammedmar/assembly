@@ -1,10 +1,10 @@
-% !TEX root = ../thesis.tex
+% !TEX root = ../assembly.tex
 
 \usepackage{microtype}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{tikz-cd}
-\usepackage{mathbbol} % changes \mathbb{} and adds more support
+\usepackage{mathbbol}
 \usepackage{csquotes}
 
 % bibliography
@@ -71,8 +71,8 @@
 \crefname{subsection}{\S\!}{subsections}
 
 % layout
-\addtolength{\textwidth}{0in}
-\addtolength{\textheight}{0in}
+\addtolength{\textwidth}{2in}
+\addtolength{\textheight}{2in}
 \calclayout
 
 % update to MSC2020
@@ -83,3 +83,7 @@
 
 % table of contents
 \setcounter{tocdepth}{1}
+
+% subsections as sections
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\setcounter{subsection}{-1}
