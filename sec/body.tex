@@ -2,7 +2,7 @@
 
 \subsection{Conventions}
 
-We write $(\Ch, \ot, \Z)$ for the symmetric monoidal category of chain complexes of free $\Z$-modules, $\Sym_2$ for the group with only one non-identity element $T$, and $X$ for an unspecified simplicial complex.
+We write $(\Ch, \ot, \Z)$ for the symmetric monoidal category of chain complexes of free $\Z$-modules, $\sym_2$ for the group with only one non-identity element $T$, and $X$ for an unspecified simplicial complex.
 In this work, the vertices of a simplicial complex are equipped with a partial order compatibly restricting to a total order on each simplex.
 We denote the usual integral chains of $X$ by $\chains(X)$.
 
@@ -25,17 +25,17 @@ It can be verified that these topological presheaves are indeed sheaves.
 
 \subsection{Symmetric coalgebras}
 
-%We now introduce a derived notion of $\Sym_2$-symmetric coalgebra.
+%We now introduce a derived notion of $\sym_2$-symmetric coalgebra.
 %We avoid the term cocommutative since we do not consider higher arity compositions.
-Let $W$ be the minimal free resolution of $\Z$ by free $\Z[\Sym_2]$-modules:
+Let $W$ be the minimal free resolution of $\Z$ by free $\Z[\sym_2]$-modules:
 \[
-\Z[\Sym_2]\set{e_0} \xla{1-T} \Z[\Sym_2]\set{e_1} \xla{1+T} \Z[\Sym_2]\set{e_2} \xla{1-T} \dotsb.
+\Z[\sym_2]\set{e_0} \xla{1-T} \Z[\sym_2]\set{e_1} \xla{1+T} \Z[\sym_2]\set{e_2} \xla{1-T} \dotsb.
 \]
-The data of a \textit{symmetric coalgebra} is an augmented chain complex $\varepsilon \colon C \to \Z$ and an $\Sym_2$-equivariant chain map
+The data of a \textit{symmetric coalgebra} is an augmented chain complex $\varepsilon \colon C \to \Z$ and an $\sym_2$-equivariant chain map
 \[
 \triangle \colon W \ot C \to C \ot C,
 \]
-where the action of $\Sym_2$ in the domain is induced from that in $W$ and in the target is given by transposition.
+where the action of $\sym_2$ in the domain is induced from that in $W$ and in the target is given by transposition.
 We will write $\triangle_i$ for $\triangle(e_i \ot -)$ and demand the triple $(C, \triangle_0, \varepsilon)$ to be a coalgebra, i.e.,
 a comonoid in $\Ch$.
 Notice that
@@ -124,10 +124,10 @@ Let
 \[
 \copr \colon W \ot \chains(X) \to \chains(X) \ot \chains(X)
 \]
-be the $\Sym_2$-equivariant chain map determined by the linear maps $\copr_i = \copr(e_i \ot -)$, referred to as \textit{cup-$i$ coproducts}, recursively defined for $i > 1$ by
+be the $\sym_2$-equivariant chain map determined by the linear maps $\copr_i = \copr(e_i \ot -)$, referred to as \textit{cup-$i$ coproducts}, recursively defined for $i > 1$ by
 \begin{equation*}\label{e:cup-i coproducts}
 	\copr_i =
-	(\ast \ot \id) \circ (\id \ot T\copr_{i-1}) \circ \copr_0.
+	(\ast \ot \id) \circ (\id \ot T\!\copr_{i-1}) \circ \copr_0.
 \end{equation*}
 The triple $(\chains(X), \copr, \aug)$ forms a symmetric coalgebra which we refer to as the \textit{Steenrod cup-$i$ coalgebra} of $X$.
 
@@ -170,13 +170,17 @@ For a discussion using cubes instead of simplices please consult \cite{medina202
 
 \subsection{Comodules}
 
-The data of a \textit{comodule} over a symmetric coalgebra $(C, \triangle, \aug)$ is a chain complex $N$ together with a chain map
+A \textit{comodule} over a symmetric coalgebra $(C, \triangle, \aug)$ is a chain complex $N$ together with a chain map
 \[
-\downtriangle \colon W \ot N \to N \ot C.
+\downtriangle \colon W \ot N \to N \ot C
 \]
-We will write $\downtriangle_i$ for $\downtriangle(e_i \ot -)$ and $\downtriangle_i^T$ for $\downtriangle(Te_i \ot -)$, and demand that $(N, \downtriangle_{\!0})$ be a comodule over the coalgebra $(C, \triangle_0, \aug)$.
+restricting to comodule over the coalgebra $(C, \triangle_0, \aug)$.
+More explicitly, we
+%will write $\downtriangle_i$ for $\downtriangle(e_i \ot -)$
+%and $\downtriangle_i^T$ for $\downtriangle(Te_i \ot -)$,
+demand that $(N, \downtriangle_{\!0} \defeq \downtriangle(e_0 \ot -))$ is a comodule over $(C, \triangle_0, \aug)$.
 
-We will denote by $\coMod_C^{\Sym_2}$ the category of such comodules with strict morphisms, i.e. linear maps $f \colon N \to N'$ making the following diagram
+We will denote by $\coMod_C^{\sym_2}$ the category of such comodules with strict morphisms, i.e. linear maps $f \colon N \to N'$ making the following diagram
 \[
 \begin{tikzcd}
 	W \ot N \arrow[d, "\triangledown"] \arrow[r, "\id\, \ot f"] &
@@ -188,15 +192,15 @@ We will denote by $\coMod_C^{\Sym_2}$ the category of such comodules with strict
 commute.
 We remark that this category is enriched in $\Ch$.
 
-Although we do not use this fact, we mention that the examples of comodules we will construct make the following diagram commute up to homotopy
-\[
-\begin{tikzcd}
-	W \ot W \ot N \arrow[r, "\id\, \ot \triangledown"] \arrow[d, "\id\, \ot \triangledown"'] &
-	W \ot N \ot C \arrow[d, "(\id\, \ot \triangle)(T \ot \id)"] \\
-	W \ot N \ot C \arrow[r, "\triangledown \ot\, \id"] &
-	N \ot C \ot C.
-\end{tikzcd}
-\]
+%Although we do not use this fact, we mention that the examples of comodules we will construct make the following diagram commute up to homotopy
+%\[
+%\begin{tikzcd}
+%	W \ot W \ot N \arrow[r, "\id\, \ot \triangledown"] \arrow[d, "\id\, \ot \triangledown"'] &
+%	W \ot N \ot C \arrow[d, "(\id\, \ot \triangle)(T \ot \id)"] \\
+%	W \ot N \ot C \arrow[r, "\triangledown \ot\, \id"] &
+%	N \ot C \ot C.
+%\end{tikzcd}
+%\]
 
 \subsection{Closure cosheaf}
 
@@ -236,11 +240,16 @@ We remark that this is a functor of categories enriched in $\Ch$.
 If $X$ is simply-connected, this definition agrees with the one given by Andrew and M. Weiss in \cite[Definition 1.4]{ranicki1990assembly}.
 We will use the definition above for $X$ not necessarily simply-connected, remarking that it can be applied to the the universal cover of $X$ to recover their definition.
 
+We mention that the assembly of the constant functor $\underline \Z$ with value $\Z$ and identity maps satisfies
+\[
+\assembly \underline{\Z} \cong \chains(X).
+\]
+
 \subsection{Lift to comodules}
 
 We will describe a factorization of the assembly functor
 \[
-\assembly \colon \Fun(X^\op, \Ch) \to \coMod^{\Sym_2}_{\chains(X)} \to \Ch
+\assembly \colon \Fun(X^\op, \Ch) \to \coMod^{\sym_2}_{\chains(X)} \to \Ch
 \]
 where the second arrow is the forgetful functor.
 
