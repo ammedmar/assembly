@@ -1,6 +1,6 @@
 \immediate\write18{biber \jobname}
 
-\documentclass{amsart}
+\documentclass{amsproc}
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/usualpapers.bib}
@@ -13,8 +13,8 @@
 \title{Ranicki--Weiss assembly and the Steenrod construction}
 
 \author{Anibal~M.~Medina-Mardones}
-\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
-\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
+\address{Universit\'e Sorbonne Paris Nord \and Max Planck Institute for Mathematics}
+\email{\href{mailto:medina-mardones@math.univ-paris13.fr}{medina-mardones@math.univ-paris13.fr}}
 
 \date{\today}
 \subjclass[2020]{55U10, 55U15, 18F20, 57R67}
@@ -24,12 +24,14 @@
 % 57R67 Surgery obstructions, Wall groups [See also 19J25]
 
 \keywords{Assembly, simplicial complex, chain complex, presheaves, Steenrod construction, cup-$i$ coproducts, comodules}
-\dedicatory{In memory of Andrew Ranicki}
+%\dedicatory{In memory of Andrew Ranicki}
 
 \begin{document}
 	\newpage
 	\input{sec/abstract}
 	\maketitle
+	\tableofcontents
+	\newpage
 	\input{sec/introduction}
 	\input{sec/acknowledgement}
 	\input{sec/body}
