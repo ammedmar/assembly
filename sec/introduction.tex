@@ -8,24 +8,18 @@ We begin with a quote from Ranicki's \textit{Algebraic $L$-theory and topologica
 	The input is usually topologically invariant and the output is homotopy invariant.
 	This is the case in the original geometric assembly map of Quinn, and the algebraic $L$-theory assembly map defined here.
 \end{displaycquote}
-In this note, we will consider the Ranicki--Weiss chain complex assembly \cite{ranicki1990assembly}, which can be extended to the $L$-theory assembly functors mentioned in the quote by considering chain complexes with derived Poincar\'e duality.
+In this note, we will examine the Ranicki--Weiss chain complex assembly functor presented in \cite{ranicki1990assembly}.
+This can be extended to the $L$-theory assembly functors, which were mentioned in the quote, by considering chain complexes with derived Poincaré duality.
 The connections to assembly via stable homotopy theory \cite{weiss1995asssembly} or equivariant homotopy theory \cite{davis1998assembly} will not be discussed.
 In the context of this work, locality is encoded via a simplicial complex $X$, which for simplicity will now be assumed simply-connected.
-We will focus on contravariant functors from $X$, regarded as a poset category, to the category of chain complexes $\Ch$.
-We will refer to these as presheaves.
+We will focus on contravariant functors from $X$, regarded as a poset category, to the category $\Ch$ of chain complexes of free $\Z$-modules.
+We will refer to these as presheaves, denoting the category they form with natural transformations by $\Fun(X^\op, \Ch)$.
+We remark that these objects are referred to as local systems in \cite{ranicki1990assembly}, and their category is denoted by $\Ch_\ast[X]$ in \cite[Definition 4.3]{ranicki1992topological}.
 The assembly functor
 \[
 \assembly \colon \Fun(X^\op, \Ch) \to \Ch
 \]
-assigns to one such presheaf $\cN$ the chain complex $\assembly \cN$
-%its homotopy colimit,
-defined
-%more precisely
-as its tensor product $\chains \Ot_X \cN$ with the covariant functor $\chains \colon X \to \Ch$ that assigns to a simplex the chains on its closure subcomplex.
-%, and constructed, for any finite such comodule $N$, a zig-zag of comodule quasi-isomorphisms
-%\[
-%N \to N' \leftarrow \assembly \cN.
-%\]
+assigns to one such presheaf $\cN$ the chain complex $\assembly \cN$ defined as its tensor product $\chains \Ot_X \cN$ with the covariant functor $\chains \colon X \to \Ch$ that assigns to a simplex the chains on its closure subcomplex.
 For any two presheaves $\cN$ and $\cN'$ the chain map
 \[
 \Fun(X^\op,\Ch)(\cN,\cN') \to \Ch(\assembly \cN, \assembly \cN')
@@ -34,31 +28,20 @@ induced by the assembly functor is injective but not surjective in general.
 That is to say, the assembly functor is faithful but not full.
 Indeed, the morphisms in the domain are defined locally, whereas in the target they are global in nature.
 The goal of this work is to fully faithfully factor the assembly functor by recognizing additional algebraic structure on chain complexes that have been assembled from presheaves, and to, consequently, describe the local to global passage defined by assembly as a process of forgetting algebraic structure.
-The structure relevant to this end is motivated by an observation in the same paper of Ranicki and Weiss.
+The structure relevant to this end is motivated by an observation of Ranicki and Weiss \cite{ranicki1990assembly}.
 They noticed that every chain complex in the essential image of $\assembly$ is naturally a comodule over the coalgebra of chains of $X$ with the Alexander--Whitney coproduct.
 We will denote the category of such comodules by $\coMod_{\chains(X)}$.
-Using an extension of this coalgebra structure due to Steenrod we will define a category $\coMod^{\sym_2}_{\chains(X)}$ and a factorization
+Using an extension of this coalgebra structure, due to Steenrod, we will define a category $\coMod^{\sym_2}_{\chains(X)}$ and a factorization
 \[
 \assembly \colon \Fun(X^\op, \Ch) \to \coMod^{\sym_2}_{\chains(X)} \to \coMod_{\chains(X)} \to \Ch
 \]
-%They factored the assembly functor
-%\[
-%\assembly \colon \Fun(X^\op, \Ch) \to \coMod_{\chains(X)} \to \Ch
-%\]
-%through the category of comodules over the Alexander--Whitney coalgebra of chains on $X$.
-%The purpose of this article is to describe a subcategory $\coMod^{\sym_2}_{\chains(X)}$ of $\coMod_{\chains(X)}$ and a further factorization
-%\[
-%\assembly \colon \Fun(X^\op, \Ch) \to
-%\coMod^{\sym_2}_{\chains(X)} \to
-%\coMod_{\chains(X)} \to
-%\Ch
-%\]
 with the first arrow a fully faithful functor.
 
 Let us now motivate and describe the category $\coMod^{\sym_2}_{\chains(X)}$.
 For Ranicki's $L$-theory assembly functors, it is important to provide the objects in $\Fun(X^\op, \Ch)$ with derived Poincar\'e duality.
 For example, let us consider a (geometric) Poincar\'e duality complex $X$ with a preferred fundamental cycle, also denoted by $X$.
-The Alexander--Whitney coproduct $\copr_0 \colon \chains(X) \to \chains(X) \ot \chains(X)$ and this cycle define a Poincar\'e duality map at the chain level given by
+Using the Alexander--Whitney coproduct $\copr_0 \colon \chains(X) \to \chains(X) \ot \chains(X)$ we can cap with this cycle to define a lift to the chain level of the Poincar\'e duality map.
+Explicitly, this is given by
 \[
 \begin{tikzcd}[column sep=tiny,row sep=0]
 	\cochains^{-k}(X) \arrow[r] & \chains_{n-k}(X) \\
@@ -67,13 +50,12 @@ The Alexander--Whitney coproduct $\copr_0 \colon \chains(X) \to \chains(X) \ot \
 \]
 Using $T\!\copr_0$ instead of $\copr_0$ above, where $T$ is the transposition of tensor factors, one obtains a new Poincar\'e duality map.
 These two are different in general since $\copr_0$ and $T\!\copr_0$ are not equal, but they are chain homotopic.
-Steenrod \cite{steenrod1947products} fully derived the $\sym_2$ symmetry of the diagonal of spaces explicitly constructing natural ``higher coproducts'' $\copr_i \colon \chains(X) \to \chains(X) \ot \chains(X)$ with $\partial \copr_{i+1} = (1 \pm T) \copr_i$ and $\copr_{-1} = 0$.
+Steenrod \cite{steenrod1947products} fully derived the $\sym_2$ symmetry of the diagonal of spaces explicitly constructing natural ``higher coproducts'' $\copr_i \colon \chains(X) \to \chains(X) \ot \chains(X)$ with $\bd \copr_{i+1} = (1 \pm T) \copr_i$ and $\copr_{-1} = 0$.
 The evaluation of the fundamental cycle on this richer structure provides $\chains(X)$ with the structure of a (symmetric) algebraic Poincar\'e complex as defined by Ranicki.
 
 We will focus on the Steenrod cup-$i$ coproducts on $\chains(X)$ for $X$ not necessarily a Poincar\'e duality complex.
 These define Steenrod's squares in mod 2 cohomology and are interesting in their own right.
-For example, they canonically define the free $\omega$-category generated by $X$, as well as the nerve construction for this model of infinity categories \cite{medina2020globular}.
-The relationship between these two fundamental constructions, Steenrod squares in stable homotopy theory and the nerve in higher category theory, is a reflection of the grounding of Steenrod's cup-$i$ coproducts directly on the convex geometry of simplices \cite{medina2022fib_poly}.
+For example, as expanded on \cref{ss:higher categories}, Steenrod cup-$i$ coproducts canonically define the nerve of $\omega$-categories.
 
 Steenrod's cup-$i$ coproducts can be expressed as a single $\sym_2$-equivariant chain map
 \[
@@ -96,40 +78,17 @@ A morphism in this category is a comodule map $f \colon N \to N'$ over the Alexa
 \end{tikzcd}
 \]
 commute strictly.
-%We will show that the assembly of any functor $\cN \colon X^\op \to \Ch$ is equipped with a chain map
-%\[
-%\nabla \colon W \ot \assembly \cN \to \chains(X) \ot \assembly \cN
-%\]
-%specializing to the comodule structure of Ranicki and Weiss.
-%
-%The pair $(\assembly \cN, \nabla)$ is an object in the category $\coMod^{\sym_2}_{\chains(X)}$ whose morphisms are given by linear maps $f \colon N \to N'$ making the diagram
-%\[
-%\begin{tikzcd}
-%	W \ot N \arrow[d, "\triangledown"] \arrow[r, "\id\, \ot f"] &
-%	W \ot N' \arrow[d, "\triangledown'"] & \\
-%	\chains(X) \ot N \arrow[r, "f \ot\, \id"] &
-%	\chains(X) \ot N'
-%\end{tikzcd}
-%\]
-%commute.
-We can now state the contribution of this paper.
 
-\begin{theorem*}
+We now state a consequence in the simply connected case of the main result of this paper \cref{ss:full embedding}.
+
+\begin{corollary*}
 	Let $X$ be a simply-connected simplicial complex.
 	The Ranicki--Weiss assembly functor to comodules over the Alexander--Whitney coalgebra of $X$ factors through comodules over its Steenrod symmetric coalgebra so that the induced map
 	\[
 	\Fun(X^\op, \Ch)(\cN, \cN') \to \coMod^{\sym_2}_{\chains(X)}(\assembly\cN, \assembly\cN')
 	\]
 	is a chain isomorphism for any two presheaves $\cN$ and $\cN'$.
-%	\[
-%	\Fun(X^\op, \Ch) \to \coMod^{\sym_2}_{\chains(X)} \to \coMod_{\chains(X)}
-%	\]
-%	with the first arrow a fully faithful functor and the second a forgetful one.
-\end{theorem*}
+\end{corollary*}
 
-We mention that this theorem is the specialization of a more general one holding for not necessarily simply-connected spaces.
-
-%This statement is 1-categorical, the $(\infty,1)$-categorical version will be discussed elsewhere.
-%In the $(\infty,1)$-categorical setting we mention the paper \cite{rivera2020system} where a connection between assembly and Brown's twisted tensor product is explored.
 The purpose of the work presented here is to provide an algebraic model of $\Fun(X^\op,\Ch)$ that retains its locality properties, and to describe the passage from local to global information as a process of forgetting algebraic structure.
 We hope this can serve as a step in the path connecting algebraic models of homotopy types \cite{quillen1969rational, sullivan1977infinitesimal,mandell2001padic} and Ranicki's total surgery obstruction for topological manifold structures \cite{ranicki1979obstruction,ranicki1992topological,macko2013obstruction}.
